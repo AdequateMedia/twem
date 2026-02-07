@@ -3,12 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Devotionals - Sequence of God | True Worshippers</title>
+    <title>Daily Devotional - Union with Christ | True Worshippers</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .devotional-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .devotional-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d5285 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .devotional-date {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .devotional-title {
+            font-size: 2.2rem;
+            margin: 15px 0;
+            color: white;
+        }
+        
+        .devotional-author {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+        
+        .devotional-content {
+            padding: 40px;
+        }
+        
+        .quote-box {
+            background: #f8f9fa;
+            border-left: 4px solid #e53e3e;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .scripture-box {
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+            border-left: 4px solid #3182ce;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .scripture-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a365d;
+        }
+        
+        .scripture-ref {
+            font-size: 1.1rem;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .message-content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        
+        .message-content p {
+            margin-bottom: 20px;
+        }
+        
+        .prayer-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 20%);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: 10px;
+            border: 1px solid #fed7d7;
+        }
+        
+        .prayer-title {
+            color: #c53030;
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .prayer-points {
+            list-style-type: none;
+            counter-reset: prayer-counter;
+        }
+        
+        .prayer-points li {
+            counter-increment: prayer-counter;
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .prayer-points li:before {
+            content: counter(prayer-counter) ".";
+            position: absolute;
+            left: 0;
+            color: #c53030;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
+        .remember-box {
+            background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+            border-left: 4px solid #38a169;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .remember-title {
+            color: #2d3748;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .remember-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #2d3748;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .print-btn {
+            background: #4a5568;
+            color: white;
+        }
+        
+        .print-btn:hover {
+            background: #2d3748;
+        }
+        
+        .share-btn {
+            background: #3182ce;
+            color: white;
+        }
+        
+        .share-btn:hover {
+            background: #2c5282;
+        }
+        
+        .home-btn {
+            background: #e53e3e;
+            color: white;
+        }
+        
+        .home-btn:hover {
+            background: #c53030;
+        }
+        
+        .archive-item {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+        
+        .archive-item:hover {
+            background-color: #f7fafc;
+        }
+        
+        @media (max-width: 768px) {
+            .devotional-content {
+                padding: 20px;
+            }
+            
+            .devotional-title {
+                font-size: 1.8rem;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .devotional-header {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -46,61 +270,144 @@
         <div class="container">
             <div class="date-selector">
                 <label for="devotionalDate">Select Date:</label>
-                <input type="date" id="devotionalDate">
+                <input type="date" id="devotionalDate" value="2026-02-08">
             </div>
             
-            <div class="devotional-full">
+            <!-- Today's Devotional -->
+            <div class="devotional-container">
                 <div class="devotional-header">
                     <div class="devotional-date">
                         <i class="fas fa-calendar"></i>
-                        <span id="fullDate"></span>
-                        <span class="devotional-topic" id="devotionalTopic">Daily Topic</span>
+                        8 February 2026
+                    </div>
+                    <h1 class="devotional-title">Union with Christ</h1>
+                    <div class="devotional-author">
+                        Daily Devotional by Apostle Daniel A. Solomon
                     </div>
                 </div>
                 
-                <h2 id="devotionalFullTitle">Walking in Divine Sequence</h2>
-                <p class="scripture"><strong>Scripture:</strong> <span id="fullVerse">Proverbs 3:5-6</span></p>
-                
-                <div class="devotional-body">
-                    <div class="section">
-                        <h3><i class="fas fa-book-open"></i> Today's Reading</h3>
-                        <p id="todayReading">Proverbs 3:1-12</p>
+                <div class="devotional-content">
+                    <!-- Daily Quote -->
+                    <div class="quote-box">
+                        <i class="fas fa-quote-left" style="color: #e53e3e; margin-right: 10px;"></i>
+                        "God does not despise your exhaustion; He meets you in it. Your weariness is not a sign of failure, but an invitation to draw strength from His unending grace."
                     </div>
                     
-                    <div class="section">
-                        <h3><i class="fas fa-comment"></i> Message</h3>
-                        <div id="devotionalMessage">
-                            <p>Today, God is calling us to walk in His perfect sequence. The sequence of God is the divine order that brings peace, purpose, and prosperity into our lives. When we trust in the Lord with all our hearts and lean not on our own understanding, He promises to direct our paths.</p>
-                            <p>Many times we try to figure things out on our own, but God's ways are higher than our ways. His sequence may not always make sense to our natural minds, but when we submit to His will, He makes our paths straight. The sequence of God involves timing, placement, and divine connections that only He can orchestrate.</p>
-                            <p>Are you struggling to understand why things are happening the way they are? Trust in God's sequence. He knows the end from the beginning, and His plans for you are good, to give you hope and a future.</p>
+                    <!-- Scripture -->
+                    <div class="scripture-box">
+                        <div class="scripture-text">
+                            "Come to me, all you who are weary and burdened, and I will give you rest."
+                        </div>
+                        <div class="scripture-ref">
+                            — Matthew 11:28 (NIV)
                         </div>
                     </div>
                     
-                    <div class="section">
-                        <h3><i class="fas fa-pray"></i> Prayer Focus</h3>
-                        <p id="prayerFocus">Lord, help me to trust You completely today. Guide my steps and establish Your divine sequence in every area of my life. Give me the grace to submit to Your will and timing. In Jesus' name, Amen.</p>
+                    <!-- Message -->
+                    <div class="message-content">
+                        <p>It is a spiritual reality: the journey of faith is not without moments of deep weariness and frustration. You may feel drained—not just physically, but emotionally and spiritually. Perhaps you have been praying without seeing answers, sowing without reaping, or striving without breaking through. In these moments, it is easy to believe God is far away, or that your labor is in vain. But Scripture reminds us that even the young grow tired and stumble, yet those who wait upon the Lord will renew their strength.</p>
+                        
+                        <p>God is not surprised by your fatigue. He understands the weight you carry. The invitation of Christ is not to "try harder," but to "come closer." Your weariness can become a sacred space—a place where self-reliance ends and divine reliance begins. Do not mistake this season for abandonment; it is often God's way of redirecting your dependence from your own strength to His sovereign power.</p>
+                        
+                        <p>If frustration has clouded your vision, take a moment to pause and reposition your heart. Release the timelines, surrender the outcomes, and lay down the burden you were never meant to carry alone. God is not only the God of sudden breakthroughs but also the God of daily bread—the One who gives strength for this moment, grace for this hour, and hope for this day.</p>
                     </div>
                     
-                    <div class="section">
-                        <h3><i class="fas fa-bullhorn"></i> Declaration</h3>
-                        <p id="declaration">Today, I walk in God's perfect sequence. My steps are ordered by the Lord. I trust His guidance in every decision, and I submit to His divine timing for my life.</p>
+                    <!-- Today's Prayer -->
+                    <div class="prayer-section">
+                        <h3 class="prayer-title">
+                            <i class="fas fa-pray"></i>
+                            Today's Prayer
+                        </h3>
+                        <ol class="prayer-points">
+                            <li>Thank You, Lord, for Your understanding and compassion when I am tired and overwhelmed.</li>
+                            <li>Forgive me for the times I have relied on my own strength and resented Your timing.</li>
+                            <li>I bring my frustrations and weariness to Your feet—I lay them down before You now.</li>
+                            <li>Renew my strength according to Your promise; help me to wait upon You with hope.</li>
+                            <li>Restore joy where duty has drained me, and peace where worry has wearied me.</li>
+                            <li>Teach me to recognize Your gentle leading when I am too tired to see clearly.</li>
+                            <li>Provide divine rest—spirit, soul, and body—as only You can give.</li>
+                            <li>Guard my heart from comparison and bitterness when my journey feels slower than others'.</li>
+                            <li>Let me find comfort in Your presence more than in a changed circumstance.</li>
+                            <li>Thank You for being my rest and my refuge, today and always.</li>
+                        </ol>
                     </div>
-                </div>
-                
-                <div class="devotional-actions">
-                    <button onclick="printDevotional()" class="btn">
-                        <i class="fas fa-print"></i> Print
-                    </button>
-                    <button onclick="shareDevotional()" class="btn">
-                        <i class="fas fa-share"></i> Share
-                    </button>
+                    
+                    <!-- Remember -->
+                    <div class="remember-box">
+                        <h3 class="remember-title">
+                            <i class="fas fa-lightbulb"></i>
+                            Remember
+                        </h3>
+                        <p class="remember-text">
+                            Even in weariness, you are moving forward. God is not only with you in the struggle—He is strengthening you through it.
+                        </p>
+                    </div>
+                    
+                    <!-- Author -->
+                    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                        <p style="font-style: italic; color: #4a5568;">
+                            <i class="fas fa-user-circle" style="margin-right: 8px;"></i>
+                            Apostle Daniel A. Solomon
+                        </p>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button onclick="printDevotional()" class="action-btn print-btn">
+                            <i class="fas fa-print"></i>
+                            Print Devotional
+                        </button>
+                        <button onclick="shareDevotional()" class="action-btn share-btn">
+                            <i class="fas fa-share-alt"></i>
+                            Share
+                        </button>
+                        <a href="index.html" class="action-btn home-btn">
+                            <i class="fas fa-home"></i>
+                            Back to Home
+                        </a>
+                    </div>
                 </div>
             </div>
             
+            <!-- Devotional Archive -->
             <div class="devotional-archive">
-                <h3>Recent Devotionals</h3>
+                <h3 style="margin-top: 50px; margin-bottom: 20px;">Recent Devotionals</h3>
                 <div class="archive-list" id="archiveList">
-                    <!-- Will be populated by JavaScript -->
+                    <div class="archive-item">
+                        <div>
+                            <strong>February 8, 2026</strong>
+                            <p>Union with Christ - Matthew 11:28</p>
+                        </div>
+                        <a href="#today" class="btn btn-small">Read</a>
+                    </div>
+                    <div class="archive-item">
+                        <div>
+                            <strong>February 7, 2026</strong>
+                            <p>Walking in Faith - Hebrews 11:1</p>
+                        </div>
+                        <a href="#" class="btn btn-small">Read</a>
+                    </div>
+                    <div class="archive-item">
+                        <div>
+                            <strong>February 6, 2026</strong>
+                            <p>God's Unfailing Love - Romans 8:38-39</p>
+                        </div>
+                        <a href="#" class="btn btn-small">Read</a>
+                    </div>
+                    <div class="archive-item">
+                        <div>
+                            <strong>February 5, 2026</strong>
+                            <p>The Peace of God - Philippians 4:7</p>
+                        </div>
+                        <a href="#" class="btn btn-small">Read</a>
+                    </div>
+                    <div class="archive-item">
+                        <div>
+                            <strong>February 4, 2026</strong>
+                            <p>Divine Guidance - Proverbs 3:5-6</p>
+                        </div>
+                        <a href="#" class="btn btn-small">Read</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -149,6 +456,119 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const isOpen = navMenu.classList.contains('active');
+                    
+                    if (isOpen) {
+                        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Close menu when clicking on a link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+            
+            // Set today's date in date picker
+            const datePicker = document.getElementById('devotionalDate');
+            if (datePicker) {
+                const today = new Date();
+                const formattedToday = today.toISOString().split('T')[0];
+                datePicker.max = formattedToday;
+            }
+            
+            // Form submission handling
+            const subscribeForm = document.getElementById('subscribeForm');
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Subscribing...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert(`Thank you for subscribing with ${email}! You will receive daily devotionals starting tomorrow.`);
+                        this.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 1000);
+                });
+            }
+        });
+        
+        // Share devotional function
+        function shareDevotional() {
+            const title = document.querySelector('.devotional-title').textContent;
+            const scripture = document.querySelector('.scripture-text').textContent;
+            const text = `${title}\n${scripture}\n\nRead the full devotional at: ${window.location.href}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Daily Devotional - True Worshippers',
+                    text: text,
+                    url: window.location.href
+                });
+            } else {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert('Devotional link copied to clipboard!');
+                });
+            }
+        }
+        
+        // Print devotional function
+        function printDevotional() {
+            const originalContent = document.body.innerHTML;
+            const printContent = document.querySelector('.devotional-container').innerHTML;
+            
+            document.body.innerHTML = `
+                <div style="padding: 20px; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
+                    <h1 style="text-align: center; color: #1a365d;">True Worshippers Evangelical Ministries</h1>
+                    <h2 style="text-align: center; color: #e53e3e;">Sequence of God Daily Devotional</h2>
+                    <div style="text-align: center; margin-bottom: 30px; color: #666; font-style: italic;">
+                        Founded 2020 by Apostle Daniel and Reverend Mrs Debby A Solomon
+                    </div>
+                    ${printContent}
+                    <div style="margin-top: 50px; text-align: center; color: #666; font-size: 0.9rem; border-top: 1px solid #ddd; padding-top: 20px;">
+                        Printed from True Worshippers Evangelical Ministries International<br>
+                        For more devotionals, visit: ${window.location.origin}
+                    </div>
+                </div>
+            `;
+            
+            window.print();
+            document.body.innerHTML = originalContent;
+            window.location.reload();
+        }
+    </script>
 </body>
 </html>

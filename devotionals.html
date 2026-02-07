@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Devotionals - Sequence of God | True Worshippers</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h2>True Worshippers</h2>
+                <p>Evangelical Ministries International</p>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="devotionals.html" class="active">Devotionals</a>
+                <a href="contact.html">Contact</a>
+                <a href="#today" class="btn btn-small">Today's Word</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Sequence of God Daily Devotional</h1>
+            <p>Your daily spiritual nourishment from God's Word</p>
+        </div>
+    </section>
+
+    <!-- Devotionals Container -->
+    <section class="devotionals-container" id="today">
+        <div class="container">
+            <div class="date-selector">
+                <label for="devotionalDate">Select Date:</label>
+                <input type="date" id="devotionalDate">
+            </div>
+            
+            <div class="devotional-full">
+                <div class="devotional-header">
+                    <div class="devotional-date">
+                        <i class="fas fa-calendar"></i>
+                        <span id="fullDate"></span>
+                        <span class="devotional-topic" id="devotionalTopic">Daily Topic</span>
+                    </div>
+                </div>
+                
+                <h2 id="devotionalFullTitle">Walking in Divine Sequence</h2>
+                <p class="scripture"><strong>Scripture:</strong> <span id="fullVerse">Proverbs 3:5-6</span></p>
+                
+                <div class="devotional-body">
+                    <div class="section">
+                        <h3><i class="fas fa-book-open"></i> Today's Reading</h3>
+                        <p id="todayReading">Proverbs 3:1-12</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-comment"></i> Message</h3>
+                        <div id="devotionalMessage">
+                            <p>Today, God is calling us to walk in His perfect sequence. The sequence of God is the divine order that brings peace, purpose, and prosperity into our lives. When we trust in the Lord with all our hearts and lean not on our own understanding, He promises to direct our paths.</p>
+                            <p>Many times we try to figure things out on our own, but God's ways are higher than our ways. His sequence may not always make sense to our natural minds, but when we submit to His will, He makes our paths straight. The sequence of God involves timing, placement, and divine connections that only He can orchestrate.</p>
+                            <p>Are you struggling to understand why things are happening the way they are? Trust in God's sequence. He knows the end from the beginning, and His plans for you are good, to give you hope and a future.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-pray"></i> Prayer Focus</h3>
+                        <p id="prayerFocus">Lord, help me to trust You completely today. Guide my steps and establish Your divine sequence in every area of my life. Give me the grace to submit to Your will and timing. In Jesus' name, Amen.</p>
+                    </div>
+                    
+                    <div class="section">
+                        <h3><i class="fas fa-bullhorn"></i> Declaration</h3>
+                        <p id="declaration">Today, I walk in God's perfect sequence. My steps are ordered by the Lord. I trust His guidance in every decision, and I submit to His divine timing for my life.</p>
+                    </div>
+                </div>
+                
+                <div class="devotional-actions">
+                    <button onclick="printDevotional()" class="btn">
+                        <i class="fas fa-print"></i> Print
+                    </button>
+                    <button onclick="shareDevotional()" class="btn">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
+            </div>
+            
+            <div class="devotional-archive">
+                <h3>Recent Devotionals</h3>
+                <div class="archive-list" id="archiveList">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>True Worshippers</h4>
+                    <p>Evangelical Ministries International</p>
+                    <p class="founded-text">Founded 2020</p>
+                    <p class="founders-text">By Apostle Daniel & Reverend Mrs Debby A Solomon</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="devotionals.html">Devotionals</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="contact-info"><i class="fas fa-envelope"></i> info@trueworshippers.org</p>
+                    <p class="contact-info"><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Subscribe</h4>
+                    <p>Get daily devotionals in your email</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 True Worshippers Evangelical Ministries International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

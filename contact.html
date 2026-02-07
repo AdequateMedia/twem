@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - True Worshippers Evangelical Ministries</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <h2>True Worshippers</h2>
+                <p>Evangelical Ministries International</p>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="devotionals.html">Devotionals</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="devotionals.html#today" class="btn btn-small">Today's Word</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with True Worshippers Evangelical Ministries</p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section class="contact-container">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Ministry Information</h2>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Apostle Daniel Solomon</h3>
+                            <p>Founder & Senior Pastor</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-user-female"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Reverend Mrs Debby A Solomon</h3>
+                            <p>Co-Founder & Minister</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Email Address</h3>
+                            <p>info@trueworshippers.org</p>
+                            <p>prayer@trueworshippers.org</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Phone Numbers</h3>
+                            <p>+1 (234) 567-8900 (Office)</p>
+                            <p>+1 (234) 567-8901 (Prayer Line)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h3>Service Times</h3>
+                            <p>Sunday Worship: 8:00 AM & 10:30 AM</p>
+                            <p>Wednesday Bible Study: 6:30 PM</p>
+                            <p>Friday Prayer Meeting: 7:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <h2>Send Us a Message</h2>
+                    <form class="contact-form" id="contactForm" netlify>
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a topic</option>
+                                <option value="prayer">Prayer Request</option>
+                                <option value="devotional">Devotional Inquiry</option>
+                                <option value="ministry">Ministry Partnership</option>
+                                <option value="testimony">Share Testimony</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="subscribe" name="subscribe" checked>
+                            <label for="subscribe">Subscribe to daily devotionals</label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="prayer-request-section">
+                <div class="prayer-icon">
+                    <i class="fas fa-praying-hands"></i>
+                </div>
+                <div class="prayer-content">
+                    <h2>Need Prayer?</h2>
+                    <p>We believe in the power of prayer. Our prayer team is ready to intercede for you. Submit your prayer requests and we will pray with you.</p>
+                    <a href="#contactForm" class="btn btn-primary">Submit Prayer Request</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h4>True Worshippers</h4>
+                    <p>Evangelical Ministries International</p>
+                    <p class="founded-text">Founded 2020</p>
+                    <p class="founders-text">By Apostle Daniel & Reverend Mrs Debby A Solomon</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="devotionals.html">Devotionals</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Connect With Us</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="contact-info"><i class="fas fa-envelope"></i> info@trueworshippers.org</p>
+                    <p class="contact-info"><i class="fas fa-phone"></i> (+234) 8034-212-065</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Subscribe</h4>
+                    <p>Get daily devotionals in your email</p>
+                    <form class="subscribe-form" id="subscribeForm">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-small">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 True Worshippers Evangelical Ministries International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

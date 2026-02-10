@@ -9,6 +9,164 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .videos-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background: #000;
+        }
+        
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+        
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1a365d;
+        }
+        
+        .video-description {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .video-date {
+            color: #e53e3e;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+        
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .video-btn {
+            background: #3182ce;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
+        }
+        
+        .video-btn:hover {
+            background: #2c5282;
+        }
+        
+        .video-btn.download {
+            background: #38a169;
+        }
+        
+        .video-btn.download:hover {
+            background: #2f855a;
+        }
+        
+        .no-video {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .no-video i {
+            font-size: 3rem;
+            color: #3182ce;
+            margin-bottom: 20px;
+        }
+        
+        .upload-instructions {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .upload-instructions h3 {
+            color: #1a365d;
+            margin-bottom: 15px;
+        }
+        
+        .instruction-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .step {
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 4px solid #3182ce;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #3182ce;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .instruction-steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -28,7 +186,7 @@
                 <a href="about.html">About</a>
                 <a href="devotionals.html">Devotionals</a>
                 <a href="contact.html">Contact</a>
-                <a href="devotionals.html#today" class="btn btn-small">Today's Word</a>
+                <a href="#videos" class="btn btn-small">Watch Videos</a>
             </div>
         </div>
     </nav>
@@ -42,7 +200,7 @@
                 <p>Walking in divine order with Apostle Daniel and Reverend Mrs Debby A Solomon</p>
                 <div class="hero-buttons">
                     <a href="devotionals.html" class="btn btn-primary">Read Today's Devotional</a>
-                    <a href="about.html" class="btn btn-secondary">Learn About Our Ministry</a>
+                    <a href="#videos" class="btn btn-secondary">Watch Sermons</a>
                 </div>
             </div>
         </div>
@@ -72,6 +230,87 @@
             </div>
         </div>
     </section>
+
+    <!-- Video Section -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <h2 class="section-title">Watch Our Messages</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: #666;">
+                Inspiring sermons, teachings, and worship sessions from True Worshippers Evangelical Ministries
+            </p>
+            
+            <div class="video-grid" id="videoGrid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="video1" controls poster="https://www.dropbox.com/scl/fi/811wa40ocd2c7rt0uc6wi/grok_video_2026-01-26-15-41-09.mp4?rlkey=ky3b111113yy12krwpq93qavn&st=cd1pmeo8&dl=">
+                            <source src="https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_1/video1.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">The Power of True Worship</h3>
+                        <p class="video-description">Join Apostle Daniel Solomon as he teaches on worshipping God in spirit and in truth.</p>
+                        <p class="video-date">Recorded: January 2024</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseVideo('video1')">
+                                <i class="fas fa-play"></i> Play
+                            </button>
+                            <button class="video-btn download" onclick="downloadVideo('https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_1/video1.mp4')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="video2" controls poster="https://via.placeholder.com/300x169/1a365d/ffffff?text=Loading+Video">
+                            <source src="https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_2/video2.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Walking in Divine Sequence</h3>
+                        <p class="video-description">A powerful message on understanding and following God's perfect timing for your life.</p>
+                        <p class="video-date">Recorded: February 2024</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseVideo('video2')">
+                                <i class="fas fa-play"></i> Play
+                            </button>
+                            <button class="video-btn download" onclick="downloadVideo('https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_2/video2.mp4')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="video3" controls poster="https://via.placeholder.com/300x169/1a365d/ffffff?text=Loading+Video">
+                            <source src="https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_3/video3.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Sunday Worship Service</h3>
+                        <p class="video-description">Full worship service with praise, worship, and the preached Word.</p>
+                        <p class="video-date">Recorded: March 2024</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseVideo('video3')">
+                                <i class="fas fa-play"></i> Play
+                            </button>
+                            <button class="video-btn download" onclick="downloadVideo('https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_3/video3.mp4')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
 
     <!-- Today's Devotional Preview -->
     <section class="todays-devotional">
@@ -143,6 +382,7 @@
                     <a href="about.html">About Us</a>
                     <a href="devotionals.html">Devotionals</a>
                     <a href="contact.html">Contact</a>
+                    <a href="#videos">Watch Videos</a>
                 </div>
                 <div class="footer-column">
                     <h4>Connect With Us</h4>
@@ -150,6 +390,7 @@
                         <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://t.me/sequencesofgod" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <p class="contact-info"><i class="fas fa-envelope"></i> info@trueworshippers.org</p>
@@ -165,11 +406,155 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 True Worshippers Evangelical Ministries International. All rights reserved.</p>
+                <p>&copy; 2024 True Worshippers Evangelical Ministries International. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+            
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    navMenu.classList.toggle('active');
+                    const isOpen = navMenu.classList.contains('active');
+                    
+                    if (isOpen) {
+                        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+                    } else {
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    menuToggle.setAttribute('aria-expanded', isOpen);
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    }
+                });
+                
+                // Close menu when clicking on a link
+                const navLinks = navMenu.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            }
+            
+            // Set current date
+            function setCurrentDate() {
+                const now = new Date();
+                const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                const formattedDate = now.toLocaleDateString('en-US', options);
+                
+                const dateElement = document.getElementById('currentDate');
+                if (dateElement) {
+                    dateElement.textContent = formattedDate;
+                }
+            }
+            
+            // Form submission handling
+            const subscribeForm = document.getElementById('subscribeForm');
+            if (subscribeForm) {
+                subscribeForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    const submitBtn = this.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    
+                    submitBtn.textContent = 'Subscribing...';
+                    submitBtn.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert(`Thank you for subscribing with ${email}! You will receive daily devotionals starting tomorrow.`);
+                        this.reset();
+                        submitBtn.textContent = originalText;
+                        submitBtn.disabled = false;
+                    }, 1000);
+                });
+            }
+            
+            // Initialize functions
+            setCurrentDate();
+            
+            // Video preloading (optional - improves user experience)
+            const videos = document.querySelectorAll('video');
+            videos.forEach(video => {
+                video.preload = 'metadata'; // Load only metadata initially
+            });
+        });
+        
+        // Video control functions
+        function playPauseVideo(videoId) {
+            const video = document.getElementById(videoId);
+            const button = event.currentTarget;
+            
+            if (video.paused) {
+                video.play();
+                button.innerHTML = '<i class="fas fa-pause"></i> Pause';
+            } else {
+                video.pause();
+                button.innerHTML = '<i class="fas fa-play"></i> Play';
+            }
+        }
+        
+        function downloadVideo(url) {
+            // For Dropbox direct links, the browser will handle the download
+            window.open(url, '_blank');
+        }
+        
+        // Update video button text on play/pause
+        document.querySelectorAll('video').forEach(video => {
+            video.addEventListener('play', function() {
+                const button = this.closest('.video-card').querySelector('.video-btn:not(.download)');
+                if (button) {
+                    button.innerHTML = '<i class="fas fa-pause"></i> Pause';
+                }
+            });
+            
+            video.addEventListener('pause', function() {
+                const button = this.closest('.video-card').querySelector('.video-btn:not(.download)');
+                if (button) {
+                    button.innerHTML = '<i class="fas fa-play"></i> Play';
+                }
+            });
+        });
+        
+        // How to use Dropbox links (instructions in console)
+        console.log('=== DROPBOX VIDEO SETUP INSTRUCTIONS ===');
+        console.log('1. Upload your MP4 video to Dropbox');
+        console.log('2. Right-click the file → Share → Create link → Copy link');
+        console.log('3. The link will look like: https://www.dropbox.com/s/UNIQUE_ID/filename.mp4?dl=0');
+        console.log('4. Change it to: https://dl.dropboxusercontent.com/s/UNIQUE_ID/filename.mp4');
+        console.log('5. Replace "UNIQUE_ID" and "filename.mp4" in the video source tags above');
+        console.log('6. For multiple videos, use different UNIQUE_IDs for each');
+        
+        // Example conversion helper
+        function convertDropboxLink(shareLink) {
+            // Example input: https://www.dropbox.com/s/abc123def456/sermon.mp4?dl=0
+            // Expected output: https://dl.dropboxusercontent.com/s/abc123def456/sermon.mp4
+            
+            let directLink = shareLink
+                .replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+                .replace('?dl=0', '')
+                .replace('?dl=1', '');
+            
+            console.log('Direct Dropbox link:', directLink);
+            return directLink;
+        }
+        
+        // You can call this function with your actual Dropbox links
+        // Example: convertDropboxLink('https://www.dropbox.com/s/abc123def456/sermon.mp4?dl=0');
+    </script>
 </body>
 </html>

@@ -104,57 +104,41 @@
             background: #2f855a;
         }
         
-        .no-video {
+        .main-featured-video {
+            max-width: 800px;
+            margin: 0 auto 50px;
             text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .no-video i {
-            font-size: 3rem;
-            color: #3182ce;
-            margin-bottom: 20px;
-        }
-        
-        .upload-instructions {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .upload-instructions h3 {
+        .main-video-title {
             color: #1a365d;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 2rem;
         }
         
-        .instruction-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .main-video-description {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
         }
         
-        .step {
-            padding: 15px;
-            background: #f7fafc;
-            border-radius: 8px;
-            border-left: 4px solid #3182ce;
+        .autoplay-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
         }
         
-        .step-number {
-            display: inline-block;
-            background: #3182ce;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            margin-right: 10px;
-            font-weight: bold;
+        .autoplay-notice i {
+            color: #e53e3e;
         }
         
         @media (max-width: 768px) {
@@ -162,8 +146,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .instruction-steps {
-                grid-template-columns: 1fr;
+            .main-video-title {
+                font-size: 1.5rem;
+            }
+            
+            .video-controls {
+                flex-direction: column;
             }
         }
     </style>
@@ -200,7 +188,138 @@
                 <p>Walking in divine order with Apostle Daniel and Reverend Mrs Debby A Solomon</p>
                 <div class="hero-buttons">
                     <a href="devotionals.html" class="btn btn-primary">Read Today's Devotional</a>
-                    <a href="#videos" class="btn btn-secondary">Watch Sermons</a>
+                    <a href="#videos" class="btn btn-secondary">Watch Featured Message</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Video Section -->
+    <section class="videos-section" id="videos">
+        <div class="container">
+            <div class="main-featured-video">
+                <h2 class="main-video-title">Featured Message of the Week</h2>
+                <p class="main-video-description">
+                    Watch Apostle Daniel Solomon deliver a powerful message about walking in God's divine sequence 
+                    and experiencing His perfect timing in your life.
+                </p>
+                
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="featuredVideo" controls autoplay muted playsinline 
+                               poster="https://images.unsplash.com/photo-1518834103327-1f3d8e5ffa5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                            <!-- Your Dropbox Video Link -->
+                            <source src="https://www.dropbox.com/scl/fi/811wa40ocd2c7rt0uc6wi/grok_video_2026-01-26-15-41-09.mp4?rlkey=ky3b111113yy12krwpq93qavn&st=cd1pmeo8&dl=1" 
+                                    type="video/mp4">
+                            <!-- Fallback for different browsers -->
+                            <source src="https://www.dropbox.com/scl/fi/811wa40ocd2c7rt0uc6wi/grok_video_2026-01-26-15-41-09.mp4?rlkey=ky3b111113yy12krwpq93qavn&st=cd1pmeo8&dl=1" 
+                                    type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Walking in Divine Sequence - Special Message</h3>
+                        <p class="video-description">
+                            In this powerful teaching, Apostle Daniel Solomon explains how to align with God's timing 
+                            and walk in His perfect sequence for your life. Discover the keys to divine order and 
+                            breakthrough in every area.
+                        </p>
+                        <p class="video-date">Recorded: January 2026</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseFeaturedVideo()">
+                                <i class="fas fa-play" id="playPauseIcon"></i> 
+                                <span id="playPauseText">Play</span>
+                            </button>
+                            <button class="video-btn download" 
+                                    onclick="downloadVideo('https://www.dropbox.com/scl/fi/811wa40ocd2c7rt0uc6wi/grok_video_2026-01-26-15-41-09.mp4?rlkey=ky3b111113yy12krwpq93qavn&st=cd1pmeo8&dl=1')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                            <button class="video-btn" onclick="toggleMute()">
+                                <i class="fas fa-volume-up" id="muteIcon"></i> 
+                                <span id="muteText">Mute</span>
+                            </button>
+                        </div>
+                        <div class="autoplay-notice">
+                            <i class="fas fa-info-circle"></i>
+                            Video is set to autoplay (muted). Click the volume button to unmute.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Videos Grid -->
+            <h2 class="section-title">More Inspiring Messages</h2>
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="video1" controls poster="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
+                            <!-- Add your Dropbox link here -->
+                            <source src="#" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">The Power of Prayer</h3>
+                        <p class="video-description">Learn how to pray effectively and see God move in your life.</p>
+                        <p class="video-date">Coming Soon</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseVideo('video1')">
+                                <i class="fas fa-play"></i> Play
+                            </button>
+                            <button class="video-btn download" onclick="downloadVideo('#')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 2 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="video2" controls poster="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
+                            <!-- Add your Dropbox link here -->
+                            <source src="#" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Understanding God's Will</h3>
+                        <p class="video-description">Discover how to know and follow God's perfect will for your life.</p>
+                        <p class="video-date">Coming Soon</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseVideo('video2')">
+                                <i class="fas fa-play"></i> Play
+                            </button>
+                            <button class="video-btn download" onclick="downloadVideo('#')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video 3 -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video id="video3" controls poster="https://images.unsplash.com/photo-1535981767287-35261fbf7b30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80">
+                            <!-- Add your Dropbox link here -->
+                            <source src="#" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Sunday Worship Service</h3>
+                        <p class="video-description">Full worship service with praise, worship, and the preached Word.</p>
+                        <p class="video-date">Coming Soon</p>
+                        <div class="video-controls">
+                            <button class="video-btn" onclick="playPauseVideo('video3')">
+                                <i class="fas fa-play"></i> Play
+                            </button>
+                            <button class="video-btn download" onclick="downloadVideo('#')">
+                                <i class="fas fa-download"></i> Download
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,87 +350,6 @@
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="videos-section" id="videos">
-        <div class="container">
-            <h2 class="section-title">Watch Our Messages</h2>
-            <p style="text-align: center; margin-bottom: 30px; color: #666;">
-                Inspiring sermons, teachings, and worship sessions from True Worshippers Evangelical Ministries
-            </p>
-            
-            <div class="video-grid" id="videoGrid">
-                <!-- Video 1 -->
-                <div class="video-card">
-                    <div class="video-container">
-                        <video id="video1" controls poster="https://www.dropbox.com/scl/fi/811wa40ocd2c7rt0uc6wi/grok_video_2026-01-26-15-41-09.mp4?rlkey=ky3b111113yy12krwpq93qavn&st=cd1pmeo8&dl=">
-                            <source src="https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_1/video1.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">The Power of True Worship</h3>
-                        <p class="video-description">Join Apostle Daniel Solomon as he teaches on worshipping God in spirit and in truth.</p>
-                        <p class="video-date">Recorded: January 2024</p>
-                        <div class="video-controls">
-                            <button class="video-btn" onclick="playPauseVideo('video1')">
-                                <i class="fas fa-play"></i> Play
-                            </button>
-                            <button class="video-btn download" onclick="downloadVideo('https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_1/video1.mp4')">
-                                <i class="fas fa-download"></i> Download
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Video 2 -->
-                <div class="video-card">
-                    <div class="video-container">
-                        <video id="video2" controls poster="https://via.placeholder.com/300x169/1a365d/ffffff?text=Loading+Video">
-                            <source src="https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_2/video2.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Walking in Divine Sequence</h3>
-                        <p class="video-description">A powerful message on understanding and following God's perfect timing for your life.</p>
-                        <p class="video-date">Recorded: February 2024</p>
-                        <div class="video-controls">
-                            <button class="video-btn" onclick="playPauseVideo('video2')">
-                                <i class="fas fa-play"></i> Play
-                            </button>
-                            <button class="video-btn download" onclick="downloadVideo('https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_2/video2.mp4')">
-                                <i class="fas fa-download"></i> Download
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Video 3 -->
-                <div class="video-card">
-                    <div class="video-container">
-                        <video id="video3" controls poster="https://via.placeholder.com/300x169/1a365d/ffffff?text=Loading+Video">
-                            <source src="https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_3/video3.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Sunday Worship Service</h3>
-                        <p class="video-description">Full worship service with praise, worship, and the preached Word.</p>
-                        <p class="video-date">Recorded: March 2024</p>
-                        <div class="video-controls">
-                            <button class="video-btn" onclick="playPauseVideo('video3')">
-                                <i class="fas fa-play"></i> Play
-                            </button>
-                            <button class="video-btn download" onclick="downloadVideo('https://dl.dropboxusercontent.com/s/YOUR_DROPBOX_VIDEO_ID_3/video3.mp4')">
-                                <i class="fas fa-download"></i> Download
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-
     <!-- Today's Devotional Preview -->
     <section class="todays-devotional">
         <div class="container">
@@ -321,9 +359,9 @@
                     <i class="fas fa-calendar"></i>
                     <span id="currentDate"></span>
                 </div>
-                <h3 id="devotionalTitle">Walking in Divine Sequence</h3>
-                <p class="scripture"><strong>Scripture:</strong> <span id="devotionalVerse">Proverbs 3:5-6</span></p>
-                <p id="devotionalExcerpt">Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.</p>
+                <h3 id="devotionalTitle">The Well that never runs dry</h3>
+                <p class="scripture"><strong>Scripture:</strong> <span id="devotionalVerse">John 4:13-14</span></p>
+                <p id="devotionalExcerpt">"Jesus answered, 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst.'"</p>
                 <a href="devotionals.html" class="btn">Read Full Devotional</a>
             </div>
         </div>
@@ -487,14 +525,102 @@
             // Initialize functions
             setCurrentDate();
             
-            // Video preloading (optional - improves user experience)
-            const videos = document.querySelectorAll('video');
-            videos.forEach(video => {
-                video.preload = 'metadata'; // Load only metadata initially
-            });
+            // Initialize featured video controls
+            const featuredVideo = document.getElementById('featuredVideo');
+            if (featuredVideo) {
+                // Set initial button states
+                updatePlayPauseButton();
+                updateMuteButton();
+                
+                // Update button states on video events
+                featuredVideo.addEventListener('play', updatePlayPauseButton);
+                featuredVideo.addEventListener('pause', updatePlayPauseButton);
+                featuredVideo.addEventListener('volumechange', updateMuteButton);
+                
+                // Auto-play when video is ready
+                featuredVideo.addEventListener('loadeddata', function() {
+                    console.log('Video loaded and ready to play');
+                    // Some browsers require user interaction before autoplay
+                    // We'll try to play, but catch any errors
+                    const playPromise = featuredVideo.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.log('Autoplay prevented:', error);
+                            // Show a play button overlay or message
+                        });
+                    }
+                });
+                
+                // Handle video errors
+                featuredVideo.addEventListener('error', function() {
+                    console.error('Video loading error:', featuredVideo.error);
+                    const videoContainer = featuredVideo.parentElement;
+                    videoContainer.innerHTML = `
+                        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+                                    display: flex; flex-direction: column; align-items: center; 
+                                    justify-content: center; background: #000; color: white;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                            <p>Unable to load video. Please check the link.</p>
+                            <button onclick="retryVideoLoad()" class="video-btn" style="margin-top: 20px;">
+                                <i class="fas fa-redo"></i> Retry
+                            </button>
+                        </div>
+                    `;
+                });
+            }
         });
         
-        // Video control functions
+        // Featured video control functions
+        function playPauseFeaturedVideo() {
+            const video = document.getElementById('featuredVideo');
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+            updatePlayPauseButton();
+        }
+        
+        function updatePlayPauseButton() {
+            const video = document.getElementById('featuredVideo');
+            const icon = document.getElementById('playPauseIcon');
+            const text = document.getElementById('playPauseText');
+            
+            if (video.paused) {
+                icon.className = 'fas fa-play';
+                text.textContent = 'Play';
+            } else {
+                icon.className = 'fas fa-pause';
+                text.textContent = 'Pause';
+            }
+        }
+        
+        function toggleMute() {
+            const video = document.getElementById('featuredVideo');
+            video.muted = !video.muted;
+            updateMuteButton();
+        }
+        
+        function updateMuteButton() {
+            const video = document.getElementById('featuredVideo');
+            const icon = document.getElementById('muteIcon');
+            const text = document.getElementById('muteText');
+            
+            if (video.muted) {
+                icon.className = 'fas fa-volume-mute';
+                text.textContent = 'Unmute';
+            } else {
+                icon.className = 'fas fa-volume-up';
+                text.textContent = 'Mute';
+            }
+        }
+        
+        function retryVideoLoad() {
+            const video = document.getElementById('featuredVideo');
+            video.load(); // Reload the video
+        }
+        
+        // Other video control functions
         function playPauseVideo(videoId) {
             const video = document.getElementById(videoId);
             const button = event.currentTarget;
@@ -509,12 +635,15 @@
         }
         
         function downloadVideo(url) {
-            // For Dropbox direct links, the browser will handle the download
-            window.open(url, '_blank');
+            if (url && url !== '#') {
+                window.open(url, '_blank');
+            } else {
+                alert('Video download link not available yet. Check back soon!');
+            }
         }
         
         // Update video button text on play/pause
-        document.querySelectorAll('video').forEach(video => {
+        document.querySelectorAll('#video1, #video2, #video3').forEach(video => {
             video.addEventListener('play', function() {
                 const button = this.closest('.video-card').querySelector('.video-btn:not(.download)');
                 if (button) {
@@ -530,31 +659,26 @@
             });
         });
         
-        // How to use Dropbox links (instructions in console)
-        console.log('=== DROPBOX VIDEO SETUP INSTRUCTIONS ===');
-        console.log('1. Upload your MP4 video to Dropbox');
-        console.log('2. Right-click the file → Share → Create link → Copy link');
-        console.log('3. The link will look like: https://www.dropbox.com/s/UNIQUE_ID/filename.mp4?dl=0');
-        console.log('4. Change it to: https://dl.dropboxusercontent.com/s/UNIQUE_ID/filename.mp4');
-        console.log('5. Replace "UNIQUE_ID" and "filename.mp4" in the video source tags above');
-        console.log('6. For multiple videos, use different UNIQUE_IDs for each');
+        // Video preloading for better performance
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.preload = 'metadata'; // Load only metadata initially
+        });
         
-        // Example conversion helper
-        function convertDropboxLink(shareLink) {
-            // Example input: https://www.dropbox.com/s/abc123def456/sermon.mp4?dl=0
-            // Expected output: https://dl.dropboxusercontent.com/s/abc123def456/sermon.mp4
+        // Dropbox link optimization (optional)
+        function optimizeDropboxLink(originalLink) {
+            // Your original link
+            let optimizedLink = originalLink;
             
-            let directLink = shareLink
-                .replace('www.dropbox.com', 'dl.dropboxusercontent.com')
-                .replace('?dl=0', '')
-                .replace('?dl=1', '');
-            
-            console.log('Direct Dropbox link:', directLink);
-            return directLink;
+            // Note: Dropbox links with 'dl=1' are direct download links
+            // For streaming, we might want to keep it as is
+            console.log('Using Dropbox video link:', optimizedLink);
+            return optimizedLink;
         }
         
-        // You can call this function with your actual Dropbox links
-        // Example: convertDropboxLink('https://www.dropbox.com/s/abc123def456/sermon.mp4?dl=0');
+        // Test the current video link
+        const videoLink = "https://www.dropbox.com/scl/fi/811wa40ocd2c7rt0uc6wi/grok_video_2026-01-26-15-41-09.mp4?rlkey=ky3b111113yy12krwpq93qavn&st=cd1pmeo8&dl=1";
+        console.log('Video source URL:', optimizeDropboxLink(videoLink));
     </script>
 </body>
 </html>

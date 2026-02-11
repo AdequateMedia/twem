@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Devotional - The Well that never runs dry | True Worshippers</title>
+    <title>Daily Devotionals - Sequence of God | True Worshippers</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Existing styles remain the same... */
         .devotional-container {
             max-width: 800px;
             margin: 0 auto;
@@ -250,6 +251,76 @@
             background-color: #f7fafc;
         }
         
+        /* NEW STYLES FOR DYNAMIC SYSTEM */
+        .date-error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 30px;
+            display: none;
+        }
+        
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3182ce;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .date-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .nav-btn {
+            padding: 10px 20px;
+            background: #4a5568;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: #2d3748;
+        }
+        
+        .nav-btn:disabled {
+            background: #cbd5e0;
+            cursor: not-allowed;
+        }
+        
+        .devotional-archive {
+            margin-top: 50px;
+            background: #f7fafc;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
         @media (max-width: 768px) {
             .devotional-content {
                 padding: 20px;
@@ -259,7 +330,8 @@
                 font-size: 1.8rem;
             }
             
-            .action-buttons {
+            .action-buttons,
+            .date-navigation {
                 flex-direction: column;
             }
             
@@ -307,163 +379,46 @@
     <!-- Devotionals Container -->
     <section class="devotionals-container" id="today">
         <div class="container">
-            <div class="date-selector">
-                <label for="devotionalDate">Select Date:</label>
-                <input type="date" id="devotionalDate" value="2026-02-11">
+            <div class="date-selector" style="margin-bottom: 20px;">
+                <label for="devotionalDate" style="font-weight: 600; margin-right: 10px;">Select Date:</label>
+                <input type="date" id="devotionalDate" style="padding: 8px 12px; border: 2px solid #e2e8f0; border-radius: 5px; font-family: 'Poppins', sans-serif;">
+                <button onclick="loadTodayDevotional()" style="padding: 8px 15px; background: #e53e3e; color: white; border: none; border-radius: 5px; margin-left: 10px; cursor: pointer; font-family: 'Poppins', sans-serif;">
+                    Today's Devotional
+                </button>
             </div>
             
-            <!-- Today's Devotional -->
-            <div class="devotional-container">
-                <div class="devotional-header">
-                    <div class="devotional-date">
-                        <i class="fas fa-calendar"></i>
-                        11 February 2026
-                    </div>
-                    <h1 class="devotional-title">The Well that never runs dry</h1>
-                    <div class="devotional-author">
-                        Daily Devotional by Apostle Daniel A. Solomon
-                    </div>
-                </div>
-                
-                <div class="devotional-content">
-                    <!-- Daily Quote -->
-                    <div class="quote-box">
-                        <i class="fas fa-quote-left" style="color: #e53e3e; margin-right: 10px;"></i>
-                        "In Christ, you are connected to an endless source. When the world drains you, His well never runs dry. Your capacity to give is not measured by your resources but by your connection to the Source."
-                    </div>
-                    
-                    <!-- Scripture -->
-                    <div class="scripture-box">
-                        <div class="scripture-text">
-                            "Jesus answered, 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst. Indeed, the water I give them will become in them a spring of water welling up to eternal life.'"
-                        </div>
-                        <div class="scripture-ref">
-                            — John 4:13-14 (NIV)
-                        </div>
-                    </div>
-                    
-                    <!-- Message -->
-                    <div class="message-content">
-                        <p>There is a profound truth in the story of the woman at the well: Jesus offers water that satisfies forever. In a world where everything has limits—our energy, our resources, our patience—Jesus presents Himself as the unlimited source. The well of Jacob ran dry seasonally, but the well of Jesus never runs dry.</p>
-                        
-                        <p>You may feel drained today. Perhaps you've been giving endlessly—to family, to work, to ministry—and you feel like you have nothing left. The temptation is to draw from your own strength, but your own well will eventually run dry. Jesus invites you to come to His well, where the water is living and eternal.</p>
-                        
-                        <p>The secret of the well that never runs dry is not in the amount of water you store, but in the continuous flow from the source. When you remain connected to Jesus, His life flows through you continuously. You become not just a container but a conduit—receiving from Him and releasing to others without ever being depleted.</p>
-                        
-                        <p>Today, if you're feeling empty, don't try to dig deeper in your own strength. Come to the well of living water. Drink deeply from His presence through prayer, worship, and His Word. Let Him refill you. Remember, the well that never runs dry is not a distant resource; it's Christ in you, the hope of glory. His supply in you is limitless because He is limitless.</p>
-                    </div>
-                    
-                    <!-- Today's Prayer -->
-                    <div class="prayer-section">
-                        <h3 class="prayer-title">
-                            <i class="fas fa-pray"></i>
-                            Today's Prayer
-                        </h3>
-                        <ol class="prayer-points">
-                            <li>Lord Jesus, I thank You for being my never-ending source of living water.</li>
-                            <li>Forgive me for trying to draw from my own limited resources instead of coming to You.</li>
-                            <li>I come to Your well today, thirsty and in need of Your refreshment.</li>
-                            <li>Fill me afresh with Your Holy Spirit, that I may never run dry.</li>
-                            <li>Help me to remain connected to You as my constant source.</li>
-                            <li>Teach me to drink daily from Your Word and Your presence.</li>
-                            <li>Make me a channel of Your living water to a thirsty world.</li>
-                            <li>Remove any blockages in my life that hinder the flow of Your Spirit.</li>
-                            <li>Let Your living water in me become a spring welling up to eternal life.</li>
-                            <li>Thank You that in You, I will never thirst again.</li>
-                        </ol>
-                    </div>
-                    
-                    <!-- Telegram Channel Section -->
-                    <div class="telegram-section">
-                        <div class="telegram-icon">
-                            <i class="fab fa-telegram"></i>
-                        </div>
-                        <h3>Join Our Telegram Channel</h3>
-                        <p>For daily devotionals, prayer updates, and spiritual encouragement, join our Telegram channel:</p>
-                        <a href="https://t.me/sequencesofgod" target="_blank" class="telegram-link">
-                            <i class="fab fa-telegram"></i> Join Sequence of God Channel
-                        </a>
-                        <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">
-                            Stay connected for daily spiritual nourishment
-                        </p>
-                    </div>
-                    
-                    <!-- Remember -->
-                    <div class="remember-box">
-                        <h3 class="remember-title">
-                            <i class="fas fa-lightbulb"></i>
-                            Remember
-                        </h3>
-                        <p class="remember-text">
-                            Your capacity to give is not determined by your resources but by your connection to the Source. Stay connected to Jesus, the well that never runs dry, and you will always have enough for yourself and to share with others.
-                        </p>
-                    </div>
-                    
-                    <!-- Author -->
-                    <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                        <p style="font-style: italic; color: #4a5568;">
-                            <i class="fas fa-user-circle" style="margin-right: 8px;"></i>
-                            Apostle Daniel A. Solomon
-                        </p>
-                    </div>
-                    
-                    <!-- Action Buttons -->
-                    <div class="action-buttons">
-                        <button onclick="printDevotional()" class="action-btn print-btn">
-                            <i class="fas fa-print"></i>
-                            Print Devotional
-                        </button>
-                        <button onclick="shareDevotional()" class="action-btn share-btn">
-                            <i class="fas fa-share-alt"></i>
-                            Share
-                        </button>
-                        <a href="index.html" class="action-btn home-btn">
-                            <i class="fas fa-home"></i>
-                            Back to Home
-                        </a>
-                    </div>
-                </div>
+            <!-- Error Message -->
+            <div id="dateError" class="date-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="errorMessage">No devotional available for this date.</span>
+            </div>
+            
+            <!-- Loading Spinner -->
+            <div id="loading" class="loading">
+                <div class="loading-spinner"></div>
+                <p>Loading devotional...</p>
+            </div>
+            
+            <!-- Devotional Container (Will be populated dynamically) -->
+            <div id="devotionalContainer" class="devotional-container">
+                <!-- Content will be loaded here -->
+            </div>
+            
+            <!-- Date Navigation -->
+            <div class="date-navigation" id="dateNavigation" style="display: none;">
+                <button onclick="loadPreviousDevotional()" class="nav-btn" id="prevBtn">
+                    <i class="fas fa-arrow-left"></i> Previous
+                </button>
+                <button onclick="loadNextDevotional()" class="nav-btn" id="nextBtn">
+                    Next <i class="fas fa-arrow-right"></i>
+                </button>
             </div>
             
             <!-- Devotional Archive -->
             <div class="devotional-archive">
-                <h3 style="margin-top: 50px; margin-bottom: 20px;">Recent Devotionals</h3>
-                <div class="archive-list" id="archiveList">
-                    <div class="archive-item">
-                        <div>
-                            <strong>February 11, 2026</strong>
-                            <p>The Well that never runs dry - John 4:13-14</p>
-                        </div>
-                        <a href="#today" class="btn btn-small">Read</a>
-                    </div>
-                    <div class="archive-item">
-                        <div>
-                            <strong>February 10, 2026</strong>
-                            <p>The Wound That Heals - Isaiah 53:5</p>
-                        </div>
-                        <a href="devotional-2026-02-10.html" class="btn btn-small">Read</a>
-                    </div>
-                    <div class="archive-item">
-                        <div>
-                            <strong>February 9, 2026</strong>
-                            <p>NO FAST ROAD TO SUCCESS - Galatians 6:9</p>
-                        </div>
-                        <a href="devotional-2026-02-09.html" class="btn btn-small">Read</a>
-                    </div>
-                    <div class="archive-item">
-                        <div>
-                            <strong>February 8, 2026</strong>
-                            <p>Union with Christ - Matthew 11:28</p>
-                        </div>
-                        <a href="devotional-2026-02-08.html" class="btn btn-small">Read</a>
-                    </div>
-                    <div class="archive-item">
-                        <div>
-                            <strong>February 7, 2026</strong>
-                            <p>Walking in Faith - Hebrews 11:1</p>
-                        </div>
-                        <a href="#" class="btn btn-small">Read</a>
-                    </div>
+                <h3 style="margin-bottom: 20px; color: #1a365d;">Devotional Archive</h3>
+                <div id="archiveList" class="archive-list">
+                    <!-- Archive will be populated dynamically -->
                 </div>
             </div>
         </div>
@@ -514,7 +469,7 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // ==================== MOBILE MENU ====================
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
@@ -553,14 +508,6 @@
                 });
             }
             
-            // Set today's date in date picker
-            const datePicker = document.getElementById('devotionalDate');
-            if (datePicker) {
-                const today = new Date();
-                const formattedToday = today.toISOString().split('T')[0];
-                datePicker.max = formattedToday;
-            }
-            
             // Form submission handling
             const subscribeForm = document.getElementById('subscribeForm');
             if (subscribeForm) {
@@ -582,11 +529,427 @@
                 });
             }
         });
+
+        // ==================== DEVOTIONAL DATABASE ====================
+        const devotionalsDB = {
+            "2026-02-11": {
+                title: "The Well that never runs dry",
+                date: "11 February 2026",
+                scripture: "Jesus answered, 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst. Indeed, the water I give them will become in them a spring of water welling up to eternal life.'",
+                reference: "John 4:13-14 (NIV)",
+                quote: "In Christ, you are connected to an endless source. When the world drains you, His well never runs dry. Your capacity to give is not measured by your resources but by your connection to the Source.",
+                message: `<p>There is a profound truth in the story of the woman at the well: Jesus offers water that satisfies forever. In a world where everything has limits—our energy, our resources, our patience—Jesus presents Himself as the unlimited source. The well of Jacob ran dry seasonally, but the well of Jesus never runs dry.</p>
+                         <p>You may feel drained today. Perhaps you've been giving endlessly—to family, to work, to ministry—and you feel like you have nothing left. The temptation is to draw from your own strength, but your own well will eventually run dry. Jesus invites you to come to His well, where the water is living and eternal.</p>
+                         <p>The secret of the well that never runs dry is not in the amount of water you store, but in the continuous flow from the source. When you remain connected to Jesus, His life flows through you continuously. You become not just a container but a conduit—receiving from Him and releasing to others without ever being depleted.</p>
+                         <p>Today, if you're feeling empty, don't try to dig deeper in your own strength. Come to the well of living water. Drink deeply from His presence through prayer, worship, and His Word. Let Him refill you. Remember, the well that never runs dry is not a distant resource; it's Christ in you, the hope of glory. His supply in you is limitless because He is limitless.</p>`,
+                prayer: [
+                    "Lord Jesus, I thank You for being my never-ending source of living water.",
+                    "Forgive me for trying to draw from my own limited resources instead of coming to You.",
+                    "I come to Your well today, thirsty and in need of Your refreshment.",
+                    "Fill me afresh with Your Holy Spirit, that I may never run dry.",
+                    "Help me to remain connected to You as my constant source.",
+                    "Teach me to drink daily from Your Word and Your presence.",
+                    "Make me a channel of Your living water to a thirsty world.",
+                    "Remove any blockages in my life that hinder the flow of Your Spirit.",
+                    "Let Your living water in me become a spring welling up to eternal life.",
+                    "Thank You that in You, I will never thirst again."
+                ],
+                remember: "Your capacity to give is not determined by your resources but by your connection to the Source. Stay connected to Jesus, the well that never runs dry, and you will always have enough for yourself and to share with others."
+            },
+            "2026-02-10": {
+                title: "The Wound That Heals",
+                date: "10 February 2026",
+                scripture: "But he was pierced for our transgressions, he was crushed for our iniquities; the punishment that brought us peace was on him, and by his wounds we are healed.",
+                reference: "Isaiah 53:5 (NIV)",
+                quote: "Sometimes the deepest wounds become the most sacred spaces where God's healing grace flows most powerfully.",
+                message: `<p>There is a profound mystery in the economy of God: the wound that brings healing, the brokenness that makes whole, the death that brings life. You may be carrying wounds today—emotional scars, spiritual bruises, memories that still ache. You wonder why a loving God would allow such pain. But consider the cross: the greatest wound in history became the source of humanity's healing.</p>
+                         <p>Your wounds are not meaningless. In God's hands, they become instruments of transformation. The very places where you've been hurt can become conduits of His grace to others. The apostle Paul understood this when he wrote about his "thorn in the flesh"—a wound that kept him dependent on God, a weakness through which God's strength was made perfect.</p>
+                         <p>Do not run from your wounds. Do not hide them in shame. Bring them to the One who was wounded for your healing. Jesus understands pain—He bore the wounds of the world on His body. He knows what it means to be wounded by betrayal, abandoned in suffering, pierced by rejection. And from His wounds flows a river of healing for your soul.</p>
+                         <p>Today, if you're nursing a wound, remember this: God specializes in redeeming what the enemy meant for destruction. That painful experience, that deep hurt, that lingering ache—in His hands, it becomes a testimony of restoration. Your healing may come not by erasing the wound, but by allowing God to use it for His glory and your growth.</p>`,
+                prayer: [
+                    "Lord Jesus, I thank You for Your wounds that brought my healing.",
+                    "Forgive me for hiding my pain instead of bringing it to You.",
+                    "I surrender every wound, every hurt, every painful memory to Your healing touch.",
+                    "Heal the deep places in my soul that no one else can see.",
+                    "Help me to see my wounds not as shameful scars but as testimonies of Your grace.",
+                    "Use my healed wounds to comfort others who are hurting.",
+                    "Protect me from bitterness and resentment when I've been wounded.",
+                    "Teach me to forgive as You have forgiven me.",
+                    "Make me sensitive to the wounds of others, that I may be an agent of Your healing.",
+                    "Thank You that in Your kingdom, no wound is wasted—all can be redeemed."
+                ],
+                remember: "Christ's wounds brought our healing. In the same way, God can use your healed wounds to bring healing to others. Your pain has purpose in God's redemptive plan."
+            },
+            "2026-02-09": {
+                title: "NO FAST ROAD TO SUCCESS",
+                date: "9 February 2026",
+                scripture: "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.",
+                reference: "Galatians 6:9 (NIV)",
+                quote: "True success is not found in shortcuts but in the steady, faithful steps of obedience.",
+                message: `<p>In a world that celebrates instant gratification and overnight success, God's ways seem counter-cultural. His path to true success is marked by patience, perseverance, and process. You may look at others and wonder why their breakthrough came so quickly, while your journey feels like an uphill climb. Remember this: God is not just interested in your destination; He is shaping your character for the journey.</p>
+                         <p>There is no fast road to lasting success because shortcuts often lead to shallow foundations. What is built quickly can collapse quickly. But what is built through consistent obedience, through seasons of waiting, through trials that test your faith—this produces a strength that endures. The process may feel slow, but it is in the process that you are being prepared for the promise.</p>
+                         <p>Do not despise the days of small beginnings. Do not grow impatient with God's timing. Every step of obedience, every act of faithfulness in the unseen seasons, is building something eternal in your life. The road may be longer than you hoped, but it is leading you to a success that cannot be taken away—a success rooted in God's character, not in worldly measures.</p>
+                         <p>Today, if you feel weary on the journey, remember: harvest time is coming. Your faithfulness is not in vain. God sees every step, every sacrifice, every act of obedience done in secret. He is preparing you for a success that will sustain you, not just for a moment, but for a lifetime.</p>`,
+                prayer: [
+                    "Lord, I thank You for Your perfect timing in my life, even when I don't understand it.",
+                    "Forgive me for the times I've sought shortcuts instead of trusting Your process.",
+                    "Help me to appreciate the journey and not just focus on the destination.",
+                    "Give me strength to persevere when the road seems long and difficult.",
+                    "Remove any spirit of comparison that makes me question Your plan for my life.",
+                    "Teach me to find joy in the process of becoming who You've called me to be.",
+                    "Help me to build on a solid foundation of faithfulness and obedience.",
+                    "Renew my mind to understand that true success comes from walking with You.",
+                    "Guard my heart from discouragement when progress seems slow.",
+                    "Thank You that Your plans for me are good, and Your timing is perfect."
+                ],
+                remember: "The road to lasting success is paved with faithfulness, not speed. What God builds through process will stand the test of time."
+            },
+            "2026-02-08": {
+                title: "Union with Christ",
+                date: "8 February 2026",
+                scripture: "Come to me, all you who are weary and burdened, and I will give you rest.",
+                reference: "Matthew 11:28 (NIV)",
+                quote: "God does not despise your exhaustion; He meets you in it.",
+                message: `<p>It is a spiritual reality: the journey of faith is not without moments of deep weariness and frustration. You may feel drained—not just physically, but emotionally and spiritually. Perhaps you have been praying without seeing answers, sowing without reaping, or striving without breaking through. In these moments, it is easy to believe God is far away, or that your labor is in vain. But Scripture reminds us that even the young grow tired and stumble, yet those who wait upon the Lord will renew their strength.</p>
+                         <p>God is not surprised by your fatigue. He understands the weight you carry. The invitation of Christ is not to "try harder," but to "come closer." Your weariness can become a sacred space—a place where self-reliance ends and divine reliance begins. Do not mistake this season for abandonment; it is often God's way of redirecting your dependence from your own strength to His sovereign power.</p>
+                         <p>If frustration has clouded your vision, take a moment to pause and reposition your heart. Release the timelines, surrender the outcomes, and lay down the burden you were never meant to carry alone. God is not only the God of sudden breakthroughs but also the God of daily bread—the One who gives strength for this moment, grace for this hour, and hope for this day.</p>`,
+                prayer: [
+                    "Thank You, Lord, for Your understanding and compassion when I am tired and overwhelmed.",
+                    "Forgive me for the times I have relied on my own strength and resented Your timing.",
+                    "I bring my frustrations and weariness to Your feet—I lay them down before You now.",
+                    "Renew my strength according to Your promise; help me to wait upon You with hope.",
+                    "Restore joy where duty has drained me, and peace where worry has wearied me.",
+                    "Teach me to recognize Your gentle leading when I am too tired to see clearly.",
+                    "Provide divine rest—spirit, soul, and body—as only You can give.",
+                    "Guard my heart from comparison and bitterness when my journey feels slower than others'.",
+                    "Let me find comfort in Your presence more than in a changed circumstance.",
+                    "Thank You for being my rest and my refuge, today and always."
+                ],
+                remember: "Even in weariness, you are moving forward. God is not only with you in the struggle—He is strengthening you through it."
+            }
+        };
+
+        // ==================== UTILITY FUNCTIONS ====================
+        
+        // Format date as "11 February 2026"
+        function formatDateDisplay(dateString) {
+            const date = new Date(dateString);
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        // Get date string in YYYY-MM-DD format
+        function getDateString(date) {
+            return date.toISOString().split('T')[0];
+        }
+
+        // ==================== CORE FUNCTIONALITY ====================
+        
+        // Load devotional for a specific date
+        function loadDevotionalForDate(dateString) {
+            const container = document.getElementById('devotionalContainer');
+            const errorDiv = document.getElementById('dateError');
+            const loadingDiv = document.getElementById('loading');
+            const dateNavigation = document.getElementById('dateNavigation');
+            
+            // Show loading
+            loadingDiv.style.display = 'block';
+            container.style.display = 'none';
+            errorDiv.style.display = 'none';
+            
+            // Simulate loading delay
+            setTimeout(() => {
+                if (devotionalsDB[dateString]) {
+                    const devotional = devotionalsDB[dateString];
+                    
+                    // Build HTML for the devotional
+                    const html = `
+                        <div class="devotional-header">
+                            <div class="devotional-date">
+                                <i class="fas fa-calendar"></i>
+                                ${devotional.date}
+                            </div>
+                            <h1 class="devotional-title">${devotional.title}</h1>
+                            <div class="devotional-author">
+                                Daily Devotional by Apostle Daniel A. Solomon
+                            </div>
+                        </div>
+                        
+                        <div class="devotional-content">
+                            <!-- Daily Quote -->
+                            <div class="quote-box">
+                                <i class="fas fa-quote-left" style="color: #e53e3e; margin-right: 10px;"></i>
+                                "${devotional.quote}"
+                            </div>
+                            
+                            <!-- Scripture -->
+                            <div class="scripture-box">
+                                <div class="scripture-text">
+                                    "${devotional.scripture}"
+                                </div>
+                                <div class="scripture-ref">
+                                    — ${devotional.reference}
+                                </div>
+                            </div>
+                            
+                            <!-- Message -->
+                            <div class="message-content">
+                                ${devotional.message}
+                            </div>
+                            
+                            <!-- Today's Prayer -->
+                            <div class="prayer-section">
+                                <h3 class="prayer-title">
+                                    <i class="fas fa-pray"></i>
+                                    Today's Prayer
+                                </h3>
+                                <ol class="prayer-points">
+                                    ${devotional.prayer.map((point, index) => 
+                                        `<li>${point}</li>`
+                                    ).join('')}
+                                </ol>
+                            </div>
+                            
+                            <!-- Telegram Channel Section -->
+                            <div class="telegram-section">
+                                <div class="telegram-icon">
+                                    <i class="fab fa-telegram"></i>
+                                </div>
+                                <h3>Join Our Telegram Channel</h3>
+                                <p>For daily devotionals, prayer updates, and spiritual encouragement, join our Telegram channel:</p>
+                                <a href="https://t.me/sequencesofgod" target="_blank" class="telegram-link">
+                                    <i class="fab fa-telegram"></i> Join Sequence of God Channel
+                                </a>
+                                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">
+                                    Stay connected for daily spiritual nourishment
+                                </p>
+                            </div>
+                            
+                            <!-- Remember -->
+                            <div class="remember-box">
+                                <h3 class="remember-title">
+                                    <i class="fas fa-lightbulb"></i>
+                                    Remember
+                                </h3>
+                                <p class="remember-text">
+                                    ${devotional.remember}
+                                </p>
+                            </div>
+                            
+                            <!-- Author -->
+                            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
+                                <p style="font-style: italic; color: #4a5568;">
+                                    <i class="fas fa-user-circle" style="margin-right: 8px;"></i>
+                                    Apostle Daniel A. Solomon
+                                </p>
+                            </div>
+                            
+                            <!-- Action Buttons -->
+                            <div class="action-buttons">
+                                <button onclick="printDevotional()" class="action-btn print-btn">
+                                    <i class="fas fa-print"></i>
+                                    Print Devotional
+                                </button>
+                                <button onclick="shareDevotional()" class="action-btn share-btn">
+                                    <i class="fas fa-share-alt"></i>
+                                    Share
+                                </button>
+                                <a href="index.html" class="action-btn home-btn">
+                                    <i class="fas fa-home"></i>
+                                    Back to Home
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.innerHTML = html;
+                    container.style.display = 'block';
+                    
+                    // Update date picker
+                    document.getElementById('devotionalDate').value = dateString;
+                    
+                    // Update URL without reloading page
+                    history.pushState({date: dateString}, '', `?date=${dateString}`);
+                    
+                    // Update navigation buttons
+                    updateNavigationButtons(dateString);
+                    dateNavigation.style.display = 'flex';
+                    
+                    // Update page title
+                    document.title = `${devotional.title} | Daily Devotional - True Worshippers`;
+                    
+                    // Hide loading
+                    loadingDiv.style.display = 'none';
+                    
+                    // Scroll to top
+                    window.scrollTo(0, 0);
+                    
+                } else {
+                    // No devotional for this date
+                    document.getElementById('errorMessage').textContent = 
+                        `No devotional available for ${formatDateDisplay(dateString)}. Please select another date.`;
+                    errorDiv.style.display = 'block';
+                    container.style.display = 'none';
+                    dateNavigation.style.display = 'none';
+                    loadingDiv.style.display = 'none';
+                }
+                
+                // Update archive list
+                updateArchiveList();
+            }, 300); // Simulated loading delay
+        }
+
+        // Load today's devotional
+        function loadTodayDevotional() {
+            const today = new Date();
+            const todayString = getDateString(today);
+            loadDevotionalForDate(todayString);
+        }
+
+        // Load previous devotional
+        function loadPreviousDevotional() {
+            const currentDate = document.getElementById('devotionalDate').value;
+            const date = new Date(currentDate);
+            date.setDate(date.getDate() - 1);
+            const prevDate = getDateString(date);
+            
+            // Check if there's a devotional for the previous date
+            let found = false;
+            let checkDate = new Date(prevDate);
+            
+            // Go backwards until we find a devotional or reach the beginning
+            for (let i = 0; i < 30; i++) { // Limit search to 30 days back
+                const checkDateStr = getDateString(checkDate);
+                if (devotionalsDB[checkDateStr]) {
+                    loadDevotionalForDate(checkDateStr);
+                    found = true;
+                    break;
+                }
+                checkDate.setDate(checkDate.getDate() - 1);
+            }
+            
+            if (!found) {
+                document.getElementById('errorMessage').textContent = 
+                    "No earlier devotionals found.";
+                document.getElementById('dateError').style.display = 'block';
+            }
+        }
+
+        // Load next devotional
+        function loadNextDevotional() {
+            const currentDate = document.getElementById('devotionalDate').value;
+            const date = new Date(currentDate);
+            date.setDate(date.getDate() + 1);
+            const nextDate = getDateString(date);
+            
+            // Check if there's a devotional for the next date
+            let found = false;
+            let checkDate = new Date(nextDate);
+            const today = new Date();
+            const todayStr = getDateString(today);
+            
+            // Go forwards until we find a devotional or reach today
+            for (let i = 0; i < 30; i++) { // Limit search to 30 days forward
+                const checkDateStr = getDateString(checkDate);
+                if (devotionalsDB[checkDateStr]) {
+                    loadDevotionalForDate(checkDateStr);
+                    found = true;
+                    break;
+                }
+                if (checkDateStr >= todayStr) {
+                    break;
+                }
+                checkDate.setDate(checkDate.getDate() + 1);
+            }
+            
+            if (!found) {
+                document.getElementById('errorMessage').textContent = 
+                    "No later devotionals found.";
+                document.getElementById('dateError').style.display = 'block';
+            }
+        }
+
+        // Update navigation buttons state
+        function updateNavigationButtons(currentDateString) {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            // Check for previous devotional
+            const currentDate = new Date(currentDateString);
+            let hasPrevious = false;
+            let checkDate = new Date(currentDate);
+            
+            for (let i = 0; i < 30; i++) {
+                checkDate.setDate(checkDate.getDate() - 1);
+                const checkDateStr = getDateString(checkDate);
+                if (devotionalsDB[checkDateStr]) {
+                    hasPrevious = true;
+                    break;
+                }
+            }
+            
+            // Check for next devotional
+            let hasNext = false;
+            checkDate = new Date(currentDate);
+            const today = new Date();
+            const todayStr = getDateString(today);
+            
+            for (let i = 0; i < 30; i++) {
+                checkDate.setDate(checkDate.getDate() + 1);
+                const checkDateStr = getDateString(checkDate);
+                if (devotionalsDB[checkDateStr]) {
+                    hasNext = true;
+                    break;
+                }
+                if (checkDateStr >= todayStr) {
+                    break;
+                }
+            }
+            
+            prevBtn.disabled = !hasPrevious;
+            nextBtn.disabled = !hasNext;
+            
+            // Update button styles
+            prevBtn.style.background = hasPrevious ? '#4a5568' : '#cbd5e0';
+            nextBtn.style.background = hasNext ? '#4a5568' : '#cbd5e0';
+        }
+
+        // Update archive list
+        function updateArchiveList() {
+            const archiveList = document.getElementById('archiveList');
+            const dates = Object.keys(devotionalsDB).sort().reverse(); // Most recent first
+            
+            let html = '';
+            if (dates.length > 0) {
+                dates.forEach(dateStr => {
+                    const devotional = devotionalsDB[dateStr];
+                    const formattedDate = formatDateDisplay(dateStr);
+                    
+                    html += `
+                        <div class="archive-item">
+                            <div>
+                                <strong>${formattedDate}</strong>
+                                <p>${devotional.title} - ${devotional.reference.split(' ')[0]}</p>
+                            </div>
+                            <button onclick="loadDevotionalForDate('${dateStr}')" class="btn btn-small">
+                                Read
+                            </button>
+                        </div>
+                    `;
+                });
+            } else {
+                html = `<p style="text-align: center; color: #666;">No devotionals available yet. Check back soon!</p>`;
+            }
+            
+            archiveList.innerHTML = html;
+        }
+
+        // ==================== SHARE & PRINT FUNCTIONS ====================
         
         // Share devotional function
         function shareDevotional() {
-            const title = document.querySelector('.devotional-title').textContent;
-            const scripture = document.querySelector('.scripture-text').textContent;
+            const title = document.querySelector('.devotional-title')?.textContent || 'Daily Devotional';
+            const scripture = document.querySelector('.scripture-text')?.textContent || 'God is good all the time';
             const telegramLink = "https://t.me/sequencesofgod";
             const text = `${title}\n${scripture}\n\nRead the full devotional at: ${window.location.href}\n\nJoin our Telegram channel for daily devotionals: ${telegramLink}`;
             
@@ -602,11 +965,16 @@
                 });
             }
         }
-        
+
         // Print devotional function
         function printDevotional() {
             const originalContent = document.body.innerHTML;
-            const printContent = document.querySelector('.devotional-container').innerHTML;
+            const printContent = document.querySelector('.devotional-container')?.innerHTML || '';
+            
+            if (!printContent) {
+                alert('No devotional content to print.');
+                return;
+            }
             
             document.body.innerHTML = `
                 <div style="padding: 20px; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
@@ -628,13 +996,62 @@
             document.body.innerHTML = originalContent;
             window.location.reload();
         }
+
+        // ==================== INITIALIZATION ====================
         
-        // Telegram link click tracking (optional)
-        document.querySelectorAll('a[href*="t.me/sequencesofgod"]').forEach(link => {
-            link.addEventListener('click', function() {
-                // You could add analytics tracking here
-                console.log('Telegram channel link clicked');
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize date picker
+            const datePicker = document.getElementById('devotionalDate');
+            if (datePicker) {
+                // Set max date to today
+                const today = new Date();
+                const formattedToday = getDateString(today);
+                datePicker.max = formattedToday;
+                
+                // Set initial date from URL parameter or default to today
+                const urlParams = new URLSearchParams(window.location.search);
+                const dateParam = urlParams.get('date');
+                let initialDate;
+                
+                if (dateParam && devotionalsDB[dateParam]) {
+                    initialDate = dateParam;
+                } else {
+                    // Find the most recent devotional (today or most recent past date)
+                    const dates = Object.keys(devotionalsDB).sort().reverse();
+                    if (dates.length > 0) {
+                        initialDate = dates[0]; // Most recent devotional
+                    } else {
+                        initialDate = formattedToday;
+                    }
+                }
+                
+                datePicker.value = initialDate;
+                
+                // Load initial devotional
+                loadDevotionalForDate(initialDate);
+                
+                // Add change event listener
+                datePicker.addEventListener('change', function() {
+                    loadDevotionalForDate(this.value);
+                });
+            }
+            
+            // Handle browser back/forward buttons
+            window.addEventListener('popstate', function(event) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const dateParam = urlParams.get('date');
+                if (dateParam) {
+                    document.getElementById('devotionalDate').value = dateParam;
+                    loadDevotionalForDate(dateParam);
+                }
             });
+        });
+
+        // Telegram link click tracking (optional)
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('a[href*="t.me/sequencesofgod"]')) {
+                console.log('Telegram channel link clicked');
+            }
         });
     </script>
 </body>

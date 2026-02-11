@@ -1677,8 +1677,8 @@
                 if (dateParam && devotionalsDB[dateParam]) {
                     initialDate = dateParam;
                 } else {
-                    // Default to February 28, 2026 (newest devotional)
-                    initialDate = "2026-02-28";
+                    //default to currentdate(newest devotional)
+                    initialDate = "2026-02-11";
                 }
                 datePicker.value = initialDate;
                 loadDevotionalForDate(initialDate);

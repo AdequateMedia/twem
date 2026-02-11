@@ -532,6 +532,30 @@
 
         // ==================== DEVOTIONAL DATABASE ====================
         const devotionalsDB = {
+            "2026-02-12": {
+                title: "As We Forgive",
+                date: "12 February 2026",
+                scripture: "For if you forgive other people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins.",
+                reference: "Matthew 6:14-15 (NIV)",
+                quote: "Forgiveness is not a suggestion but a command—a key that unlocks our own freedom and opens the door to God's grace.",
+                message: `<p>Forgiveness may be the most challenging command Jesus gave us, yet it is non-negotiable. When we pray, "Forgive us our debts, as we also have forgiven our debtors," we are asking God to forgive us in the same measure we forgive others. This is sobering. Our willingness to forgive directly impacts our experience of God's forgiveness.</p>
+                         <p>You may be holding onto a hurt that feels justified. Perhaps someone's betrayal, words, or actions have left deep scars. The enemy would have you believe that holding onto this pain protects you, but in reality, it imprisons you. Unforgiveness is a prison where you are both the guard and the captive.</p>
+                         <p>Today, Jesus invites you to a higher way. Forgiveness does not mean what happened was okay. It does not mean you must trust the person again. It means you release the right to retaliate and trust God to be your vindicator. When you forgive, you are not saying the offense didn't matter; you are saying God's command matters more.</p>
+                         <p>Remember: forgiveness is a process. It may not happen overnight, but it begins with a decision. Start today. Say the words, "I choose to forgive." Let God heal your heart as you obey. The freedom you will experience is worth the obedience.</p>`,
+                prayer: [
+                    "Heavenly Father, I acknowledge Your command to forgive as I have been forgiven.",
+                    "I bring before You every person who has hurt me, knowingly or unknowingly.",
+                    "By an act of my will, I choose to forgive them, releasing them from my judgment.",
+                    "Heal the wounds in my heart caused by their actions.",
+                    "Help me to walk in love and not in bitterness.",
+                    "Protect me from the enemy's attempts to bring up past hurts.",
+                    "Give me the grace to forgive myself for my own failures.",
+                    "Teach me to walk in continual forgiveness as a lifestyle.",
+                    "Let my forgiveness be a testimony of Your grace in my life.",
+                    "Thank You for the freedom that comes through obedience to Your Word."
+                ],
+                remember: "Forgiveness is not about the other person deserving it; it's about you obeying God and receiving the freedom He offers."
+            },
             "2026-02-11": {
                 title: "The Well that never runs dry",
                 date: "11 February 2026",
@@ -631,7 +655,7 @@
 
         // ==================== UTILITY FUNCTIONS ====================
         
-        // Format date as "11 February 2026"
+        // Format date as "12 February 2026"
         function formatDateDisplay(dateString) {
             const date = new Date(dateString);
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
@@ -1008,7 +1032,7 @@
                 const formattedToday = getDateString(today);
                 datePicker.max = formattedToday;
                 
-                // Set initial date from URL parameter or default to today
+                // Set initial date from URL parameter or default to most recent devotional
                 const urlParams = new URLSearchParams(window.location.search);
                 const dateParam = urlParams.get('date');
                 let initialDate;
@@ -1019,7 +1043,7 @@
                     // Find the most recent devotional (today or most recent past date)
                     const dates = Object.keys(devotionalsDB).sort().reverse();
                     if (dates.length > 0) {
-                        initialDate = dates[0]; // Most recent devotional
+                        initialDate = dates[0]; // Most recent devotional (February 12, 2026)
                     } else {
                         initialDate = formattedToday;
                     }

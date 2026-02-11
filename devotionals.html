@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daily Devotionals - Sequence of God | True Worshippers</title>
-    <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset and Base Styles */
+        /* ---------- RESET & BASE ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
@@ -24,14 +23,14 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
-        /* Navigation */
+
+        /* ---------- NAVIGATION ---------- */
         .navbar {
             background: linear-gradient(135deg, #1a365d 0%, #2d5285 100%);
             color: white;
@@ -41,29 +40,30 @@
             top: 0;
             z-index: 1000;
         }
-        
+
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
-        
+
         .logo h2 {
             font-size: 1.8rem;
             margin-bottom: 5px;
         }
-        
+
         .logo p {
             font-size: 0.9rem;
             opacity: 0.9;
         }
-        
+
         .nav-menu {
             display: flex;
             gap: 30px;
             align-items: center;
         }
-        
+
         .nav-menu a {
             color: white;
             text-decoration: none;
@@ -72,15 +72,15 @@
             padding: 8px 0;
             position: relative;
         }
-        
+
         .nav-menu a:hover {
             opacity: 0.9;
         }
-        
+
         .nav-menu a.active {
             border-bottom: 2px solid #e53e3e;
         }
-        
+
         .btn {
             background: #e53e3e;
             color: white;
@@ -89,18 +89,21 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
-        
+
         .btn:hover {
             background: #c53030;
             transform: translateY(-2px);
         }
-        
+
         .btn-small {
             padding: 8px 20px;
             font-size: 0.9rem;
         }
-        
+
         .menu-toggle {
             display: none;
             background: none;
@@ -109,10 +112,10 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
-        /* Page Header */
+
+        /* ---------- PAGE HEADER ---------- */
         .page-header {
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.9) 0%, rgba(45, 82, 133, 0.9) 100%), url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-4.0.3');
+            background: linear-gradient(135deg, rgba(26,54,93,0.9) 0%, rgba(45,82,133,0.9) 100%), url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-4.0.3');
             background-size: cover;
             background-position: center;
             color: white;
@@ -120,21 +123,21 @@
             text-align: center;
             margin-bottom: 40px;
         }
-        
+
         .page-header h1 {
             font-size: 3rem;
             margin-bottom: 15px;
             font-family: 'Merriweather', serif;
         }
-        
+
         .page-header p {
             font-size: 1.2rem;
             opacity: 0.9;
             max-width: 600px;
             margin: 0 auto;
         }
-        
-        /* Devotional Styles */
+
+        /* ---------- DEVOTIONAL CONTAINER ---------- */
         .devotional-container {
             max-width: 800px;
             margin: 0 auto;
@@ -143,36 +146,36 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             overflow: hidden;
         }
-        
+
         .devotional-header {
             background: linear-gradient(135deg, #1a365d 0%, #2d5285 100%);
             color: white;
             padding: 40px;
             text-align: center;
         }
-        
+
         .devotional-date {
             font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 10px;
         }
-        
+
         .devotional-title {
             font-size: 2.2rem;
             margin: 15px 0;
             color: white;
         }
-        
+
         .devotional-author {
             font-size: 1rem;
             opacity: 0.9;
             font-style: italic;
         }
-        
+
         .devotional-content {
             padding: 40px;
         }
-        
+
         .quote-box {
             background: #f8f9fa;
             border-left: 4px solid #e53e3e;
@@ -183,7 +186,7 @@
             font-size: 1.1rem;
             line-height: 1.8;
         }
-        
+
         .scripture-box {
             background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%);
             border-left: 4px solid #3182ce;
@@ -191,30 +194,30 @@
             margin: 30px 0;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .scripture-text {
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 10px;
             color: #1a365d;
         }
-        
+
         .scripture-ref {
             font-size: 1.1rem;
             color: #666;
             font-style: italic;
         }
-        
+
         .message-content {
             line-height: 1.8;
             font-size: 1.1rem;
             color: #333;
         }
-        
+
         .message-content p {
             margin-bottom: 20px;
         }
-        
+
         .prayer-section {
             background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 20%);
             padding: 30px;
@@ -222,7 +225,7 @@
             border-radius: 10px;
             border: 1px solid #fed7d7;
         }
-        
+
         .prayer-title {
             color: #c53030;
             font-size: 1.4rem;
@@ -231,12 +234,12 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .prayer-points {
             list-style-type: none;
             counter-reset: prayer-counter;
         }
-        
+
         .prayer-points li {
             counter-increment: prayer-counter;
             margin-bottom: 15px;
@@ -244,7 +247,7 @@
             position: relative;
             line-height: 1.6;
         }
-        
+
         .prayer-points li:before {
             content: counter(prayer-counter) ".";
             position: absolute;
@@ -253,7 +256,7 @@
             font-weight: bold;
             font-size: 1.1rem;
         }
-        
+
         .remember-box {
             background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
             border-left: 4px solid #38a169;
@@ -261,7 +264,7 @@
             margin: 40px 0;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .remember-title {
             color: #2d3748;
             font-size: 1.3rem;
@@ -270,13 +273,13 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .remember-text {
             font-size: 1.1rem;
             line-height: 1.7;
             color: #2d3748;
         }
-        
+
         .telegram-section {
             background: linear-gradient(135deg, #0088cc 0%, #1da1f2 100%);
             color: white;
@@ -285,12 +288,12 @@
             border-radius: 10px;
             text-align: center;
         }
-        
+
         .telegram-icon {
             font-size: 3rem;
             margin-bottom: 15px;
         }
-        
+
         .telegram-link {
             display: inline-block;
             background: white;
@@ -302,16 +305,16 @@
             margin-top: 15px;
             transition: all 0.3s ease;
         }
-        
+
         .telegram-link:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        
+
         .telegram-link i {
             margin-right: 8px;
         }
-        
+
         .action-buttons {
             display: flex;
             gap: 15px;
@@ -319,8 +322,9 @@
             padding-top: 30px;
             border-top: 1px solid #e2e8f0;
             justify-content: center;
+            flex-wrap: wrap;
         }
-        
+
         .action-btn {
             padding: 12px 25px;
             border: none;
@@ -334,35 +338,35 @@
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         .print-btn {
             background: #4a5568;
             color: white;
         }
-        
+
         .print-btn:hover {
             background: #2d3748;
         }
-        
+
         .share-btn {
             background: #3182ce;
             color: white;
         }
-        
+
         .share-btn:hover {
             background: #2c5282;
         }
-        
+
         .home-btn {
             background: #e53e3e;
             color: white;
         }
-        
+
         .home-btn:hover {
             background: #c53030;
         }
-        
-        /* Date Selector */
+
+        /* ---------- DATE SELECTOR ---------- */
         .date-selector {
             background: white;
             padding: 20px;
@@ -373,12 +377,12 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-        
+
         .date-selector label {
             font-weight: 600;
             color: #1a365d;
         }
-        
+
         .date-selector input {
             padding: 10px 15px;
             border: 2px solid #e2e8f0;
@@ -386,7 +390,7 @@
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
         }
-        
+
         .date-selector button {
             padding: 10px 20px;
             background: #e53e3e;
@@ -398,12 +402,12 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .date-selector button:hover {
             background: #c53030;
         }
-        
-        /* Error and Loading States */
+
+        /* ---------- ERROR & LOADING ---------- */
         .date-error {
             background: #fed7d7;
             color: #c53030;
@@ -412,13 +416,13 @@
             margin: 15px 0;
             display: none;
         }
-        
+
         .loading {
             text-align: center;
             padding: 50px;
             display: none;
         }
-        
+
         .loading-spinner {
             border: 4px solid #f3f3f3;
             border-top: 4px solid #3182ce;
@@ -428,13 +432,13 @@
             animation: spin 1s linear infinite;
             margin: 0 auto 15px;
         }
-        
+
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-        /* Date Navigation */
+
+        /* ---------- DATE NAVIGATION ---------- */
         .date-navigation {
             display: flex;
             justify-content: space-between;
@@ -442,7 +446,7 @@
             padding-top: 20px;
             border-top: 1px solid #e2e8f0;
         }
-        
+
         .nav-btn {
             padding: 12px 25px;
             background: #4a5568;
@@ -457,28 +461,28 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .nav-btn:hover {
             background: #2d3748;
         }
-        
+
         .nav-btn:disabled {
             background: #cbd5e0;
             cursor: not-allowed;
         }
-        
-        /* Archive Section */
+
+        /* ---------- ARCHIVE ---------- */
         .devotional-archive {
             margin-top: 50px;
             background: #f7fafc;
             padding: 30px;
             border-radius: 10px;
         }
-        
+
         .archive-list {
             margin-top: 20px;
         }
-        
+
         .archive-item {
             padding: 15px;
             border-bottom: 1px solid #e2e8f0;
@@ -487,42 +491,42 @@
             align-items: center;
             transition: background-color 0.3s ease;
         }
-        
+
         .archive-item:hover {
             background-color: #edf2f7;
         }
-        
+
         .archive-item strong {
             color: #1a365d;
             font-size: 1.1rem;
         }
-        
+
         .archive-item p {
             color: #666;
             margin-top: 5px;
         }
-        
-        /* Footer */
+
+        /* ---------- FOOTER ---------- */
         .footer {
             background: #1a365d;
             color: white;
             padding: 50px 0 20px;
             margin-top: 50px;
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
         }
-        
+
         .footer-column h4 {
             font-size: 1.3rem;
             margin-bottom: 20px;
             color: white;
         }
-        
+
         .footer-column a {
             color: #cbd5e0;
             text-decoration: none;
@@ -530,29 +534,30 @@
             margin-bottom: 10px;
             transition: color 0.3s ease;
         }
-        
+
         .footer-column a:hover {
             color: white;
         }
-        
+
         .founded-text {
             font-size: 0.9rem;
             margin: 5px 0;
             color: #cbd5e0;
         }
-        
+
         .founders-text {
             font-size: 0.9rem;
             color: #cbd5e0;
             margin-top: 10px;
         }
-        
+
         .social-links {
             display: flex;
             gap: 15px;
             margin-bottom: 20px;
+            flex-wrap: wrap;
         }
-        
+
         .social-link {
             display: inline-flex;
             align-items: center;
@@ -563,12 +568,12 @@
             border-radius: 50%;
             transition: all 0.3s ease;
         }
-        
+
         .social-link:hover {
             background: #e53e3e;
             transform: translateY(-3px);
         }
-        
+
         .contact-info {
             margin: 10px 0;
             display: flex;
@@ -576,20 +581,22 @@
             gap: 10px;
             color: #cbd5e0;
         }
-        
+
         .subscribe-form {
             display: flex;
             margin-top: 15px;
+            flex-wrap: wrap;
         }
-        
+
         .subscribe-form input {
             flex: 1;
             padding: 12px;
             border: none;
             border-radius: 5px 0 0 5px;
             font-family: 'Poppins', sans-serif;
+            min-width: 200px;
         }
-        
+
         .subscribe-form button {
             padding: 12px 20px;
             background: #e53e3e;
@@ -599,7 +606,7 @@
             cursor: pointer;
             font-weight: 600;
         }
-        
+
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
@@ -607,14 +614,14 @@
             color: #cbd5e0;
             font-size: 0.9rem;
         }
-        
-        /* Responsive Design */
+
+        /* ---------- RESPONSIVE ---------- */
         @media (max-width: 768px) {
             .navbar .container {
                 flex-direction: column;
                 align-items: flex-start;
             }
-            
+
             .nav-menu {
                 display: none;
                 width: 100%;
@@ -622,67 +629,80 @@
                 gap: 15px;
                 margin-top: 20px;
             }
-            
+
             .nav-menu.active {
                 display: flex;
             }
-            
+
             .menu-toggle {
                 display: block;
                 position: absolute;
                 right: 20px;
                 top: 20px;
             }
-            
+
             .page-header h1 {
                 font-size: 2rem;
             }
-            
+
             .page-header p {
                 font-size: 1rem;
             }
-            
+
             .devotional-header {
                 padding: 30px 20px;
             }
-            
+
             .devotional-title {
                 font-size: 1.8rem;
             }
-            
+
             .devotional-content {
                 padding: 20px;
             }
-            
+
             .action-buttons,
             .date-navigation {
                 flex-direction: column;
             }
-            
+
             .date-selector {
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .date-selector input,
             .date-selector button {
                 width: 100%;
             }
-            
+
             .telegram-section {
                 padding: 20px;
             }
+
+            .subscribe-form {
+                flex-direction: column;
+            }
+
+            .subscribe-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .subscribe-form button {
+                border-radius: 5px;
+            }
         }
-        
+
         @media (max-width: 480px) {
             .container {
                 padding: 0 15px;
             }
-            
+
             .page-header {
                 padding: 50px 0;
             }
-            
+
             .footer-grid {
                 grid-template-columns: 1fr;
             }
@@ -697,11 +717,9 @@
                 <h2>True Worshippers</h2>
                 <p>Evangelical Ministries International</p>
             </a>
-            
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
-            
             <div class="nav-menu" id="navMenu">
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
@@ -720,35 +738,32 @@
         </div>
     </section>
 
-    <!-- Devotionals Container -->
+    <!-- Devotionals Main Section -->
     <section class="devotionals-container" id="today">
         <div class="container">
+            <!-- Date Selector -->
             <div class="date-selector">
                 <label for="devotionalDate">Select Date:</label>
                 <input type="date" id="devotionalDate">
-                <button onclick="loadTodayDevotional()">
-                    Today's Devotional
-                </button>
+                <button onclick="loadTodayDevotional()">Today's Devotional</button>
             </div>
-            
+
             <!-- Error Message -->
             <div id="dateError" class="date-error">
                 <i class="fas fa-exclamation-triangle"></i>
                 <span id="errorMessage">No devotional available for this date.</span>
             </div>
-            
+
             <!-- Loading Spinner -->
             <div id="loading" class="loading">
                 <div class="loading-spinner"></div>
                 <p>Loading devotional...</p>
             </div>
-            
-            <!-- Devotional Container (Will be populated dynamically) -->
-            <div id="devotionalContainer" class="devotional-container">
-                <!-- Content will be loaded here -->
-            </div>
-            
-            <!-- Date Navigation -->
+
+            <!-- Devotional Content (populated by JS) -->
+            <div id="devotionalContainer" class="devotional-container"></div>
+
+            <!-- Navigation Buttons -->
             <div class="date-navigation" id="dateNavigation" style="display: none;">
                 <button onclick="loadPreviousDevotional()" class="nav-btn" id="prevBtn">
                     <i class="fas fa-arrow-left"></i> Previous
@@ -757,14 +772,12 @@
                     Next <i class="fas fa-arrow-right"></i>
                 </button>
             </div>
-            
-            <!-- Devotional Archive -->
+
+            <!-- Archive -->
             <div class="devotional-archive">
                 <h3>Devotional Archive</h3>
                 <p>Browse through past devotionals</p>
-                <div id="archiveList" class="archive-list">
-                    <!-- Archive will be populated dynamically -->
-                </div>
+                <div id="archiveList" class="archive-list"></div>
             </div>
         </div>
     </section>
@@ -815,7 +828,321 @@
 
     <script>
         // ==================== DEVOTIONAL DATABASE ====================
+        // Complete from February 8 to 28, 2026
         const devotionalsDB = {
+            // ----- FEBRUARY 28, 2026 -----
+            "2026-02-28": {
+                title: "Eternal Learning and Eternal Relationships",
+                date: "28 February 2026",
+                scripture: "In the coming ages he might show the incomparable riches of his grace, expressed in his kindness to us in Christ Jesus. / But you have come to Mount Zion, to the city of the living God, the heavenly Jerusalem... to the church of the firstborn, whose names are written in heaven.",
+                reference: "Ephesians 2:7; Hebrews 12:22-23 (NIV)",
+                quote: "Eternity will not be static—it will be an endless journey of discovery, both of God and of the saints we'll know more deeply than we ever could on earth.",
+                message: `<p>Many imagine eternity as a never‑ending church service, but Scripture paints a far richer picture. God’s grace is so deep that even after countless ages, He will still be unveiling “the incomparable riches of his grace” (Ephesians 2:7). Eternal learning means we will never exhaust the depths of His wisdom, His love, or His creative power. Every moment will bring new revelation, new worship, new joy.</p>
+                         <p>At the same time, we will enjoy perfect relationships. The new Jerusalem is not a collection of isolated individuals but a community—the bride of Christ, the great family of the redeemed. There we will know and be known fully (1 Corinthians 13:12). Loved ones who died in Christ, heroes of faith we’ve admired from afar, brothers and sisters from every tribe and tongue—we will share an intimacy and unity that sin and death once shattered.</p>
+                         <p>This future hope transforms how we live today. We invest in relationships that will last for eternity. We pursue knowledge of God, knowing that every insight here is a down payment on infinite discovery there. And we press on, because the best is yet to come.</p>`,
+                prayer: [
+                    "Lord, thank You that Your grace is inexhaustible and that eternity will be filled with discovering more of You.",
+                    "Forgive me for treating eternal truths with casual indifference, as if I had all of forever to explore them.",
+                    "Give me a hunger to know You now, knowing that every step in knowledge prepares me for eternal learning.",
+                    "Help me to invest in relationships that will outlast this life—fellowship rooted in Christ.",
+                    "Comfort those who grieve with the promise of reunion in Your presence.",
+                    "Unite Your church across every division, giving us a foretaste of the perfect communion to come.",
+                    "Let my conversations reflect the reality that we will spend forever together.",
+                    "Teach me to value people above possessions, because people are eternal.",
+                    "Use me to draw others into the family of God, so they too may share in eternal relationships.",
+                    "I long for the day when faith becomes sight and I see You face to face, surrounded by Your redeemed people."
+                ],
+                remember: "Eternity is not an endless moment—it is an endless relationship with an infinite God and a limitless family."
+            },
+            // ----- FEBRUARY 27, 2026 -----
+            "2026-02-27": {
+                title: "Eternal Reward",
+                date: "27 February 2026",
+                scripture: "Look, I am coming soon! My reward is with me, and I will give to each person according to what they have done.",
+                reference: "Revelation 22:12 (NIV)",
+                quote: "Our rewards are not wages earned, but gifts of grace given to stewards who used what they received for the Master’s joy.",
+                message: `<p>Salvation is a free gift, but rewards are given for faithful service. Scripture speaks of crowns—the crown of righteousness, of life, of glory, of rejoicing. These are not badges of pride but opportunities to cast our crowns at Jesus’ feet, acknowledging that every good work was empowered by His Spirit. Yet He delights to honour those who have served Him well.</p>
+                         <p>The judgment seat of Christ (2 Corinthians 5:10) examines not our sins—they are already atoned for—but our works. Some works will survive the fire of His evaluation; others will be consumed. The reward is not about competition but about capacity: those who have been faithful with little will be entrusted with much in the kingdom.</p>
+                         <p>Today, do not work for reward as a mercenary, but as a child who longs to hear, “Well done, good and faithful servant.” Your labour in the Lord is not in vain. Every cup of cold water given in His name, every act of hidden obedience, every word of encouragement—He sees, and He will reward openly.</p>`,
+                prayer: [
+                    "Lord Jesus, I praise You that You are both the Giver and the Reward.",
+                    "Forgive me when I have served out of selfish ambition or a desire for human praise.",
+                    "Purify my motives: let me serve only to please You and to bless others.",
+                    "Help me to store up treasure in heaven, where neither moth nor rust destroys.",
+                    "Give me faithfulness in the small things, knowing they matter to You.",
+                    "Teach me to invest my time, talents, and resources for eternal returns.",
+                    "Protect me from envy when others are honoured; help me to rejoice with them.",
+                    "May I one day hear those precious words, 'Well done, good and faithful servant.'",
+                    "Until that day, keep me steadfast, immovable, always abounding in Your work.",
+                    "I long to cast every crown at Your feet, for You alone are worthy."
+                ],
+                remember: "Rewards are not about what we earn, but about what He enables—and then graciously celebrates."
+            },
+            // ----- FEBRUARY 26, 2026 -----
+            "2026-02-26": {
+                title: "Eternal Rest",
+                date: "26 February 2026",
+                scripture: "There remains, then, a Sabbath-rest for the people of God; for anyone who enters God's rest also rests from their works, just as God did from his.",
+                reference: "Hebrews 4:9-10 (NIV)",
+                quote: "Eternal rest is not idleness; it is the ceasing of striving, the peace of completion, the joy of work done in His presence and for His glory.",
+                message: `<p>Our lives are marked by toil, frustration, and fatigue. Even our service for God can become wearying when we labour in our own strength. But God promises a rest that goes beyond a weekly Sabbath—it is the rest of the new creation, where the curse is lifted and work becomes pure delight.</p>
+                         <p>This rest is already entered by faith (Hebrews 4:3). We cease from trying to earn God’s favour, resting in Christ’s finished work. Yet a fuller rest awaits: the cessation of all pain, sorrow, and struggle. Not inactivity—for we will reign with Christ and serve Him—but activity without exhaustion, creativity without frustration, worship without distraction.</p>
+                         <p>If you are weary today, look ahead. The rest is not only future; you can draw near to the One who gives rest for your soul. Come to Him, lay down your burdens, and trust that the same God who finished creation and redemption will also finish His good work in you.</p>`,
+                prayer: [
+                    "Father, I thank You for the rest that remains for Your people.",
+                    "I confess that I often strive as if everything depended on me, forgetting that You are the Source.",
+                    "Teach me to enter Your rest now—to trust, to cease from anxious labour.",
+                    "Refresh my weary soul; give me peace that passes understanding.",
+                    "Help me to honour the rhythm of rest You built into creation.",
+                    "Protect me from the idolatry of busyness that masquerades as dedication.",
+                    "I look forward to the day when all striving ends and I serve You with unhindered joy.",
+                    "Until then, sustain me with the promise that my labour in You is never in vain.",
+                    "Let my life be a testimony that true rest is found only in You.",
+                    "Thank You that the final Sabbath will never end, and we will rest—and reign—with You forever."
+                ],
+                remember: "The rest of God is not a break from work, but work in the unbroken presence of the One who makes all labour light."
+            },
+            // ----- FEBRUARY 25, 2026 -----
+            "2026-02-25": {
+                title: "Face to Face",
+                date: "25 February 2026",
+                scripture: "For now we see only a reflection as in a mirror; then we shall see face to face. Now I know in part; then I shall know fully, even as I am fully known.",
+                reference: "1 Corinthians 13:12 (NIV)",
+                quote: "The greatest moment of eternity will not be the absence of pain, but the presence of the One we've loved from afar—face to face at last.",
+                message: `<p>Moses asked to see God’s glory and was hidden in the cleft of the rock, permitted only a glimpse of His back. Job declared, “My eyes shall see Him—not another” (Job 19:27). For centuries, the saints longed for the day when the veil would be removed. That day has come in Christ, but still we see Him through the mirror of Scripture, the lens of faith.</p>
+                         <p>One day the mirror will be shattered. We will look upon the face of Jesus—the same face that was marred for us, that wept at Lazarus’ tomb, that shone on the mount of transfiguration. To see Him is to become like Him (1 John 3:2). It is the consummation of all our worship, the answer to our deepest ache.</p>
+                         <p>Do you long for that day? Let it purify your heart. Let it fuel your witness. Let it comfort you in sorrow. The best is not behind you; it is ahead—and it is a Person.</p>`,
+                prayer: [
+                    "Jesus, the name above every name, I long to see Your face.",
+                    "Thank You that You have revealed the Father to me and that I know You, even now.",
+                    "Forgive me for being satisfied with distant worship when You invite me into intimate presence.",
+                    "Purify my heart, that I may be ready to see You as You are.",
+                    "Let the hope of seeing You face to face transform how I live today.",
+                    "Comfort those who mourn with the assurance that they will see their loved ones again—and see You with them.",
+                    "Remove the scales from the eyes of the unbelieving, that they may behold Your beauty.",
+                    "Hasten the day when every knee bows and every tongue confesses that You are Lord.",
+                    "I love You because You first loved me; help me to love You more.",
+                    "Come, Lord Jesus."
+                ],
+                remember: "We were made for face‑to‑face communion with God. One day, the mirror will be gone—and we will see Him as He is."
+            },
+            // ----- FEBRUARY 24, 2026 -----
+            "2026-02-24": {
+                title: "No More Pain",
+                date: "24 February 2026",
+                scripture: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away.",
+                reference: "Revelation 21:4 (NIV)",
+                quote: "Pain is a symptom of a broken world; the new creation is the cure—not just pain management, but pain eradication.",
+                message: `<p>We live in a world groaning under the weight of pain—physical, emotional, relational. Some pain is acute, a sudden stab; other pain is chronic, a dull ache that never leaves. We learn to cope, to medicate, to endure. But God promises more than coping; He promises removal.</p>
+                         <p>The new creation will have no more pain because its cause—sin and the curse—will be gone. Sickness, injury, and decay will be relics of the old order. The bodies we receive in the resurrection will be imperishable, glorified, and forever free from suffering.</p>
+                         <p>This is not escapism; it is the biblical hope that anchors our souls. When pain threatens to overwhelm you, lift your eyes. The present suffering is light and momentary compared to the weight of glory that will be revealed. And that glory includes a body and a world where pain is no more.</p>`,
+                prayer: [
+                    "Father of mercies, You see every tear and know every pain I carry.",
+                    "Thank You that You are not indifferent to my suffering—You entered it in Christ.",
+                    "Forgive me for the times I have doubted Your goodness because of pain.",
+                    "Give me grace to endure the present, knowing it is preparing an eternal weight of glory.",
+                    "Lay Your healing hand on those who are suffering today, whether in body, mind, or spirit.",
+                    "Use the Church to be Your hands and feet, bringing comfort to the hurting.",
+                    "I long for the day when the word 'pain' will be forgotten, because it will no longer exist.",
+                    "Until then, let me find my strength in You, the God who never grows weary.",
+                    "Help me to be a source of comfort to others, reflecting Your compassion.",
+                    "Maranatha—come, Lord, and make all things new."
+                ],
+                remember: "God does not simply numb our pain; He removes its very source. In the new creation, the word 'pain' will be obsolete."
+            },
+            // ----- FEBRUARY 23, 2026 -----
+            "2026-02-23": {
+                title: "No More Tears",
+                date: "23 February 2026",
+                scripture: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away.",
+                reference: "Revelation 21:4 (NIV)",
+                quote: "God doesn't just remove our tears—He personally wipes them away, a gesture of intimate tenderness that speaks of a Father's love.",
+                message: `<p>Every tear has a story. Tears of grief at the grave of a loved one. Tears of regret for words spoken in anger. Tears of loneliness, of rejection, of dashed hopes. Some tears are hidden, shed in the dark where no one sees. But God sees. And He collects every one in His bottle (Psalm 56:8).</p>
+                         <p>In the new Jerusalem, the tears stop—not because we become stoic, but because every reason for weeping is gone. Death is dead. Sorrow is banished. The separation that tore our hearts is ended. And the most moving detail: God Himself wipes the tears away. Not an angel, not a saint—the Almighty bends down and tenderly removes the moisture from our eyes.</p>
+                         <p>This promise is not just for the future. Even now, He draws near to the brokenhearted. He sits with us in our grief. He gives beauty for ashes. But the final, permanent wiping away of tears awaits that great reunion. Let this hope be your anchor.</p>`,
+                prayer: [
+                    "Lord, You are the God who sees my tears—every one of them.",
+                    "Thank You that You do not despise my sorrow, but invite me to cast my burdens on You.",
+                    "Comfort those who mourn today; let them know that weeping may endure for a night, but joy comes in the morning.",
+                    "Forgive me for trying to hide my tears from You, as if You didn't already know.",
+                    "Heal the deep wounds that still cause me to weep in the quiet moments.",
+                    "Give me the courage to weep with those who weep, bearing one another's burdens.",
+                    "I rejoice that the day is coming when sorrow and sighing will flee away.",
+                    "Until that day, be my comfort and my song.",
+                    "Let the reality of no more tears make me bold in sharing the gospel.",
+                    "I look forward to the moment when Your own hand will wipe my tears away."
+                ],
+                remember: "Tears are the language of a broken world; God’s hand will one day translate them into eternal joy."
+            },
+            // ----- FEBRUARY 22, 2026 -----
+            "2026-02-22": {
+                title: "The New Jerusalem",
+                date: "22 February 2026",
+                scripture: "I saw the Holy City, the new Jerusalem, coming down out of heaven from God, prepared as a bride beautifully dressed for her husband. And I heard a loud voice from the throne saying, 'Look! God's dwelling place is now among the people, and he will dwell with them.'",
+                reference: "Revelation 21:2-3 (NIV)",
+                quote: "The New Jerusalem is not just a place; it is the bride of Christ, the redeemed community, finally and forever at home with God.",
+                message: `<p>John’s vision of the New Jerusalem is breathtaking: a city of pure gold, with foundations of precious stones, gates of pearl, and no temple because the Lord God Almighty and the Lamb are its temple. It is a city that descends from heaven—not built by human hands, but prepared by God for His people.</p>
+                         <p>But the city is more than architecture; it is a community. It is the bride of Christ, adorned for her Husband. Its citizens are the redeemed from every age, nation, and tongue. Its light is the glory of God, and its lamp is the Lamb. There is no night, no curse, no separation—only the unbroken presence of God.</p>
+                         <p>We are citizens of this city already (Philippians 3:20). Our names are written in its registry. We are strangers and exiles here, but one day we will arrive at our true home. Do not be too attached to the passing city of man; you have a permanent address in the city of God.</p>`,
+                prayer: [
+                    "Father, I thank You for preparing a city for me—one with foundations, whose architect and builder is God.",
+                    "Forgive me for living as if this world were my permanent home.",
+                    "Help me to store up treasure in the city that will never be shaken.",
+                    "Let the vision of the New Jerusalem stir my longing and shape my choices.",
+                    "Unite Your church as we journey toward that city together.",
+                    "Thank You that the gates of that city are always open, and I am always welcome.",
+                    "Cleanse me and adorn me with righteousness, that I may be part of the bride presented to Christ.",
+                    "Protect me from the deception of earthly glory that fades.",
+                    "Use me to invite others to become citizens of this eternal city.",
+                    "I long to see the New Jerusalem descend, and to hear Your voice declare, 'Now I dwell with them.'"
+                ],
+                remember: "The New Jerusalem is not a place we ascend to; it is the place God brings down—His home among His people."
+            },
+            // ----- FEBRUARY 21, 2026 -----
+            "2026-02-21": {
+                title: "The New Earth",
+                date: "21 February 2026",
+                scripture: "But in keeping with his promise we are looking forward to a new heaven and a new earth, where righteousness dwells.",
+                reference: "2 Peter 3:13 (NIV)",
+                quote: "The new earth is not a consolation prize for those who missed out on this one—it is the original design, finally liberated from decay.",
+                message: `<p>Many Christians mistakenly believe we will spend eternity as disembodied spirits floating on clouds. The Bible, however, teaches the resurrection of the body and the renewal of the earth. God does not abandon His creation; He redeems it. The same earth that has groaned under the curse will be liberated and transformed.</p>
+                         <p>This means eternity will be physical—we will eat, drink, work, create, and explore. Yet everything will be without sin, without decay, without frustration. The garden of Eden was just a foretaste; the new earth will be Eden restored and expanded.</p>
+                         <p>How should this hope affect us now? We care for the present earth because it is God’s creation, destined for renewal. We anticipate the resurrection because our bodies are not evil but will be glorified. We live with hope, knowing that the best is yet to come—and it will be on earth.</p>`,
+                prayer: [
+                    "Creator God, You made the earth and called it good; I praise You for Your promise to make it new.",
+                    "Forgive me for neglecting Your creation, or for treating it as if it were disposable.",
+                    "Teach me to be a faithful steward of the earth, anticipating its coming redemption.",
+                    "Help me to care for my body as a temple of the Holy Spirit, awaiting resurrection.",
+                    "Give me patience with the brokenness I see around me, knowing it is temporary.",
+                    "Let me not despise the physical realm, for You have redeemed it through the incarnation and resurrection of Your Son.",
+                    "Thank You that the new earth will be filled with righteousness, and sin will be no more.",
+                    "I long for the day when the desert blooms and the lion lies down with the lamb.",
+                    "Until then, may I be an agent of Your restoration—planting seeds of beauty and justice.",
+                    "Come, Lord Jesus, and make all things new."
+                ],
+                remember: "Heaven is not our final destination; the new earth is. God's plan is not evacuation, but renovation."
+            },
+            // ----- FEBRUARY 20, 2026 -----
+            "2026-02-20": {
+                title: "The New Heaven",
+                date: "20 February 2026",
+                scripture: "Then I saw 'a new heaven and a new earth,' for the first heaven and the first earth had passed away, and there was no longer any sea.",
+                reference: "Revelation 21:1 (NIV)",
+                quote: "The new heaven is not a distant escape from earth, but the first glimpse of a creation fully reconciled to its Creator.",
+                message: `<p>When Scripture speaks of “a new heaven,” it is not describing a second story added above the clouds. The “heavens” in biblical language refer to the skies, the cosmos—the entire created order beyond the earth. Sin has polluted not only the ground but also the atmospheric and cosmic realms. Paul writes that all creation groans, waiting for redemption (Romans 8:22).</p>
+                         <p>That redemption will include the heavens. The new heaven and new earth are not replacements made from nothing; they are this creation, cleansed and renewed. The same sun, moon, and stars that declared God’s glory will shine with renewed brilliance. The atmosphere that carried pollutants will carry the fragrance of holiness.</p>
+                         <p>This gives us hope when we look at the cosmos—whether it is the wonder of a starry night or the tragedy of a polluted sky. God is not finished with His universe. The new heaven will be a place where His glory is visibly displayed, and where the separation between heaven and earth (the veil) is permanently removed.</p>`,
+                prayer: [
+                    "Lord of heaven and earth, I praise You for the beauty of Your creation.",
+                    "Forgive us for defiling the skies and the waters; teach us to be better stewards.",
+                    "Thank You that the heavens declare Your glory, and one day they will do so perfectly.",
+                    "I long for the new heaven, where every molecule praises You.",
+                    "Let the stars remind me of Your faithfulness, and the sun of Your righteousness.",
+                    "Help me to live with my eyes lifted up, not in escapism, but in eager expectation.",
+                    "Comfort those who see the decay of creation and grieve; give them hope of renewal.",
+                    "May the new heaven inspire me to reflect Your light in the darkness now.",
+                    "Unite heaven and earth in my worship—let my praise join the chorus of all creation.",
+                    "Even so, come, Lord Jesus; let the new heaven and new earth appear."
+                ],
+                remember: "The heavens are not God's retirement home; they are part of His creation, waiting to be made new."
+            },
+            // ----- FEBRUARY 19, 2026 -----
+            "2026-02-19": {
+                title: "Final Judgment",
+                date: "19 February 2026",
+                scripture: "Then I saw a great white throne and him who was seated on it. The earth and the heavens fled from his presence, and there was no place for them. And I saw the dead, great and small, standing before the throne, and books were opened... The dead were judged according to what they had done as recorded in the books.",
+                reference: "Revelation 20:11-12 (NIV)",
+                quote: "The final judgment is not the end of God's mercy, but the triumph of His justice—where every wrong is made right and every secret is brought to light.",
+                message: `<p>We live in a world of unsolved crimes, unanswered questions, and injustices that seem to go unnoticed. The psalmist cried, “How long, O Lord?” The final judgment is God’s answer. Every act of cruelty, every hidden sin, every oppressive system will be exposed and judged by the only One who is perfectly just.</p>
+                         <p>For those in Christ, this judgment holds no terror. Our names are written in the Lamb’s Book of Life, not because of our works, but because of His work. Yet the judgment of our works at the judgment seat of Christ (2 Corinthians 5:10) is for reward, not condemnation. It is a gracious evaluation of how we stewarded His gifts.</p>
+                         <p>Today, let the reality of judgment sober you. Do not presume upon grace; let it drive you to share the gospel. And let it fill you with hope—because the Judge is also your Savior, and He will one day set everything right.</p>`,
+                prayer: [
+                    "Righteous Judge, I stand in awe of Your perfect justice.",
+                    "Thank You that in Christ, I do not face condemnation; He took my judgment on the cross.",
+                    "Forgive me for the times I have excused sin, in myself or in others, when You call it evil.",
+                    "Give me a holy fear of Your judgment, not to make me afraid, but to make me faithful.",
+                    "I pray for those who do not yet know Christ—open their eyes to the coming judgment and the refuge found in Jesus.",
+                    "Help me to live with the judgment seat in view, building my life with gold, silver, and precious stones.",
+                    "Vindicate the oppressed, Lord; bring justice to those who cry out day and night.",
+                    "Thank You that every tear will be explained, every wound healed, every wrong made right.",
+                    "Let me not grow weary in doing good, knowing that my labor is not in vain in the Lord.",
+                    "Maranatha—come, Lord Jesus, and bring Your justice to the earth."
+                ],
+                remember: "The Judge who sits on the great white throne is the same Jesus who once hung on a cross—your Advocate and your Savior."
+            },
+            // ----- FEBRUARY 18, 2026 -----
+            "2026-02-18": {
+                title: "The Millennial Reign",
+                date: "18 February 2026",
+                scripture: "I saw thrones on which were seated those who had been given authority to judge... They came to life and reigned with Christ a thousand years... They will be priests of God and of Christ and will reign with him for a thousand years.",
+                reference: "Revelation 20:4-6 (NIV)",
+                quote: "The millennial reign is the preview of God's ultimate kingdom—a thousand-year glimpse of what it means for the earth to be filled with the knowledge of the Lord as the waters cover the sea.",
+                message: `<p>After Christ returns and defeats the armies of the world, He will establish His reign on earth for a thousand years. This is not the final state—the new heaven and earth come later—but it is a glorious foretaste. Satan is bound, the nations are ruled with a rod of iron, and the resurrected saints reign with Christ.</p>
+                         <p>This period fulfills Old Testament prophecies of universal peace: swords beaten into plowshares, the wolf dwelling with the lamb, and the earth filled with the knowledge of the Lord. It demonstrates that God’s original purpose for humanity—to rule over creation—is restored. It also proves that even under perfect conditions, the human heart without regeneration remains rebellious (Revelation 20:7-9).</p>
+                         <p>For us, the millennium is a promise that history is not spiraling toward chaos but toward a triumphant King. It assures us that our labor for righteousness is not futile; one day Christ’s rule will be undisputed, and we will share in His authority. Live today as a citizen of that coming kingdom.</p>`,
+                prayer: [
+                    "Lord Jesus, I worship You as King of kings and Lord of lords.",
+                    "Thank You that Your reign will be visible, universal, and unopposed.",
+                    "I long for the day when every enemy is under Your feet and peace prevails.",
+                    "Even now, rule in my heart; subdue every rebellion within me.",
+                    "Give me perseverance; though I cannot see the full victory yet, I trust that You are already victorious.",
+                    "Prepare me to reign with You—teach me faithfulness, humility, and servant leadership.",
+                    "Comfort those who suffer under unjust rulers with the hope of Your perfect governance.",
+                    "Let Your kingdom come, Your will be done, on earth as it is in heaven.",
+                    "Use Your church to display the values of Your coming kingdom now.",
+                    "I rejoice that the thousand years are just the beginning; eternity with You awaits."
+                ],
+                remember: "The millennium is the dress rehearsal for eternity—a thousand‑year demonstration that God’s way is the only way."
+            },
+            // ----- FEBRUARY 17, 2026 -----
+            "2026-02-17": {
+                title: "The Antichrist",
+                date: "17 February 2026",
+                scripture: "Don't let anyone deceive you in any way, for that day will not come until the rebellion occurs and the man of lawlessness is revealed, the man doomed to destruction. He will oppose and will exalt himself over everything that is called God or is worshiped, so that he sets himself up in God's temple, proclaiming himself to be God.",
+                reference: "2 Thessalonians 2:3-4 (NIV)",
+                quote: "The Antichrist is a counterfeit christ—a mirror image of the true King, but with a heart of rebellion rather than submission.",
+                message: `<p>The Bible speaks of a final, evil world leader who will embody the spirit of antichrist that has been at work since the first century. He will rise to power through deception, perform false signs and wonders, demand worship, and persecute believers. His reign is brief but brutal—yet his end is certain: the breath of Jesus’ mouth will destroy him.</p>
+                         <p>Why does God allow such a figure? He exposes the depth of human rebellion. Even those who have seen supernatural signs will reject the truth and love a lie (2 Thessalonians 2:10-12). The Antichrist reveals that the problem is not lack of evidence, but hardness of heart.</p>
+                         <p>Do not be obsessed with identifying the Antichrist; be obsessed with knowing the true Christ. The Spirit of truth lives in you, and you have overcome the spirit of antichrist (1 John 4:4). You belong to the One whose name is above every name. Let that be your confidence.</p>`,
+                prayer: [
+                    "Lord Jesus, You alone are the Christ, the Son of the living God.",
+                    "Thank You that I belong to You and no power can snatch me from Your hand.",
+                    "Protect Your church from the deception of the evil one.",
+                    "Give discernment to believers everywhere, that we may not be led astray.",
+                    "Have mercy on those who are deceived; open their eyes to the truth.",
+                    "I pray against the spirit of antichrist that is already in the world; let it be exposed and defeated.",
+                    "May Your Word be a lamp to my feet and a light to my path in dark days.",
+                    "Help me to be more focused on Your return than on the identity of the lawless one.",
+                    "Strengthen those who face persecution today under antichrist-like regimes.",
+                    "I long for the day when every counterfeit is destroyed and You alone are exalted."
+                ],
+                remember: "The best defense against the counterfeit is a deep, intimate knowledge of the true King."
+            },
+            // ----- FEBRUARY 16, 2026 -----
+            "2026-02-16": {
+                title: "The Great Tribulation",
+                date: "16 February 2026",
+                scripture: "For then there will be great tribulation, such as has not been from the beginning of the world until now, no, and never will be. And if those days had not been cut short, no human being would be saved. But for the sake of the elect those days will be cut short.",
+                reference: "Matthew 24:21-22 (NIV)",
+                quote: "The Great Tribulation is not God's abandonment of His people, but His purifying of a generation and His judgment on a world that rejected His Son.",
+                message: `<p>Jesus warned of a coming time of unparalleled distress. It will be a period of divine judgment poured out on rebellious humanity, but also a time when many will come to faith—a great multitude that no one can count, from every nation, tribe, people, and language (Revelation 7:9-14). These tribulation saints wash their robes in the blood of the Lamb and endure to the end.</p>
+                         <p>For those of us who are not appointed to wrath (1 Thessalonians 5:9), the tribulation is not our destiny. Yet the certainty of coming judgment should move us to urgent prayer and evangelism. People are not ready; they are unaware of the storm approaching. We have the message of shelter in Christ.</p>
+                         <p>Even if we do not live through that specific time, we all face tribulation in this life. The same promise applies: those who endure to the end will be saved. God cuts short the days of trial for the sake of His elect. He will not allow you to be tempted beyond what you can bear.</p>`,
+                prayer: [
+                    "Sovereign Lord, You hold all history in Your hands.",
+                    "Thank You that You have not destined us for wrath, but for salvation through our Lord Jesus Christ.",
+                    "I pray for those who will live through the Great Tribulation—preserve them, strengthen them, and grant them endurance.",
+                    "Help me to be faithful in sharing the gospel so that many may be saved before that day.",
+                    "Purify Your church; remove everything that hinders our witness.",
+                    "Protect Your elect; for their sake, You have promised to cut short the days of trouble.",
+                    "Give me a holy urgency, knowing that time is short.",
+                    "Comfort those who are suffering great tribulation today—in persecuted lands, in hospitals, in broken homes.",
+                    "Let me not fear tribulation, but trust in Your sovereign purposes.",
+                    "Even so, come, Lord Jesus—and end all tribulation forever."
+                ],
+                remember: "Tribulation is not the end; deliverance is. The darkest hour comes just before the dawn of His appearing."
+            },
+            // ----- FEBRUARY 15, 2026 (existing) -----
             "2026-02-15": {
                 title: "The Throne of Help",
                 date: "15 February 2026",
@@ -823,11 +1150,8 @@
                 reference: "Hebrews 4:16 (NIV)",
                 quote: "Your greatest help is not found in your ability, but in your accessibility to the throne room where grace flows freely.",
                 message: `<p>In the Old Testament, the mercy seat in the Holy of Holies was the place where God's presence met humanity. Only the high priest could enter, and only once a year, with blood and trembling. But through Christ, everything changed. The veil was torn, and what was once inaccessible became available to all. Now, we have not just permission but an invitation to approach God's throne—not a throne of judgment, but a throne of grace.</p>
-                         
                          <p>This throne is not just a seat of power; it's a seat of help. The Greek word used here for "help" is "boētheia," which means timely aid, rescue, or support. It's the kind of help that arrives exactly when needed, in the precise form required. When you approach this throne, you're not just getting generic assistance; you're receiving customized, divine help tailored to your specific need at that exact moment.</p>
-                         
                          <p>Notice the two-fold provision at the throne: mercy and grace. Mercy covers what you deserve—your failures, your shortcomings, your sins. Grace provides what you don't deserve—strength, favor, empowerment. You need both: mercy for your past, grace for your present and future. And you're invited to come "with confidence." This isn't presumption; it's the confidence of a child approaching a loving parent, knowing they are welcomed and wanted.</p>
-                         
                          <p>What need are you carrying today? What burden feels too heavy? What challenge seems insurmountable? The throne of help is open to you right now. You don't need to clean yourself up first. You don't need perfect words. You simply need to come. As you approach, mercy will meet your failures, and grace will empower your weaknesses. The help you need is waiting at the throne where the King of kings sits, ready to extend His scepter of favor toward you.</p>`,
                 prayer: [
                     "Father God, I thank You for the access I have to Your throne through Jesus Christ.",
@@ -843,6 +1167,7 @@
                 ],
                 remember: "The throne of God is not a distant place of judgment but an accessible source of help. Come boldly, come often, come expecting to receive exactly what you need."
             },
+            // ----- FEBRUARY 14, 2026 (existing) -----
             "2026-02-14": {
                 title: "The Dividing Line",
                 date: "14 February 2026",
@@ -850,11 +1175,8 @@
                 reference: "2 Corinthians 6:14 (NIV)",
                 quote: "There is a divine line that separates the sacred from the profane. Crossing it doesn't expand your freedom—it compromises your identity.",
                 message: `<p>In a world that celebrates blurred boundaries and calls it tolerance, God's Word draws clear lines. These lines aren't restrictions but protections; they're not fences to keep you in, but boundaries to keep danger out. The dividing line between righteousness and wickedness, light and darkness, is not arbitrary—it's essential for spiritual survival.</p>
-                         
                          <p>The metaphor of being "yoked together" is powerful. In agriculture, a yoke joins two animals so they must walk together, turn together, and work together. If one is strong and the other weak, or if they want to go in different directions, the yoke becomes an instrument of frustration and inefficiency. Spiritually, being unequally yoked means connecting your life's direction, pace, and purpose with someone who doesn't share your ultimate allegiance to Christ. The result is constant tension and compromised progress.</p>
-                         
                          <p>This principle applies beyond marriage (though it certainly includes it). It extends to business partnerships, close friendships, and any relationship that requires shared vision and values. The question isn't whether you can be kind to unbelievers—Jesus was the friend of sinners. The question is about yoke-level connections that determine the direction of your life. Can light and darkness walk together? Only if one extinguishes the other.</p>
-                         
                          <p>Today, examine your yokes. Are there relationships, partnerships, or alliances that are pulling you away from God's purposes? Are you trying to maintain fellowship with both light and darkness? Remember: God doesn't call you to isolation, but to separation—being in the world but not of it. Your closest companions should be those who help you run toward Christ, not those who drag you in the opposite direction. The dividing line exists for your protection and your purpose.</p>`,
                 prayer: [
                     "Lord Jesus, thank You for calling me out of darkness into Your marvelous light.",
@@ -870,6 +1192,7 @@
                 ],
                 remember: "God's dividing lines are not limitations but liberations—they free you to become who He created you to be without the drag of incompatible alliances."
             },
+            // ----- FEBRUARY 13, 2026 (existing) -----
             "2026-02-13": {
                 title: "The Temple Within",
                 date: "13 February 2026",
@@ -877,13 +1200,9 @@
                 reference: "1 Corinthians 6:19-20 (NIV)",
                 quote: "The most sacred space on earth isn't a cathedral or shrine—it's the human body where God Himself chooses to dwell. Your physical existence is holy ground.",
                 message: `<p>In ancient Israel, the temple was the most sacred place—the meeting point between heaven and earth. Its construction required the finest materials, meticulous craftsmanship, and absolute purity. Only consecrated priests could enter certain areas, and the presence of God filled the space with such holiness that no impurity could survive there. Today, Paul reveals an astonishing truth: that same sacredness now resides within you.</p>
-                         
                          <p>Your body is not merely flesh and bones; it is a living temple of the Holy Spirit. When you received Christ, God Himself took up residence within you. This changes everything about how you view your physical existence. No longer are you just a biological organism; you are a walking sanctuary where the divine presence dwells.</p>
-                         
                          <p>Consider the implications: When you treat your body with disregard—whether through harmful substances, unhealthy habits, or impure thoughts—you're desecrating sacred space. When you indulge in what dishonors God, you're bringing defilement into the holy of holies. But when you care for your body, discipline your appetites, and use your physical being for God's glory, you're maintaining the temple for its divine occupant.</p>
-                         
                          <p>The temple metaphor also reminds us of ownership. Paul emphasizes: "You are not your own." We tend to think "my body, my choice," but Scripture presents a different reality. Your body belongs to God twice over—by creation and by redemption. He formed you, and then He bought you back at the ultimate price: the blood of His Son. Your physical life is not yours to do with as you please; it's a sacred trust to be stewarded for His purposes.</p>
-                         
                          <p>Today, examine your temple. What have you allowed into this sacred space? What habits or patterns dishonor the Holy Spirit's residence? Remember: God doesn't dwell in temples made by human hands anymore. He lives in you. Honor Him with the temple He's chosen to call home.</p>`,
                 prayer: [
                     "Holy Spirit, I acknowledge Your sacred presence within me. Forgive me for the times I have treated Your temple carelessly or dishonorably.",
@@ -899,6 +1218,7 @@
                 ],
                 remember: "Your body is not just your temporary home—it's God's permanent residence. Treat it with the reverence due the dwelling place of the Most High."
             },
+            // ----- FEBRUARY 12, 2026 (existing) -----
             "2026-02-12": {
                 title: "As We Forgive",
                 date: "12 February 2026",
@@ -923,6 +1243,7 @@
                 ],
                 remember: "Forgiveness is not about the other person deserving it; it's about you obeying God and receiving the freedom He offers."
             },
+            // ----- FEBRUARY 11, 2026 (existing) -----
             "2026-02-11": {
                 title: "The Well that never runs dry",
                 date: "11 February 2026",
@@ -947,6 +1268,7 @@
                 ],
                 remember: "Your capacity to give is not determined by your resources but by your connection to the Source. Stay connected to Jesus, the well that never runs dry, and you will always have enough for yourself and to share with others."
             },
+            // ----- FEBRUARY 10, 2026 (existing) -----
             "2026-02-10": {
                 title: "The Wound That Heals",
                 date: "10 February 2026",
@@ -971,6 +1293,7 @@
                 ],
                 remember: "Christ's wounds brought our healing. In the same way, God can use your healed wounds to bring healing to others. Your pain has purpose in God's redemptive plan."
             },
+            // ----- FEBRUARY 09, 2026 (existing) -----
             "2026-02-09": {
                 title: "NO FAST ROAD TO SUCCESS",
                 date: "9 February 2026",
@@ -995,6 +1318,7 @@
                 ],
                 remember: "The road to lasting success is paved with faithfulness, not speed. What God builds through process will stand the test of time."
             },
+            // ----- FEBRUARY 08, 2026 (existing) -----
             "2026-02-08": {
                 title: "Union with Christ",
                 date: "8 February 2026",
@@ -1021,15 +1345,12 @@
         };
 
         // ==================== UTILITY FUNCTIONS ====================
-        
-        // Format date as "12 February 2026"
         function formatDateDisplay(dateString) {
             const date = new Date(dateString);
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
             return date.toLocaleDateString('en-US', options);
         }
 
-        // Get date string in YYYY-MM-DD format
         function getDateString(date) {
             const year = date.getFullYear();
             const month = String(date.getMonth() + 1).padStart(2, '0');
@@ -1038,25 +1359,19 @@
         }
 
         // ==================== CORE FUNCTIONALITY ====================
-        
-        // Load devotional for a specific date
         function loadDevotionalForDate(dateString) {
             const container = document.getElementById('devotionalContainer');
             const errorDiv = document.getElementById('dateError');
             const loadingDiv = document.getElementById('loading');
             const dateNavigation = document.getElementById('dateNavigation');
             
-            // Show loading
             loadingDiv.style.display = 'block';
             container.style.display = 'none';
             errorDiv.style.display = 'none';
             
-            // Simulate loading delay
             setTimeout(() => {
                 if (devotionalsDB[dateString]) {
                     const devotional = devotionalsDB[dateString];
-                    
-                    // Build HTML for the devotional
                     const html = `
                         <div class="devotional-header">
                             <div class="devotional-date">
@@ -1068,15 +1383,11 @@
                                 Daily Devotional by Apostle Daniel A. Solomon
                             </div>
                         </div>
-                        
                         <div class="devotional-content">
-                            <!-- Daily Quote -->
                             <div class="quote-box">
                                 <i class="fas fa-quote-left" style="color: #e53e3e; margin-right: 10px;"></i>
                                 "${devotional.quote}"
                             </div>
-                            
-                            <!-- Scripture -->
                             <div class="scripture-box">
                                 <div class="scripture-text">
                                     "${devotional.scripture}"
@@ -1085,26 +1396,18 @@
                                     — ${devotional.reference}
                                 </div>
                             </div>
-                            
-                            <!-- Message -->
                             <div class="message-content">
                                 ${devotional.message}
                             </div>
-                            
-                            <!-- Today's Prayer -->
                             <div class="prayer-section">
                                 <h3 class="prayer-title">
                                     <i class="fas fa-pray"></i>
                                     Today's Prayer
                                 </h3>
                                 <ol class="prayer-points">
-                                    ${devotional.prayer.map((point, index) => 
-                                        `<li>${point}</li>`
-                                    ).join('')}
+                                    ${devotional.prayer.map((point, index) => `<li>${point}</li>`).join('')}
                                 </ol>
                             </div>
-                            
-                            <!-- Telegram Channel Section -->
                             <div class="telegram-section">
                                 <div class="telegram-icon">
                                     <i class="fab fa-telegram"></i>
@@ -1118,8 +1421,6 @@
                                     Stay connected for daily spiritual nourishment
                                 </p>
                             </div>
-                            
-                            <!-- Remember -->
                             <div class="remember-box">
                                 <h3 class="remember-title">
                                     <i class="fas fa-lightbulb"></i>
@@ -1129,57 +1430,35 @@
                                     ${devotional.remember}
                                 </p>
                             </div>
-                            
-                            <!-- Author -->
                             <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
                                 <p style="font-style: italic; color: #4a5568;">
                                     <i class="fas fa-user-circle" style="margin-right: 8px;"></i>
                                     Apostle Daniel A. Solomon
                                 </p>
                             </div>
-                            
-                            <!-- Action Buttons -->
                             <div class="action-buttons">
                                 <button onclick="printDevotional()" class="action-btn print-btn">
-                                    <i class="fas fa-print"></i>
-                                    Print Devotional
+                                    <i class="fas fa-print"></i> Print Devotional
                                 </button>
                                 <button onclick="shareDevotional()" class="action-btn share-btn">
-                                    <i class="fas fa-share-alt"></i>
-                                    Share
+                                    <i class="fas fa-share-alt"></i> Share
                                 </button>
                                 <a href="index.html" class="action-btn home-btn">
-                                    <i class="fas fa-home"></i>
-                                    Back to Home
+                                    <i class="fas fa-home"></i> Back to Home
                                 </a>
                             </div>
                         </div>
                     `;
-                    
                     container.innerHTML = html;
                     container.style.display = 'block';
-                    
-                    // Update date picker
                     document.getElementById('devotionalDate').value = dateString;
-                    
-                    // Update URL without reloading page
                     history.pushState({date: dateString}, '', `?date=${dateString}`);
-                    
-                    // Update navigation buttons
                     updateNavigationButtons(dateString);
                     dateNavigation.style.display = 'flex';
-                    
-                    // Update page title
                     document.title = `${devotional.title} | Daily Devotional - True Worshippers`;
-                    
-                    // Hide loading
                     loadingDiv.style.display = 'none';
-                    
-                    // Scroll to top
                     window.scrollTo(0, 0);
-                    
                 } else {
-                    // No devotional for this date
                     document.getElementById('errorMessage').textContent = 
                         `No devotional available for ${formatDateDisplay(dateString)}. Please select another date.`;
                     errorDiv.style.display = 'block';
@@ -1187,107 +1466,72 @@
                     dateNavigation.style.display = 'none';
                     loadingDiv.style.display = 'none';
                 }
-                
-                // Update archive list
                 updateArchiveList();
-            }, 300); // Simulated loading delay
+            }, 300);
         }
 
-        // Load today's devotional
         function loadTodayDevotional() {
             const today = new Date();
             const todayString = getDateString(today);
             loadDevotionalForDate(todayString);
         }
 
-        // Load previous devotional
         function loadPreviousDevotional() {
             const currentDate = document.getElementById('devotionalDate').value;
             const date = new Date(currentDate);
             date.setDate(date.getDate() - 1);
-            const prevDate = getDateString(date);
-            
-            // Check if there's a devotional for the previous date
-            let found = false;
-            let checkDate = new Date(prevDate);
-            
-            // Go backwards until we find a devotional or reach the beginning
-            for (let i = 0; i < 30; i++) { // Limit search to 30 days back
+            let checkDate = new Date(date);
+            for (let i = 0; i < 30; i++) {
                 const checkDateStr = getDateString(checkDate);
                 if (devotionalsDB[checkDateStr]) {
                     loadDevotionalForDate(checkDateStr);
-                    found = true;
-                    break;
+                    return;
                 }
                 checkDate.setDate(checkDate.getDate() - 1);
             }
-            
-            if (!found) {
-                document.getElementById('errorMessage').textContent = 
-                    "No earlier devotionals found.";
-                document.getElementById('dateError').style.display = 'block';
-            }
+            document.getElementById('errorMessage').textContent = "No earlier devotionals found.";
+            document.getElementById('dateError').style.display = 'block';
         }
 
-        // Load next devotional
         function loadNextDevotional() {
             const currentDate = document.getElementById('devotionalDate').value;
             const date = new Date(currentDate);
             date.setDate(date.getDate() + 1);
-            const nextDate = getDateString(date);
-            
-            // Check if there's a devotional for the next date
-            let found = false;
-            let checkDate = new Date(nextDate);
+            let checkDate = new Date(date);
             const today = new Date();
             const todayStr = getDateString(today);
-            
-            // Go forwards until we find a devotional or reach today
-            for (let i = 0; i < 30; i++) { // Limit search to 30 days forward
+            for (let i = 0; i < 30; i++) {
                 const checkDateStr = getDateString(checkDate);
                 if (devotionalsDB[checkDateStr]) {
                     loadDevotionalForDate(checkDateStr);
-                    found = true;
-                    break;
+                    return;
                 }
-                if (checkDateStr >= todayStr) {
-                    break;
-                }
+                if (checkDateStr >= todayStr) break;
                 checkDate.setDate(checkDate.getDate() + 1);
             }
-            
-            if (!found) {
-                document.getElementById('errorMessage').textContent = 
-                    "No later devotionals found.";
-                document.getElementById('dateError').style.display = 'block';
-            }
+            document.getElementById('errorMessage').textContent = "No later devotionals found.";
+            document.getElementById('dateError').style.display = 'block';
         }
 
-        // Update navigation buttons state
         function updateNavigationButtons(currentDateString) {
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             
-            // Check for previous devotional
             const currentDate = new Date(currentDateString);
             let hasPrevious = false;
             let checkDate = new Date(currentDate);
-            
             for (let i = 0; i < 30; i++) {
                 checkDate.setDate(checkDate.getDate() - 1);
-                const checkDateStr = getDateString(checkDate);
-                if (devotionalsDB[checkDateStr]) {
+                if (devotionalsDB[getDateString(checkDate)]) {
                     hasPrevious = true;
                     break;
                 }
             }
             
-            // Check for next devotional
             let hasNext = false;
             checkDate = new Date(currentDate);
             const today = new Date();
             const todayStr = getDateString(today);
-            
             for (let i = 0; i < 30; i++) {
                 checkDate.setDate(checkDate.getDate() + 1);
                 const checkDateStr = getDateString(checkDate);
@@ -1295,30 +1539,23 @@
                     hasNext = true;
                     break;
                 }
-                if (checkDateStr >= todayStr) {
-                    break;
-                }
+                if (checkDateStr >= todayStr) break;
             }
             
             prevBtn.disabled = !hasPrevious;
             nextBtn.disabled = !hasNext;
-            
-            // Update button styles
             prevBtn.style.background = hasPrevious ? '#4a5568' : '#cbd5e0';
             nextBtn.style.background = hasNext ? '#4a5568' : '#cbd5e0';
         }
 
-        // Update archive list
         function updateArchiveList() {
             const archiveList = document.getElementById('archiveList');
-            const dates = Object.keys(devotionalsDB).sort().reverse(); // Most recent first
-            
+            const dates = Object.keys(devotionalsDB).sort().reverse();
             let html = '';
             if (dates.length > 0) {
                 dates.forEach(dateStr => {
                     const devotional = devotionalsDB[dateStr];
                     const formattedDate = formatDateDisplay(dateStr);
-                    
                     html += `
                         <div class="archive-item">
                             <div>
@@ -1334,19 +1571,15 @@
             } else {
                 html = `<p style="text-align: center; color: #666;">No devotionals available yet. Check back soon!</p>`;
             }
-            
             archiveList.innerHTML = html;
         }
 
-        // ==================== SHARE & PRINT FUNCTIONS ====================
-        
-        // Share devotional function
+        // ==================== SHARE & PRINT ====================
         function shareDevotional() {
             const title = document.querySelector('.devotional-title')?.textContent || 'Daily Devotional';
             const scripture = document.querySelector('.scripture-text')?.textContent || 'God is good all the time';
             const telegramLink = "https://t.me/sequencesofgod";
             const text = `${title}\n${scripture}\n\nRead the full devotional at: ${window.location.href}\n\nJoin our Telegram channel for daily devotionals: ${telegramLink}`;
-            
             if (navigator.share) {
                 navigator.share({
                     title: 'Daily Devotional - True Worshippers',
@@ -1360,16 +1593,13 @@
             }
         }
 
-        // Print devotional function
         function printDevotional() {
             const originalContent = document.body.innerHTML;
             const printContent = document.querySelector('.devotional-container')?.innerHTML || '';
-            
             if (!printContent) {
                 alert('No devotional content to print.');
                 return;
             }
-            
             document.body.innerHTML = `
                 <div style="padding: 20px; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
                     <h1 style="text-align: center; color: #1a365d;">True Worshippers Evangelical Ministries</h1>
@@ -1385,54 +1615,37 @@
                     </div>
                 </div>
             `;
-            
             window.print();
             document.body.innerHTML = originalContent;
             window.location.reload();
         }
 
         // ==================== INITIALIZATION ====================
-        
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize mobile menu
+            // Mobile menu
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
-            
             if (menuToggle && navMenu) {
                 menuToggle.addEventListener('click', function() {
                     navMenu.classList.toggle('active');
-                    const isOpen = navMenu.classList.contains('active');
-                    
-                    if (isOpen) {
-                        menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-                    } else {
-                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                    
-                    menuToggle.setAttribute('aria-expanded', isOpen);
+                    menuToggle.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
                 });
-                
-                // Close menu when clicking outside
-                document.addEventListener('click', function(event) {
-                    if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                document.addEventListener('click', function(e) {
+                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
                         navMenu.classList.remove('active');
                         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        menuToggle.setAttribute('aria-expanded', 'false');
                     }
                 });
-                
-                // Close menu when clicking on a link
                 const navLinks = navMenu.querySelectorAll('a');
                 navLinks.forEach(link => {
                     link.addEventListener('click', function() {
                         navMenu.classList.remove('active');
                         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                        menuToggle.setAttribute('aria-expanded', 'false');
                     });
                 });
             }
-            
-            // Form submission handling
+
+            // Subscription form
             const subscribeForm = document.getElementById('subscribeForm');
             if (subscribeForm) {
                 subscribeForm.addEventListener('submit', function(e) {
@@ -1440,10 +1653,8 @@
                     const email = this.querySelector('input[type="email"]').value;
                     const submitBtn = this.querySelector('button[type="submit"]');
                     const originalText = submitBtn.textContent;
-                    
                     submitBtn.textContent = 'Subscribing...';
                     submitBtn.disabled = true;
-                    
                     setTimeout(() => {
                         alert(`Thank you for subscribing with ${email}! You will receive daily devotionals starting tomorrow.`);
                         this.reset();
@@ -1452,44 +1663,30 @@
                     }, 1000);
                 });
             }
-            
-            // Initialize date picker
+
+            // Date picker
             const datePicker = document.getElementById('devotionalDate');
             if (datePicker) {
-                // Set max date to today
                 const today = new Date();
                 const formattedToday = getDateString(today);
                 datePicker.max = formattedToday;
                 
-                // Set initial date from URL parameter or default to most recent devotional
                 const urlParams = new URLSearchParams(window.location.search);
                 const dateParam = urlParams.get('date');
                 let initialDate;
-                
                 if (dateParam && devotionalsDB[dateParam]) {
                     initialDate = dateParam;
                 } else {
-                    // Find the most recent devotional (today or most recent past date)
-                    const dates = Object.keys(devotionalsDB).sort().reverse();
-                    if (dates.length > 0) {
-                        initialDate = "2026-02-15"; // Default to February 15, 2026 devotional (newest)
-                    } else {
-                        initialDate = formattedToday;
-                    }
+                    // Default to February 28, 2026 (newest devotional)
+                    initialDate = "2026-02-28";
                 }
-                
                 datePicker.value = initialDate;
-                
-                // Load initial devotional
                 loadDevotionalForDate(initialDate);
-                
-                // Add change event listener
                 datePicker.addEventListener('change', function() {
                     loadDevotionalForDate(this.value);
                 });
             }
-            
-            // Handle browser back/forward buttons
+
             window.addEventListener('popstate', function(event) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const dateParam = urlParams.get('date');
@@ -1498,17 +1695,8 @@
                     loadDevotionalForDate(dateParam);
                 }
             });
-            
-            // Initialize archive list
-            updateArchiveList();
-        });
 
-        // Telegram link click tracking (optional)
-        document.addEventListener('click', function(e) {
-            if (e.target.closest('a[href*="t.me/sequencesofgod"]')) {
-                console.log('Telegram channel link clicked');
-                // You can add analytics tracking here if needed
-            }
+            updateArchiveList();
         });
     </script>
 </body>

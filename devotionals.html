@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ---------- RESET & BASE ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -30,7 +29,7 @@
             padding: 0 20px;
         }
 
-        /* ---------- NAVIGATION ---------- */
+        /* Navigation */
         .navbar {
             background: linear-gradient(135deg, #1a365d 0%, #2d5285 100%);
             color: white;
@@ -45,7 +44,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .logo h2 {
@@ -69,16 +67,15 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
-            padding: 8px 0;
-            position: relative;
         }
 
         .nav-menu a:hover {
-            opacity: 0.9;
+            color: #e53e3e;
         }
 
         .nav-menu a.active {
-            border-bottom: 2px solid #e53e3e;
+            color: #e53e3e;
+            font-weight: 600;
         }
 
         .btn {
@@ -113,19 +110,19 @@
             cursor: pointer;
         }
 
-        /* ---------- PAGE HEADER ---------- */
+        /* Page Header */
         .page-header {
             background: linear-gradient(135deg, rgba(26,54,93,0.9) 0%, rgba(45,82,133,0.9) 100%), url('https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-4.0.3');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
             margin-bottom: 40px;
         }
 
         .page-header h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 15px;
             font-family: 'Merriweather', serif;
         }
@@ -137,7 +134,83 @@
             margin: 0 auto;
         }
 
-        /* ---------- DEVOTIONAL CONTAINER ---------- */
+        /* Date Selector */
+        .date-selector {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .date-selector label {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        .date-selector input {
+            padding: 10px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .date-selector button {
+            padding: 10px 25px;
+            background: #e53e3e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .date-selector button:hover {
+            background: #c53030;
+        }
+
+        /* Error & Loading */
+        .date-error {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: none;
+            border-left: 4px solid #c53030;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            display: none;
+        }
+
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3182ce;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Devotional Container */
         .devotional-container {
             max-width: 800px;
             margin: 0 auto;
@@ -161,7 +234,7 @@
         }
 
         .devotional-title {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin: 15px 0;
             color: white;
         }
@@ -196,14 +269,14 @@
         }
 
         .scripture-text {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             margin-bottom: 10px;
             color: #1a365d;
         }
 
         .scripture-ref {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
             font-style: italic;
         }
@@ -228,7 +301,7 @@
 
         .prayer-title {
             color: #c53030;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -366,79 +439,7 @@
             background: #c53030;
         }
 
-        /* ---------- DATE SELECTOR ---------- */
-        .date-selector {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .date-selector label {
-            font-weight: 600;
-            color: #1a365d;
-        }
-
-        .date-selector input {
-            padding: 10px 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: 5px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-        }
-
-        .date-selector button {
-            padding: 10px 20px;
-            background: #e53e3e;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .date-selector button:hover {
-            background: #c53030;
-        }
-
-        /* ---------- ERROR & LOADING ---------- */
-        .date-error {
-            background: #fed7d7;
-            color: #c53030;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 15px 0;
-            display: none;
-        }
-
-        .loading {
-            text-align: center;
-            padding: 50px;
-            display: none;
-        }
-
-        .loading-spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3182ce;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* ---------- DATE NAVIGATION ---------- */
+        /* Date Navigation */
         .date-navigation {
             display: flex;
             justify-content: space-between;
@@ -462,7 +463,7 @@
             transition: all 0.3s ease;
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover:not(:disabled) {
             background: #2d3748;
         }
 
@@ -471,7 +472,7 @@
             cursor: not-allowed;
         }
 
-        /* ---------- ARCHIVE ---------- */
+        /* Archive */
         .devotional-archive {
             margin-top: 50px;
             background: #f7fafc;
@@ -481,6 +482,8 @@
 
         .archive-list {
             margin-top: 20px;
+            max-height: 300px;
+            overflow-y: auto;
         }
 
         .archive-item {
@@ -498,15 +501,16 @@
 
         .archive-item strong {
             color: #1a365d;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .archive-item p {
             color: #666;
             margin-top: 5px;
+            font-size: 0.9rem;
         }
 
-        /* ---------- FOOTER ---------- */
+        /* Footer */
         .footer {
             background: #1a365d;
             color: white;
@@ -522,7 +526,7 @@
         }
 
         .footer-column h4 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 20px;
             color: white;
         }
@@ -537,18 +541,6 @@
 
         .footer-column a:hover {
             color: white;
-        }
-
-        .founded-text {
-            font-size: 0.9rem;
-            margin: 5px 0;
-            color: #cbd5e0;
-        }
-
-        .founders-text {
-            font-size: 0.9rem;
-            color: #cbd5e0;
-            margin-top: 10px;
         }
 
         .social-links {
@@ -615,7 +607,7 @@
             font-size: 0.9rem;
         }
 
-        /* ---------- RESPONSIVE ---------- */
+        /* Responsive */
         @media (max-width: 768px) {
             .navbar .container {
                 flex-direction: column;
@@ -645,16 +637,12 @@
                 font-size: 2rem;
             }
 
-            .page-header p {
-                font-size: 1rem;
-            }
-
             .devotional-header {
                 padding: 30px 20px;
             }
 
             .devotional-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
 
             .devotional-content {
@@ -671,19 +659,6 @@
                 align-items: stretch;
             }
 
-            .date-selector input,
-            .date-selector button {
-                width: 100%;
-            }
-
-            .telegram-section {
-                padding: 20px;
-            }
-
-            .subscribe-form {
-                flex-direction: column;
-            }
-
             .subscribe-form input {
                 border-radius: 5px;
                 margin-bottom: 10px;
@@ -691,20 +666,6 @@
 
             .subscribe-form button {
                 border-radius: 5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 15px;
-            }
-
-            .page-header {
-                padding: 50px 0;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -760,8 +721,10 @@
                 <p>Loading devotional...</p>
             </div>
 
-            <!-- Devotional Content (populated by JS) -->
-            <div id="devotionalContainer" class="devotional-container"></div>
+            <!-- Devotional Content -->
+            <div id="devotionalContainer" class="devotional-container">
+                <!-- Content loaded by JS -->
+            </div>
 
             <!-- Navigation Buttons -->
             <div class="date-navigation" id="dateNavigation" style="display: none;">
@@ -789,8 +752,8 @@
                 <div class="footer-column">
                     <h4>True Worshippers</h4>
                     <p>Evangelical Ministries International</p>
-                    <p class="founded-text">Founded 2020</p>
-                    <p class="founders-text">By Apostle Daniel & Reverend Mrs Debby A Solomon</p>
+                    <p>Founded 2020</p>
+                    <p>By Apostle Daniel & Reverend Mrs Debby A Solomon</p>
                 </div>
                 <div class="footer-column">
                     <h4>Quick Links</h4>
@@ -806,7 +769,6 @@
                         <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                         <a href="https://t.me/sequencesofgod" target="_blank" class="social-link"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                     <p class="contact-info"><i class="fas fa-envelope"></i> info@trueworshippers.org</p>
                     <p class="contact-info"><i class="fas fa-phone"></i> +1 (234) 567-8900</p>
@@ -816,7 +778,7 @@
                     <p>Get daily devotionals in your email</p>
                     <form class="subscribe-form" id="subscribeForm">
                         <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-small">Subscribe</button>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -828,525 +790,1156 @@
 
     <script>
         // ==================== DEVOTIONAL DATABASE ====================
-        // Complete from February 8 to 28, 2026
         const devotionalsDB = {
-            // ----- FEBRUARY 28, 2026 -----
-            "2026-02-28": {
-                title: "Eternal Learning and Eternal Relationships",
-                date: "28 February 2026",
-                scripture: "In the coming ages he might show the incomparable riches of his grace, expressed in his kindness to us in Christ Jesus. / But you have come to Mount Zion, to the city of the living God, the heavenly Jerusalem... to the church of the firstborn, whose names are written in heaven.",
-                reference: "Ephesians 2:7; Hebrews 12:22-23 (NIV)",
-                quote: "Eternity will not be static—it will be an endless journey of discovery, both of God and of the saints we'll know more deeply than we ever could on earth.",
-                message: `<p>Many imagine eternity as a never‑ending church service, but Scripture paints a far richer picture. God’s grace is so deep that even after countless ages, He will still be unveiling “the incomparable riches of his grace” (Ephesians 2:7). Eternal learning means we will never exhaust the depths of His wisdom, His love, or His creative power. Every moment will bring new revelation, new worship, new joy.</p>
-                         <p>At the same time, we will enjoy perfect relationships. The new Jerusalem is not a collection of isolated individuals but a community—the bride of Christ, the great family of the redeemed. There we will know and be known fully (1 Corinthians 13:12). Loved ones who died in Christ, heroes of faith we’ve admired from afar, brothers and sisters from every tribe and tongue—we will share an intimacy and unity that sin and death once shattered.</p>
-                         <p>This future hope transforms how we live today. We invest in relationships that will last for eternity. We pursue knowledge of God, knowing that every insight here is a down payment on infinite discovery there. And we press on, because the best is yet to come.</p>`,
-                prayer: [
-                    "Lord, thank You that Your grace is inexhaustible and that eternity will be filled with discovering more of You.",
-                    "Forgive me for treating eternal truths with casual indifference, as if I had all of forever to explore them.",
-                    "Give me a hunger to know You now, knowing that every step in knowledge prepares me for eternal learning.",
-                    "Help me to invest in relationships that will outlast this life—fellowship rooted in Christ.",
-                    "Comfort those who grieve with the promise of reunion in Your presence.",
-                    "Unite Your church across every division, giving us a foretaste of the perfect communion to come.",
-                    "Let my conversations reflect the reality that we will spend forever together.",
-                    "Teach me to value people above possessions, because people are eternal.",
-                    "Use me to draw others into the family of God, so they too may share in eternal relationships.",
-                    "I long for the day when faith becomes sight and I see You face to face, surrounded by Your redeemed people."
-                ],
-                remember: "Eternity is not an endless moment—it is an endless relationship with an infinite God and a limitless family."
-            },
-            // ----- FEBRUARY 27, 2026 -----
-            "2026-02-27": {
-                title: "Eternal Reward",
-                date: "27 February 2026",
-                scripture: "Look, I am coming soon! My reward is with me, and I will give to each person according to what they have done.",
-                reference: "Revelation 22:12 (NIV)",
-                quote: "Our rewards are not wages earned, but gifts of grace given to stewards who used what they received for the Master’s joy.",
-                message: `<p>Salvation is a free gift, but rewards are given for faithful service. Scripture speaks of crowns—the crown of righteousness, of life, of glory, of rejoicing. These are not badges of pride but opportunities to cast our crowns at Jesus’ feet, acknowledging that every good work was empowered by His Spirit. Yet He delights to honour those who have served Him well.</p>
-                         <p>The judgment seat of Christ (2 Corinthians 5:10) examines not our sins—they are already atoned for—but our works. Some works will survive the fire of His evaluation; others will be consumed. The reward is not about competition but about capacity: those who have been faithful with little will be entrusted with much in the kingdom.</p>
-                         <p>Today, do not work for reward as a mercenary, but as a child who longs to hear, “Well done, good and faithful servant.” Your labour in the Lord is not in vain. Every cup of cold water given in His name, every act of hidden obedience, every word of encouragement—He sees, and He will reward openly.</p>`,
-                prayer: [
-                    "Lord Jesus, I praise You that You are both the Giver and the Reward.",
-                    "Forgive me when I have served out of selfish ambition or a desire for human praise.",
-                    "Purify my motives: let me serve only to please You and to bless others.",
-                    "Help me to store up treasure in heaven, where neither moth nor rust destroys.",
-                    "Give me faithfulness in the small things, knowing they matter to You.",
-                    "Teach me to invest my time, talents, and resources for eternal returns.",
-                    "Protect me from envy when others are honoured; help me to rejoice with them.",
-                    "May I one day hear those precious words, 'Well done, good and faithful servant.'",
-                    "Until that day, keep me steadfast, immovable, always abounding in Your work.",
-                    "I long to cast every crown at Your feet, for You alone are worthy."
-                ],
-                remember: "Rewards are not about what we earn, but about what He enables—and then graciously celebrates."
-            },
-            // ----- FEBRUARY 26, 2026 -----
-            "2026-02-26": {
-                title: "Eternal Rest",
-                date: "26 February 2026",
-                scripture: "There remains, then, a Sabbath-rest for the people of God; for anyone who enters God's rest also rests from their works, just as God did from his.",
-                reference: "Hebrews 4:9-10 (NIV)",
-                quote: "Eternal rest is not idleness; it is the ceasing of striving, the peace of completion, the joy of work done in His presence and for His glory.",
-                message: `<p>Our lives are marked by toil, frustration, and fatigue. Even our service for God can become wearying when we labour in our own strength. But God promises a rest that goes beyond a weekly Sabbath—it is the rest of the new creation, where the curse is lifted and work becomes pure delight.</p>
-                         <p>This rest is already entered by faith (Hebrews 4:3). We cease from trying to earn God’s favour, resting in Christ’s finished work. Yet a fuller rest awaits: the cessation of all pain, sorrow, and struggle. Not inactivity—for we will reign with Christ and serve Him—but activity without exhaustion, creativity without frustration, worship without distraction.</p>
-                         <p>If you are weary today, look ahead. The rest is not only future; you can draw near to the One who gives rest for your soul. Come to Him, lay down your burdens, and trust that the same God who finished creation and redemption will also finish His good work in you.</p>`,
-                prayer: [
-                    "Father, I thank You for the rest that remains for Your people.",
-                    "I confess that I often strive as if everything depended on me, forgetting that You are the Source.",
-                    "Teach me to enter Your rest now—to trust, to cease from anxious labour.",
-                    "Refresh my weary soul; give me peace that passes understanding.",
-                    "Help me to honour the rhythm of rest You built into creation.",
-                    "Protect me from the idolatry of busyness that masquerades as dedication.",
-                    "I look forward to the day when all striving ends and I serve You with unhindered joy.",
-                    "Until then, sustain me with the promise that my labour in You is never in vain.",
-                    "Let my life be a testimony that true rest is found only in You.",
-                    "Thank You that the final Sabbath will never end, and we will rest—and reign—with You forever."
-                ],
-                remember: "The rest of God is not a break from work, but work in the unbroken presence of the One who makes all labour light."
-            },
-            // ----- FEBRUARY 25, 2026 -----
-            "2026-02-25": {
-                title: "Face to Face",
-                date: "25 February 2026",
-                scripture: "For now we see only a reflection as in a mirror; then we shall see face to face. Now I know in part; then I shall know fully, even as I am fully known.",
-                reference: "1 Corinthians 13:12 (NIV)",
-                quote: "The greatest moment of eternity will not be the absence of pain, but the presence of the One we've loved from afar—face to face at last.",
-                message: `<p>Moses asked to see God’s glory and was hidden in the cleft of the rock, permitted only a glimpse of His back. Job declared, “My eyes shall see Him—not another” (Job 19:27). For centuries, the saints longed for the day when the veil would be removed. That day has come in Christ, but still we see Him through the mirror of Scripture, the lens of faith.</p>
-                         <p>One day the mirror will be shattered. We will look upon the face of Jesus—the same face that was marred for us, that wept at Lazarus’ tomb, that shone on the mount of transfiguration. To see Him is to become like Him (1 John 3:2). It is the consummation of all our worship, the answer to our deepest ache.</p>
-                         <p>Do you long for that day? Let it purify your heart. Let it fuel your witness. Let it comfort you in sorrow. The best is not behind you; it is ahead—and it is a Person.</p>`,
-                prayer: [
-                    "Jesus, the name above every name, I long to see Your face.",
-                    "Thank You that You have revealed the Father to me and that I know You, even now.",
-                    "Forgive me for being satisfied with distant worship when You invite me into intimate presence.",
-                    "Purify my heart, that I may be ready to see You as You are.",
-                    "Let the hope of seeing You face to face transform how I live today.",
-                    "Comfort those who mourn with the assurance that they will see their loved ones again—and see You with them.",
-                    "Remove the scales from the eyes of the unbelieving, that they may behold Your beauty.",
-                    "Hasten the day when every knee bows and every tongue confesses that You are Lord.",
-                    "I love You because You first loved me; help me to love You more.",
-                    "Come, Lord Jesus."
-                ],
-                remember: "We were made for face‑to‑face communion with God. One day, the mirror will be gone—and we will see Him as He is."
-            },
-            // ----- FEBRUARY 24, 2026 -----
-            "2026-02-24": {
-                title: "No More Pain",
-                date: "24 February 2026",
-                scripture: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away.",
-                reference: "Revelation 21:4 (NIV)",
-                quote: "Pain is a symptom of a broken world; the new creation is the cure—not just pain management, but pain eradication.",
-                message: `<p>We live in a world groaning under the weight of pain—physical, emotional, relational. Some pain is acute, a sudden stab; other pain is chronic, a dull ache that never leaves. We learn to cope, to medicate, to endure. But God promises more than coping; He promises removal.</p>
-                         <p>The new creation will have no more pain because its cause—sin and the curse—will be gone. Sickness, injury, and decay will be relics of the old order. The bodies we receive in the resurrection will be imperishable, glorified, and forever free from suffering.</p>
-                         <p>This is not escapism; it is the biblical hope that anchors our souls. When pain threatens to overwhelm you, lift your eyes. The present suffering is light and momentary compared to the weight of glory that will be revealed. And that glory includes a body and a world where pain is no more.</p>`,
-                prayer: [
-                    "Father of mercies, You see every tear and know every pain I carry.",
-                    "Thank You that You are not indifferent to my suffering—You entered it in Christ.",
-                    "Forgive me for the times I have doubted Your goodness because of pain.",
-                    "Give me grace to endure the present, knowing it is preparing an eternal weight of glory.",
-                    "Lay Your healing hand on those who are suffering today, whether in body, mind, or spirit.",
-                    "Use the Church to be Your hands and feet, bringing comfort to the hurting.",
-                    "I long for the day when the word 'pain' will be forgotten, because it will no longer exist.",
-                    "Until then, let me find my strength in You, the God who never grows weary.",
-                    "Help me to be a source of comfort to others, reflecting Your compassion.",
-                    "Maranatha—come, Lord, and make all things new."
-                ],
-                remember: "God does not simply numb our pain; He removes its very source. In the new creation, the word 'pain' will be obsolete."
-            },
-            // ----- FEBRUARY 23, 2026 -----
-            "2026-02-23": {
-                title: "No More Tears",
-                date: "23 February 2026",
-                scripture: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain, for the old order of things has passed away.",
-                reference: "Revelation 21:4 (NIV)",
-                quote: "God doesn't just remove our tears—He personally wipes them away, a gesture of intimate tenderness that speaks of a Father's love.",
-                message: `<p>Every tear has a story. Tears of grief at the grave of a loved one. Tears of regret for words spoken in anger. Tears of loneliness, of rejection, of dashed hopes. Some tears are hidden, shed in the dark where no one sees. But God sees. And He collects every one in His bottle (Psalm 56:8).</p>
-                         <p>In the new Jerusalem, the tears stop—not because we become stoic, but because every reason for weeping is gone. Death is dead. Sorrow is banished. The separation that tore our hearts is ended. And the most moving detail: God Himself wipes the tears away. Not an angel, not a saint—the Almighty bends down and tenderly removes the moisture from our eyes.</p>
-                         <p>This promise is not just for the future. Even now, He draws near to the brokenhearted. He sits with us in our grief. He gives beauty for ashes. But the final, permanent wiping away of tears awaits that great reunion. Let this hope be your anchor.</p>`,
-                prayer: [
-                    "Lord, You are the God who sees my tears—every one of them.",
-                    "Thank You that You do not despise my sorrow, but invite me to cast my burdens on You.",
-                    "Comfort those who mourn today; let them know that weeping may endure for a night, but joy comes in the morning.",
-                    "Forgive me for trying to hide my tears from You, as if You didn't already know.",
-                    "Heal the deep wounds that still cause me to weep in the quiet moments.",
-                    "Give me the courage to weep with those who weep, bearing one another's burdens.",
-                    "I rejoice that the day is coming when sorrow and sighing will flee away.",
-                    "Until that day, be my comfort and my song.",
-                    "Let the reality of no more tears make me bold in sharing the gospel.",
-                    "I look forward to the moment when Your own hand will wipe my tears away."
-                ],
-                remember: "Tears are the language of a broken world; God’s hand will one day translate them into eternal joy."
-            },
-            // ----- FEBRUARY 22, 2026 -----
-            "2026-02-22": {
-                title: "The New Jerusalem",
-                date: "22 February 2026",
-                scripture: "I saw the Holy City, the new Jerusalem, coming down out of heaven from God, prepared as a bride beautifully dressed for her husband. And I heard a loud voice from the throne saying, 'Look! God's dwelling place is now among the people, and he will dwell with them.'",
-                reference: "Revelation 21:2-3 (NIV)",
-                quote: "The New Jerusalem is not just a place; it is the bride of Christ, the redeemed community, finally and forever at home with God.",
-                message: `<p>John’s vision of the New Jerusalem is breathtaking: a city of pure gold, with foundations of precious stones, gates of pearl, and no temple because the Lord God Almighty and the Lamb are its temple. It is a city that descends from heaven—not built by human hands, but prepared by God for His people.</p>
-                         <p>But the city is more than architecture; it is a community. It is the bride of Christ, adorned for her Husband. Its citizens are the redeemed from every age, nation, and tongue. Its light is the glory of God, and its lamp is the Lamb. There is no night, no curse, no separation—only the unbroken presence of God.</p>
-                         <p>We are citizens of this city already (Philippians 3:20). Our names are written in its registry. We are strangers and exiles here, but one day we will arrive at our true home. Do not be too attached to the passing city of man; you have a permanent address in the city of God.</p>`,
-                prayer: [
-                    "Father, I thank You for preparing a city for me—one with foundations, whose architect and builder is God.",
-                    "Forgive me for living as if this world were my permanent home.",
-                    "Help me to store up treasure in the city that will never be shaken.",
-                    "Let the vision of the New Jerusalem stir my longing and shape my choices.",
-                    "Unite Your church as we journey toward that city together.",
-                    "Thank You that the gates of that city are always open, and I am always welcome.",
-                    "Cleanse me and adorn me with righteousness, that I may be part of the bride presented to Christ.",
-                    "Protect me from the deception of earthly glory that fades.",
-                    "Use me to invite others to become citizens of this eternal city.",
-                    "I long to see the New Jerusalem descend, and to hear Your voice declare, 'Now I dwell with them.'"
-                ],
-                remember: "The New Jerusalem is not a place we ascend to; it is the place God brings down—His home among His people."
-            },
-            // ----- FEBRUARY 21, 2026 -----
-            "2026-02-21": {
-                title: "The New Earth",
-                date: "21 February 2026",
-                scripture: "But in keeping with his promise we are looking forward to a new heaven and a new earth, where righteousness dwells.",
-                reference: "2 Peter 3:13 (NIV)",
-                quote: "The new earth is not a consolation prize for those who missed out on this one—it is the original design, finally liberated from decay.",
-                message: `<p>Many Christians mistakenly believe we will spend eternity as disembodied spirits floating on clouds. The Bible, however, teaches the resurrection of the body and the renewal of the earth. God does not abandon His creation; He redeems it. The same earth that has groaned under the curse will be liberated and transformed.</p>
-                         <p>This means eternity will be physical—we will eat, drink, work, create, and explore. Yet everything will be without sin, without decay, without frustration. The garden of Eden was just a foretaste; the new earth will be Eden restored and expanded.</p>
-                         <p>How should this hope affect us now? We care for the present earth because it is God’s creation, destined for renewal. We anticipate the resurrection because our bodies are not evil but will be glorified. We live with hope, knowing that the best is yet to come—and it will be on earth.</p>`,
-                prayer: [
-                    "Creator God, You made the earth and called it good; I praise You for Your promise to make it new.",
-                    "Forgive me for neglecting Your creation, or for treating it as if it were disposable.",
-                    "Teach me to be a faithful steward of the earth, anticipating its coming redemption.",
-                    "Help me to care for my body as a temple of the Holy Spirit, awaiting resurrection.",
-                    "Give me patience with the brokenness I see around me, knowing it is temporary.",
-                    "Let me not despise the physical realm, for You have redeemed it through the incarnation and resurrection of Your Son.",
-                    "Thank You that the new earth will be filled with righteousness, and sin will be no more.",
-                    "I long for the day when the desert blooms and the lion lies down with the lamb.",
-                    "Until then, may I be an agent of Your restoration—planting seeds of beauty and justice.",
-                    "Come, Lord Jesus, and make all things new."
-                ],
-                remember: "Heaven is not our final destination; the new earth is. God's plan is not evacuation, but renovation."
-            },
-            // ----- FEBRUARY 20, 2026 -----
-            "2026-02-20": {
-                title: "The New Heaven",
-                date: "20 February 2026",
-                scripture: "Then I saw 'a new heaven and a new earth,' for the first heaven and the first earth had passed away, and there was no longer any sea.",
-                reference: "Revelation 21:1 (NIV)",
-                quote: "The new heaven is not a distant escape from earth, but the first glimpse of a creation fully reconciled to its Creator.",
-                message: `<p>When Scripture speaks of “a new heaven,” it is not describing a second story added above the clouds. The “heavens” in biblical language refer to the skies, the cosmos—the entire created order beyond the earth. Sin has polluted not only the ground but also the atmospheric and cosmic realms. Paul writes that all creation groans, waiting for redemption (Romans 8:22).</p>
-                         <p>That redemption will include the heavens. The new heaven and new earth are not replacements made from nothing; they are this creation, cleansed and renewed. The same sun, moon, and stars that declared God’s glory will shine with renewed brilliance. The atmosphere that carried pollutants will carry the fragrance of holiness.</p>
-                         <p>This gives us hope when we look at the cosmos—whether it is the wonder of a starry night or the tragedy of a polluted sky. God is not finished with His universe. The new heaven will be a place where His glory is visibly displayed, and where the separation between heaven and earth (the veil) is permanently removed.</p>`,
-                prayer: [
-                    "Lord of heaven and earth, I praise You for the beauty of Your creation.",
-                    "Forgive us for defiling the skies and the waters; teach us to be better stewards.",
-                    "Thank You that the heavens declare Your glory, and one day they will do so perfectly.",
-                    "I long for the new heaven, where every molecule praises You.",
-                    "Let the stars remind me of Your faithfulness, and the sun of Your righteousness.",
-                    "Help me to live with my eyes lifted up, not in escapism, but in eager expectation.",
-                    "Comfort those who see the decay of creation and grieve; give them hope of renewal.",
-                    "May the new heaven inspire me to reflect Your light in the darkness now.",
-                    "Unite heaven and earth in my worship—let my praise join the chorus of all creation.",
-                    "Even so, come, Lord Jesus; let the new heaven and new earth appear."
-                ],
-                remember: "The heavens are not God's retirement home; they are part of His creation, waiting to be made new."
-            },
-            // ----- FEBRUARY 19, 2026 -----
-            "2026-02-19": {
-                title: "Final Judgment",
-                date: "19 February 2026",
-                scripture: "Then I saw a great white throne and him who was seated on it. The earth and the heavens fled from his presence, and there was no place for them. And I saw the dead, great and small, standing before the throne, and books were opened... The dead were judged according to what they had done as recorded in the books.",
-                reference: "Revelation 20:11-12 (NIV)",
-                quote: "The final judgment is not the end of God's mercy, but the triumph of His justice—where every wrong is made right and every secret is brought to light.",
-                message: `<p>We live in a world of unsolved crimes, unanswered questions, and injustices that seem to go unnoticed. The psalmist cried, “How long, O Lord?” The final judgment is God’s answer. Every act of cruelty, every hidden sin, every oppressive system will be exposed and judged by the only One who is perfectly just.</p>
-                         <p>For those in Christ, this judgment holds no terror. Our names are written in the Lamb’s Book of Life, not because of our works, but because of His work. Yet the judgment of our works at the judgment seat of Christ (2 Corinthians 5:10) is for reward, not condemnation. It is a gracious evaluation of how we stewarded His gifts.</p>
-                         <p>Today, let the reality of judgment sober you. Do not presume upon grace; let it drive you to share the gospel. And let it fill you with hope—because the Judge is also your Savior, and He will one day set everything right.</p>`,
-                prayer: [
-                    "Righteous Judge, I stand in awe of Your perfect justice.",
-                    "Thank You that in Christ, I do not face condemnation; He took my judgment on the cross.",
-                    "Forgive me for the times I have excused sin, in myself or in others, when You call it evil.",
-                    "Give me a holy fear of Your judgment, not to make me afraid, but to make me faithful.",
-                    "I pray for those who do not yet know Christ—open their eyes to the coming judgment and the refuge found in Jesus.",
-                    "Help me to live with the judgment seat in view, building my life with gold, silver, and precious stones.",
-                    "Vindicate the oppressed, Lord; bring justice to those who cry out day and night.",
-                    "Thank You that every tear will be explained, every wound healed, every wrong made right.",
-                    "Let me not grow weary in doing good, knowing that my labor is not in vain in the Lord.",
-                    "Maranatha—come, Lord Jesus, and bring Your justice to the earth."
-                ],
-                remember: "The Judge who sits on the great white throne is the same Jesus who once hung on a cross—your Advocate and your Savior."
-            },
-            // ----- FEBRUARY 18, 2026 -----
-            "2026-02-18": {
-                title: "The Millennial Reign",
-                date: "18 February 2026",
-                scripture: "I saw thrones on which were seated those who had been given authority to judge... They came to life and reigned with Christ a thousand years... They will be priests of God and of Christ and will reign with him for a thousand years.",
-                reference: "Revelation 20:4-6 (NIV)",
-                quote: "The millennial reign is the preview of God's ultimate kingdom—a thousand-year glimpse of what it means for the earth to be filled with the knowledge of the Lord as the waters cover the sea.",
-                message: `<p>After Christ returns and defeats the armies of the world, He will establish His reign on earth for a thousand years. This is not the final state—the new heaven and earth come later—but it is a glorious foretaste. Satan is bound, the nations are ruled with a rod of iron, and the resurrected saints reign with Christ.</p>
-                         <p>This period fulfills Old Testament prophecies of universal peace: swords beaten into plowshares, the wolf dwelling with the lamb, and the earth filled with the knowledge of the Lord. It demonstrates that God’s original purpose for humanity—to rule over creation—is restored. It also proves that even under perfect conditions, the human heart without regeneration remains rebellious (Revelation 20:7-9).</p>
-                         <p>For us, the millennium is a promise that history is not spiraling toward chaos but toward a triumphant King. It assures us that our labor for righteousness is not futile; one day Christ’s rule will be undisputed, and we will share in His authority. Live today as a citizen of that coming kingdom.</p>`,
-                prayer: [
-                    "Lord Jesus, I worship You as King of kings and Lord of lords.",
-                    "Thank You that Your reign will be visible, universal, and unopposed.",
-                    "I long for the day when every enemy is under Your feet and peace prevails.",
-                    "Even now, rule in my heart; subdue every rebellion within me.",
-                    "Give me perseverance; though I cannot see the full victory yet, I trust that You are already victorious.",
-                    "Prepare me to reign with You—teach me faithfulness, humility, and servant leadership.",
-                    "Comfort those who suffer under unjust rulers with the hope of Your perfect governance.",
-                    "Let Your kingdom come, Your will be done, on earth as it is in heaven.",
-                    "Use Your church to display the values of Your coming kingdom now.",
-                    "I rejoice that the thousand years are just the beginning; eternity with You awaits."
-                ],
-                remember: "The millennium is the dress rehearsal for eternity—a thousand‑year demonstration that God’s way is the only way."
-            },
-            // ----- FEBRUARY 17, 2026 -----
-            "2026-02-17": {
-                title: "The Antichrist",
-                date: "17 February 2026",
-                scripture: "Don't let anyone deceive you in any way, for that day will not come until the rebellion occurs and the man of lawlessness is revealed, the man doomed to destruction. He will oppose and will exalt himself over everything that is called God or is worshiped, so that he sets himself up in God's temple, proclaiming himself to be God.",
-                reference: "2 Thessalonians 2:3-4 (NIV)",
-                quote: "The Antichrist is a counterfeit christ—a mirror image of the true King, but with a heart of rebellion rather than submission.",
-                message: `<p>The Bible speaks of a final, evil world leader who will embody the spirit of antichrist that has been at work since the first century. He will rise to power through deception, perform false signs and wonders, demand worship, and persecute believers. His reign is brief but brutal—yet his end is certain: the breath of Jesus’ mouth will destroy him.</p>
-                         <p>Why does God allow such a figure? He exposes the depth of human rebellion. Even those who have seen supernatural signs will reject the truth and love a lie (2 Thessalonians 2:10-12). The Antichrist reveals that the problem is not lack of evidence, but hardness of heart.</p>
-                         <p>Do not be obsessed with identifying the Antichrist; be obsessed with knowing the true Christ. The Spirit of truth lives in you, and you have overcome the spirit of antichrist (1 John 4:4). You belong to the One whose name is above every name. Let that be your confidence.</p>`,
-                prayer: [
-                    "Lord Jesus, You alone are the Christ, the Son of the living God.",
-                    "Thank You that I belong to You and no power can snatch me from Your hand.",
-                    "Protect Your church from the deception of the evil one.",
-                    "Give discernment to believers everywhere, that we may not be led astray.",
-                    "Have mercy on those who are deceived; open their eyes to the truth.",
-                    "I pray against the spirit of antichrist that is already in the world; let it be exposed and defeated.",
-                    "May Your Word be a lamp to my feet and a light to my path in dark days.",
-                    "Help me to be more focused on Your return than on the identity of the lawless one.",
-                    "Strengthen those who face persecution today under antichrist-like regimes.",
-                    "I long for the day when every counterfeit is destroyed and You alone are exalted."
-                ],
-                remember: "The best defense against the counterfeit is a deep, intimate knowledge of the true King."
-            },
-            // ----- FEBRUARY 16, 2026 -----
-            "2026-02-16": {
-                title: "The Great Tribulation",
-                date: "16 February 2026",
-                scripture: "For then there will be great tribulation, such as has not been from the beginning of the world until now, no, and never will be. And if those days had not been cut short, no human being would be saved. But for the sake of the elect those days will be cut short.",
-                reference: "Matthew 24:21-22 (NIV)",
-                quote: "The Great Tribulation is not God's abandonment of His people, but His purifying of a generation and His judgment on a world that rejected His Son.",
-                message: `<p>Jesus warned of a coming time of unparalleled distress. It will be a period of divine judgment poured out on rebellious humanity, but also a time when many will come to faith—a great multitude that no one can count, from every nation, tribe, people, and language (Revelation 7:9-14). These tribulation saints wash their robes in the blood of the Lamb and endure to the end.</p>
-                         <p>For those of us who are not appointed to wrath (1 Thessalonians 5:9), the tribulation is not our destiny. Yet the certainty of coming judgment should move us to urgent prayer and evangelism. People are not ready; they are unaware of the storm approaching. We have the message of shelter in Christ.</p>
-                         <p>Even if we do not live through that specific time, we all face tribulation in this life. The same promise applies: those who endure to the end will be saved. God cuts short the days of trial for the sake of His elect. He will not allow you to be tempted beyond what you can bear.</p>`,
-                prayer: [
-                    "Sovereign Lord, You hold all history in Your hands.",
-                    "Thank You that You have not destined us for wrath, but for salvation through our Lord Jesus Christ.",
-                    "I pray for those who will live through the Great Tribulation—preserve them, strengthen them, and grant them endurance.",
-                    "Help me to be faithful in sharing the gospel so that many may be saved before that day.",
-                    "Purify Your church; remove everything that hinders our witness.",
-                    "Protect Your elect; for their sake, You have promised to cut short the days of trouble.",
-                    "Give me a holy urgency, knowing that time is short.",
-                    "Comfort those who are suffering great tribulation today—in persecuted lands, in hospitals, in broken homes.",
-                    "Let me not fear tribulation, but trust in Your sovereign purposes.",
-                    "Even so, come, Lord Jesus—and end all tribulation forever."
-                ],
-                remember: "Tribulation is not the end; deliverance is. The darkest hour comes just before the dawn of His appearing."
-            },
-            // ----- FEBRUARY 15, 2026 (existing) -----
-            "2026-02-15": {
-                title: "The Throne of Help",
-                date: "15 February 2026",
-                scripture: "Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need.",
-                reference: "Hebrews 4:16 (NIV)",
-                quote: "Your greatest help is not found in your ability, but in your accessibility to the throne room where grace flows freely.",
-                message: `<p>In the Old Testament, the mercy seat in the Holy of Holies was the place where God's presence met humanity. Only the high priest could enter, and only once a year, with blood and trembling. But through Christ, everything changed. The veil was torn, and what was once inaccessible became available to all. Now, we have not just permission but an invitation to approach God's throne—not a throne of judgment, but a throne of grace.</p>
-                         <p>This throne is not just a seat of power; it's a seat of help. The Greek word used here for "help" is "boētheia," which means timely aid, rescue, or support. It's the kind of help that arrives exactly when needed, in the precise form required. When you approach this throne, you're not just getting generic assistance; you're receiving customized, divine help tailored to your specific need at that exact moment.</p>
-                         <p>Notice the two-fold provision at the throne: mercy and grace. Mercy covers what you deserve—your failures, your shortcomings, your sins. Grace provides what you don't deserve—strength, favor, empowerment. You need both: mercy for your past, grace for your present and future. And you're invited to come "with confidence." This isn't presumption; it's the confidence of a child approaching a loving parent, knowing they are welcomed and wanted.</p>
-                         <p>What need are you carrying today? What burden feels too heavy? What challenge seems insurmountable? The throne of help is open to you right now. You don't need to clean yourself up first. You don't need perfect words. You simply need to come. As you approach, mercy will meet your failures, and grace will empower your weaknesses. The help you need is waiting at the throne where the King of kings sits, ready to extend His scepter of favor toward you.</p>`,
-                prayer: [
-                    "Father God, I thank You for the access I have to Your throne through Jesus Christ.",
-                    "Forgive me for the times I've tried to solve my problems on my own instead of coming to Your throne.",
-                    "I come boldly to Your throne of grace today, acknowledging my need for Your help.",
-                    "Pour out Your mercy on me, covering my failures and shortcomings with the blood of Jesus.",
-                    "Release Your grace into my life—the empowering strength I need for today's challenges.",
-                    "Give me wisdom and discernment to recognize Your help when it comes.",
-                    "Help me to trust in Your timing and Your ways, even when they differ from my expectations.",
-                    "Teach me to approach Your throne not just in crisis, but as a daily habit of dependence.",
-                    "Let my life become a testimony of the help that flows from Your throne.",
-                    "May my confidence in approaching You grow deeper with each encounter."
-                ],
-                remember: "The throne of God is not a distant place of judgment but an accessible source of help. Come boldly, come often, come expecting to receive exactly what you need."
-            },
-            // ----- FEBRUARY 14, 2026 (existing) -----
-            "2026-02-14": {
-                title: "The Dividing Line",
-                date: "14 February 2026",
-                scripture: "Do not be yoked together with unbelievers. For what do righteousness and wickedness have in common? Or what fellowship can light have with darkness?",
-                reference: "2 Corinthians 6:14 (NIV)",
-                quote: "There is a divine line that separates the sacred from the profane. Crossing it doesn't expand your freedom—it compromises your identity.",
-                message: `<p>In a world that celebrates blurred boundaries and calls it tolerance, God's Word draws clear lines. These lines aren't restrictions but protections; they're not fences to keep you in, but boundaries to keep danger out. The dividing line between righteousness and wickedness, light and darkness, is not arbitrary—it's essential for spiritual survival.</p>
-                         <p>The metaphor of being "yoked together" is powerful. In agriculture, a yoke joins two animals so they must walk together, turn together, and work together. If one is strong and the other weak, or if they want to go in different directions, the yoke becomes an instrument of frustration and inefficiency. Spiritually, being unequally yoked means connecting your life's direction, pace, and purpose with someone who doesn't share your ultimate allegiance to Christ. The result is constant tension and compromised progress.</p>
-                         <p>This principle applies beyond marriage (though it certainly includes it). It extends to business partnerships, close friendships, and any relationship that requires shared vision and values. The question isn't whether you can be kind to unbelievers—Jesus was the friend of sinners. The question is about yoke-level connections that determine the direction of your life. Can light and darkness walk together? Only if one extinguishes the other.</p>
-                         <p>Today, examine your yokes. Are there relationships, partnerships, or alliances that are pulling you away from God's purposes? Are you trying to maintain fellowship with both light and darkness? Remember: God doesn't call you to isolation, but to separation—being in the world but not of it. Your closest companions should be those who help you run toward Christ, not those who drag you in the opposite direction. The dividing line exists for your protection and your purpose.</p>`,
-                prayer: [
-                    "Lord Jesus, thank You for calling me out of darkness into Your marvelous light.",
-                    "Forgive me for any relationships or alliances where I have been unequally yoked.",
-                    "Give me wisdom and discernment to recognize unhealthy spiritual connections.",
-                    "Help me to set godly boundaries that protect my walk with You.",
-                    "Grant me courage to make necessary changes in my relationships.",
-                    "Surround me with believers who will encourage and strengthen my faith.",
-                    "Show me how to be a light to unbelievers without compromising my convictions.",
-                    "Teach me to balance grace and truth in all my interactions.",
-                    "Protect me from the subtle influences that would draw me away from You.",
-                    "May my life clearly reflect the difference Your salvation makes."
-                ],
-                remember: "God's dividing lines are not limitations but liberations—they free you to become who He created you to be without the drag of incompatible alliances."
-            },
-            // ----- FEBRUARY 13, 2026 (existing) -----
-            "2026-02-13": {
-                title: "The Temple Within",
-                date: "13 February 2026",
-                scripture: "Do you not know that your bodies are temples of the Holy Spirit, who is in you, whom you have received from God? You are not your own; you were bought at a price. Therefore honor God with your bodies.",
-                reference: "1 Corinthians 6:19-20 (NIV)",
-                quote: "The most sacred space on earth isn't a cathedral or shrine—it's the human body where God Himself chooses to dwell. Your physical existence is holy ground.",
-                message: `<p>In ancient Israel, the temple was the most sacred place—the meeting point between heaven and earth. Its construction required the finest materials, meticulous craftsmanship, and absolute purity. Only consecrated priests could enter certain areas, and the presence of God filled the space with such holiness that no impurity could survive there. Today, Paul reveals an astonishing truth: that same sacredness now resides within you.</p>
-                         <p>Your body is not merely flesh and bones; it is a living temple of the Holy Spirit. When you received Christ, God Himself took up residence within you. This changes everything about how you view your physical existence. No longer are you just a biological organism; you are a walking sanctuary where the divine presence dwells.</p>
-                         <p>Consider the implications: When you treat your body with disregard—whether through harmful substances, unhealthy habits, or impure thoughts—you're desecrating sacred space. When you indulge in what dishonors God, you're bringing defilement into the holy of holies. But when you care for your body, discipline your appetites, and use your physical being for God's glory, you're maintaining the temple for its divine occupant.</p>
-                         <p>The temple metaphor also reminds us of ownership. Paul emphasizes: "You are not your own." We tend to think "my body, my choice," but Scripture presents a different reality. Your body belongs to God twice over—by creation and by redemption. He formed you, and then He bought you back at the ultimate price: the blood of His Son. Your physical life is not yours to do with as you please; it's a sacred trust to be stewarded for His purposes.</p>
-                         <p>Today, examine your temple. What have you allowed into this sacred space? What habits or patterns dishonor the Holy Spirit's residence? Remember: God doesn't dwell in temples made by human hands anymore. He lives in you. Honor Him with the temple He's chosen to call home.</p>`,
-                prayer: [
-                    "Holy Spirit, I acknowledge Your sacred presence within me. Forgive me for the times I have treated Your temple carelessly or dishonorably.",
-                    "Help me to see my body as holy ground, a sanctuary where You dwell. Transform my perspective from ownership to stewardship.",
-                    "Give me wisdom and discipline to care for this temple—physically, mentally, and spiritually.",
-                    "Show me any habits, substances, or patterns that defile Your dwelling place, and give me strength to remove them.",
-                    "Teach me to honor You with my body in practical ways—what I eat, how I rest, what I watch, where I go.",
-                    "Help me to use my physical strength, abilities, and energy to serve You and bless others.",
-                    "Guard my eyes, ears, and mind from anything that would contaminate Your temple.",
-                    "May my body be a living sacrifice, holy and pleasing to You—my true and proper worship.",
-                    "Let my physical life reflect the sacred reality that the King of glory lives within me.",
-                    "Use my presence in this world to make Your invisible presence visible to others."
-                ],
-                remember: "Your body is not just your temporary home—it's God's permanent residence. Treat it with the reverence due the dwelling place of the Most High."
-            },
-            // ----- FEBRUARY 12, 2026 (existing) -----
-            "2026-02-12": {
-                title: "As We Forgive",
-                date: "12 February 2026",
-                scripture: "For if you forgive other people when they sin against you, your heavenly Father will also forgive you. But if you do not forgive others their sins, your Father will not forgive your sins.",
-                reference: "Matthew 6:14-15 (NIV)",
-                quote: "Forgiveness is not a suggestion but a command—a key that unlocks our own freedom and opens the door to God's grace.",
-                message: `<p>Forgiveness may be the most challenging command Jesus gave us, yet it is non-negotiable. When we pray, "Forgive us our debts, as we also have forgiven our debtors," we are asking God to forgive us in the same measure we forgive others. This is sobering. Our willingness to forgive directly impacts our experience of God's forgiveness.</p>
-                         <p>You may be holding onto a hurt that feels justified. Perhaps someone's betrayal, words, or actions have left deep scars. The enemy would have you believe that holding onto this pain protects you, but in reality, it imprisons you. Unforgiveness is a prison where you are both the guard and the captive.</p>
-                         <p>Today, Jesus invites you to a higher way. Forgiveness does not mean what happened was okay. It does not mean you must trust the person again. It means you release the right to retaliate and trust God to be your vindicator. When you forgive, you are not saying the offense didn't matter; you are saying God's command matters more.</p>
-                         <p>Remember: forgiveness is a process. It may not happen overnight, but it begins with a decision. Start today. Say the words, "I choose to forgive." Let God heal your heart as you obey. The freedom you will experience is worth the obedience.</p>`,
-                prayer: [
-                    "Heavenly Father, I acknowledge Your command to forgive as I have been forgiven.",
-                    "I bring before You every person who has hurt me, knowingly or unknowingly.",
-                    "By an act of my will, I choose to forgive them, releasing them from my judgment.",
-                    "Heal the wounds in my heart caused by their actions.",
-                    "Help me to walk in love and not in bitterness.",
-                    "Protect me from the enemy's attempts to bring up past hurts.",
-                    "Give me the grace to forgive myself for my own failures.",
-                    "Teach me to walk in continual forgiveness as a lifestyle.",
-                    "Let my forgiveness be a testimony of Your grace in my life.",
-                    "Thank You for the freedom that comes through obedience to Your Word."
-                ],
-                remember: "Forgiveness is not about the other person deserving it; it's about you obeying God and receiving the freedom He offers."
-            },
-            // ----- FEBRUARY 11, 2026 (existing) -----
-            "2026-02-11": {
-                title: "The Well that never runs dry",
-                date: "11 February 2026",
-                scripture: "Jesus answered, 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst. Indeed, the water I give them will become in them a spring of water welling up to eternal life.'",
-                reference: "John 4:13-14 (NIV)",
-                quote: "In Christ, you are connected to an endless source. When the world drains you, His well never runs dry. Your capacity to give is not measured by your resources but by your connection to the Source.",
-                message: `<p>There is a profound truth in the story of the woman at the well: Jesus offers water that satisfies forever. In a world where everything has limits—our energy, our resources, our patience—Jesus presents Himself as the unlimited source. The well of Jacob ran dry seasonally, but the well of Jesus never runs dry.</p>
-                         <p>You may feel drained today. Perhaps you've been giving endlessly—to family, to work, to ministry—and you feel like you have nothing left. The temptation is to draw from your own strength, but your own well will eventually run dry. Jesus invites you to come to His well, where the water is living and eternal.</p>
-                         <p>The secret of the well that never runs dry is not in the amount of water you store, but in the continuous flow from the source. When you remain connected to Jesus, His life flows through you continuously. You become not just a container but a conduit—receiving from Him and releasing to others without ever being depleted.</p>
-                         <p>Today, if you're feeling empty, don't try to dig deeper in your own strength. Come to the well of living water. Drink deeply from His presence through prayer, worship, and His Word. Let Him refill you. Remember, the well that never runs dry is not a distant resource; it's Christ in you, the hope of glory. His supply in you is limitless because He is limitless.</p>`,
-                prayer: [
-                    "Lord Jesus, I thank You for being my never-ending source of living water.",
-                    "Forgive me for trying to draw from my own limited resources instead of coming to You.",
-                    "I come to Your well today, thirsty and in need of Your refreshment.",
-                    "Fill me afresh with Your Holy Spirit, that I may never run dry.",
-                    "Help me to remain connected to You as my constant source.",
-                    "Teach me to drink daily from Your Word and Your presence.",
-                    "Make me a channel of Your living water to a thirsty world.",
-                    "Remove any blockages in my life that hinder the flow of Your Spirit.",
-                    "Let Your living water in me become a spring welling up to eternal life.",
-                    "Thank You that in You, I will never thirst again."
-                ],
-                remember: "Your capacity to give is not determined by your resources but by your connection to the Source. Stay connected to Jesus, the well that never runs dry, and you will always have enough for yourself and to share with others."
-            },
-            // ----- FEBRUARY 10, 2026 (existing) -----
-            "2026-02-10": {
-                title: "The Wound That Heals",
-                date: "10 February 2026",
-                scripture: "But he was pierced for our transgressions, he was crushed for our iniquities; the punishment that brought us peace was on him, and by his wounds we are healed.",
-                reference: "Isaiah 53:5 (NIV)",
-                quote: "Sometimes the deepest wounds become the most sacred spaces where God's healing grace flows most powerfully.",
-                message: `<p>There is a profound mystery in the economy of God: the wound that brings healing, the brokenness that makes whole, the death that brings life. You may be carrying wounds today—emotional scars, spiritual bruises, memories that still ache. You wonder why a loving God would allow such pain. But consider the cross: the greatest wound in history became the source of humanity's healing.</p>
-                         <p>Your wounds are not meaningless. In God's hands, they become instruments of transformation. The very places where you've been hurt can become conduits of His grace to others. The apostle Paul understood this when he wrote about his "thorn in the flesh"—a wound that kept him dependent on God, a weakness through which God's strength was made perfect.</p>
-                         <p>Do not run from your wounds. Do not hide them in shame. Bring them to the One who was wounded for your healing. Jesus understands pain—He bore the wounds of the world on His body. He knows what it means to be wounded by betrayal, abandoned in suffering, pierced by rejection. And from His wounds flows a river of healing for your soul.</p>
-                         <p>Today, if you're nursing a wound, remember this: God specializes in redeeming what the enemy meant for destruction. That painful experience, that deep hurt, that lingering ache—in His hands, it becomes a testimony of restoration. Your healing may come not by erasing the wound, but by allowing God to use it for His glory and your growth.</p>`,
-                prayer: [
-                    "Lord Jesus, I thank You for Your wounds that brought my healing.",
-                    "Forgive me for hiding my pain instead of bringing it to You.",
-                    "I surrender every wound, every hurt, every painful memory to Your healing touch.",
-                    "Heal the deep places in my soul that no one else can see.",
-                    "Help me to see my wounds not as shameful scars but as testimonies of Your grace.",
-                    "Use my healed wounds to comfort others who are hurting.",
-                    "Protect me from bitterness and resentment when I've been wounded.",
-                    "Teach me to forgive as You have forgiven me.",
-                    "Make me sensitive to the wounds of others, that I may be an agent of Your healing.",
-                    "Thank You that in Your kingdom, no wound is wasted—all can be redeemed."
-                ],
-                remember: "Christ's wounds brought our healing. In the same way, God can use your healed wounds to bring healing to others. Your pain has purpose in God's redemptive plan."
-            },
-            // ----- FEBRUARY 09, 2026 (existing) -----
-            "2026-02-09": {
-                title: "NO FAST ROAD TO SUCCESS",
-                date: "9 February 2026",
-                scripture: "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.",
-                reference: "Galatians 6:9 (NIV)",
-                quote: "True success is not found in shortcuts but in the steady, faithful steps of obedience.",
-                message: `<p>In a world that celebrates instant gratification and overnight success, God's ways seem counter-cultural. His path to true success is marked by patience, perseverance, and process. You may look at others and wonder why their breakthrough came so quickly, while your journey feels like an uphill climb. Remember this: God is not just interested in your destination; He is shaping your character for the journey.</p>
-                         <p>There is no fast road to lasting success because shortcuts often lead to shallow foundations. What is built quickly can collapse quickly. But what is built through consistent obedience, through seasons of waiting, through trials that test your faith—this produces a strength that endures. The process may feel slow, but it is in the process that you are being prepared for the promise.</p>
-                         <p>Do not despise the days of small beginnings. Do not grow impatient with God's timing. Every step of obedience, every act of faithfulness in the unseen seasons, is building something eternal in your life. The road may be longer than you hoped, but it is leading you to a success that cannot be taken away—a success rooted in God's character, not in worldly measures.</p>
-                         <p>Today, if you feel weary on the journey, remember: harvest time is coming. Your faithfulness is not in vain. God sees every step, every sacrifice, every act of obedience done in secret. He is preparing you for a success that will sustain you, not just for a moment, but for a lifetime.</p>`,
-                prayer: [
-                    "Lord, I thank You for Your perfect timing in my life, even when I don't understand it.",
-                    "Forgive me for the times I've sought shortcuts instead of trusting Your process.",
-                    "Help me to appreciate the journey and not just focus on the destination.",
-                    "Give me strength to persevere when the road seems long and difficult.",
-                    "Remove any spirit of comparison that makes me question Your plan for my life.",
-                    "Teach me to find joy in the process of becoming who You've called me to be.",
-                    "Help me to build on a solid foundation of faithfulness and obedience.",
-                    "Renew my mind to understand that true success comes from walking with You.",
-                    "Guard my heart from discouragement when progress seems slow.",
-                    "Thank You that Your plans for me are good, and Your timing is perfect."
-                ],
-                remember: "The road to lasting success is paved with faithfulness, not speed. What God builds through process will stand the test of time."
-            },
-            // ----- FEBRUARY 08, 2026 (existing) -----
+            // February 8
             "2026-02-08": {
                 title: "Union with Christ",
                 date: "8 February 2026",
                 scripture: "Come to me, all you who are weary and burdened, and I will give you rest.",
                 reference: "Matthew 11:28 (NIV)",
                 quote: "God does not despise your exhaustion; He meets you in it.",
-                message: `<p>It is a spiritual reality: the journey of faith is not without moments of deep weariness and frustration. You may feel drained—not just physically, but emotionally and spiritually. Perhaps you have been praying without seeing answers, sowing without reaping, or striving without breaking through. In these moments, it is easy to believe God is far away, or that your labor is in vain. But Scripture reminds us that even the young grow tired and stumble, yet those who wait upon the Lord will renew their strength.</p>
-                         <p>God is not surprised by your fatigue. He understands the weight you carry. The invitation of Christ is not to "try harder," but to "come closer." Your weariness can become a sacred space—a place where self-reliance ends and divine reliance begins. Do not mistake this season for abandonment; it is often God's way of redirecting your dependence from your own strength to His sovereign power.</p>
-                         <p>If frustration has clouded your vision, take a moment to pause and reposition your heart. Release the timelines, surrender the outcomes, and lay down the burden you were never meant to carry alone. God is not only the God of sudden breakthroughs but also the God of daily bread—the One who gives strength for this moment, grace for this hour, and hope for this day.</p>`,
+                message: "<p>It is a spiritual reality: the journey of faith is not without moments of deep weariness and frustration. You may feel drained—not just physically, but emotionally and spiritually. Perhaps you have been praying without seeing answers, sowing without reaping, or striving without breaking through. In these moments, it is easy to believe God is far away, or that your labor is in vain. But Scripture reminds us that even the young grow tired and stumble, yet those who wait upon the Lord will renew their strength.</p><p>God is not surprised by your fatigue. He understands the weight you carry. The invitation of Christ is not to 'try harder,' but to 'come closer.' Your weariness can become a sacred space—a place where self-reliance ends and divine reliance begins.</p><p>If frustration has clouded your vision, take a moment to pause and reposition your heart. Release the timelines, surrender the outcomes, and lay down the burden you were never meant to carry alone.</p>",
                 prayer: [
-                    "Thank You, Lord, for Your understanding and compassion when I am tired and overwhelmed.",
-                    "Forgive me for the times I have relied on my own strength and resented Your timing.",
-                    "I bring my frustrations and weariness to Your feet—I lay them down before You now.",
-                    "Renew my strength according to Your promise; help me to wait upon You with hope.",
-                    "Restore joy where duty has drained me, and peace where worry has wearied me.",
-                    "Teach me to recognize Your gentle leading when I am too tired to see clearly.",
-                    "Provide divine rest—spirit, soul, and body—as only You can give.",
-                    "Guard my heart from comparison and bitterness when my journey feels slower than others'.",
-                    "Let me find comfort in Your presence more than in a changed circumstance.",
-                    "Thank You for being my rest and my refuge, today and always."
+                    "Thank You, Lord, for Your understanding when I am tired.",
+                    "Forgive me for relying on my own strength.",
+                    "I bring my frustrations to Your feet.",
+                    "Renew my strength according to Your promise.",
+                    "Restore joy where duty has drained me.",
+                    "Teach me to recognize Your leading.",
+                    "Provide divine rest for my soul.",
+                    "Guard my heart from comparison.",
+                    "Let me find comfort in Your presence.",
+                    "Thank You for being my rest and refuge."
                 ],
-                remember: "Even in weariness, you are moving forward. God is not only with you in the struggle—He is strengthening you through it."
+                remember: "Even in weariness, you are moving forward. God is strengthening you through it."
+            },
+            // February 9
+            "2026-02-09": {
+                title: "No Fast Road to Success",
+                date: "9 February 2026",
+                scripture: "Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.",
+                reference: "Galatians 6:9 (NIV)",
+                quote: "True success is not found in shortcuts but in the steady, faithful steps of obedience.",
+                message: "<p>In a world that celebrates instant gratification, God's ways seem counter-cultural. His path to true success is marked by patience, perseverance, and process. You may look at others and wonder why their breakthrough came so quickly, while your journey feels like an uphill climb.</p><p>There is no fast road to lasting success because shortcuts often lead to shallow foundations. What is built quickly can collapse quickly. But what is built through consistent obedience, through seasons of waiting, through trials that test your faith—this produces a strength that endures.</p><p>Do not despise the days of small beginnings. Do not grow impatient with God's timing. Every step of obedience is building something eternal.</p>",
+                prayer: [
+                    "Lord, I thank You for Your perfect timing.",
+                    "Forgive me for seeking shortcuts.",
+                    "Help me to appreciate the journey.",
+                    "Give me strength to persevere.",
+                    "Remove any spirit of comparison.",
+                    "Teach me to find joy in the process.",
+                    "Help me build on solid foundation.",
+                    "Renew my mind about true success.",
+                    "Guard my heart from discouragement.",
+                    "Thank You that Your plans are good."
+                ],
+                remember: "The road to lasting success is paved with faithfulness, not speed."
+            },
+            // February 10
+            "2026-02-10": {
+                title: "The Wound That Heals",
+                date: "10 February 2026",
+                scripture: "But he was pierced for our transgressions, he was crushed for our iniquities; the punishment that brought us peace was on him, and by his wounds we are healed.",
+                reference: "Isaiah 53:5 (NIV)",
+                quote: "Sometimes the deepest wounds become the most sacred spaces where God's healing grace flows most powerfully.",
+                message: "<p>There is a profound mystery: the wound that brings healing, the brokenness that makes whole. You may be carrying wounds today—emotional scars, spiritual bruises, memories that still ache. But consider the cross: the greatest wound in history became the source of humanity's healing.</p><p>Your wounds are not meaningless. In God's hands, they become instruments of transformation. The very places where you've been hurt can become conduits of His grace to others.</p><p>Do not run from your wounds. Bring them to the One who was wounded for your healing. Jesus understands pain—He bore the wounds of the world.</p>",
+                prayer: [
+                    "Lord Jesus, I thank You for Your wounds.",
+                    "Forgive me for hiding my pain.",
+                    "I surrender every wound to Your healing.",
+                    "Heal the deep places in my soul.",
+                    "Help me see wounds as testimonies.",
+                    "Use my healed wounds to comfort others.",
+                    "Protect me from bitterness.",
+                    "Teach me to forgive as You forgave.",
+                    "Make me sensitive to others' wounds.",
+                    "Thank You that no wound is wasted."
+                ],
+                remember: "Christ's wounds brought our healing. Your pain has purpose."
+            },
+            // February 11
+            "2026-02-11": {
+                title: "The Well That Never Runs Dry",
+                date: "11 February 2026",
+                scripture: "Jesus answered, 'Everyone who drinks this water will be thirsty again, but whoever drinks the water I give them will never thirst.'",
+                reference: "John 4:13-14 (NIV)",
+                quote: "In Christ, you are connected to an endless source. When the world drains you, His well never runs dry.",
+                message: "<p>There is a profound truth: Jesus offers water that satisfies forever. In a world where everything has limits—our energy, our resources, our patience—Jesus presents Himself as the unlimited source.</p><p>You may feel drained today. Perhaps you've been giving endlessly and feel like you have nothing left. The temptation is to draw from your own strength, but your own well will eventually run dry. Jesus invites you to come to His well, where the water is living and eternal.</p><p>The secret of the well that never runs dry is not in the amount of water you store, but in the continuous flow from the source.</p>",
+                prayer: [
+                    "Lord Jesus, thank You for being my source.",
+                    "Forgive me for drawing from my own resources.",
+                    "I come to Your well today, thirsty.",
+                    "Fill me afresh with Your Spirit.",
+                    "Help me remain connected to You.",
+                    "Teach me to drink daily from Your Word.",
+                    "Make me a channel of living water.",
+                    "Remove blockages that hinder Your flow.",
+                    "Let Your water well up to eternal life.",
+                    "Thank You that I will never thirst again."
+                ],
+                remember: "Your capacity to give is determined by your connection to the Source."
+            },
+            // February 12
+            "2026-02-12": {
+                title: "As We Forgive",
+                date: "12 February 2026",
+                scripture: "For if you forgive other people when they sin against you, your heavenly Father will also forgive you.",
+                reference: "Matthew 6:14-15 (NIV)",
+                quote: "Forgiveness is not a suggestion but a command—a key that unlocks our own freedom.",
+                message: "<p>Forgiveness may be the most challenging command Jesus gave us, yet it is non-negotiable. When we pray, 'Forgive us our debts, as we also have forgiven our debtors,' we are asking God to forgive us in the same measure we forgive others.</p><p>You may be holding onto a hurt that feels justified. The enemy would have you believe that holding onto this pain protects you, but in reality, it imprisons you. Unforgiveness is a prison where you are both the guard and the captive.</p><p>Today, Jesus invites you to a higher way. Forgiveness does not mean what happened was okay. It means you release the right to retaliate and trust God to be your vindicator.</p>",
+                prayer: [
+                    "Father, I acknowledge Your command to forgive.",
+                    "I bring before You every person who has hurt me.",
+                    "I choose to forgive them by an act of my will.",
+                    "Heal the wounds caused by their actions.",
+                    "Help me to walk in love and not bitterness.",
+                    "Protect me from past hurts resurfacing.",
+                    "Give me grace to forgive myself.",
+                    "Teach me to walk in continual forgiveness.",
+                    "Let my forgiveness be a testimony.",
+                    "Thank You for the freedom of obedience."
+                ],
+                remember: "Forgiveness is about you obeying God and receiving freedom."
+            },
+            // February 13
+            "2026-02-13": {
+                title: "The Temple Within",
+                date: "13 February 2026",
+                scripture: "Do you not know that your bodies are temples of the Holy Spirit, who is in you?",
+                reference: "1 Corinthians 6:19-20 (NIV)",
+                quote: "The most sacred space on earth is the human body where God Himself chooses to dwell.",
+                message: "<p>Your body is not merely flesh and bones; it is a living temple of the Holy Spirit. When you received Christ, God Himself took up residence within you. This changes everything about how you view your physical existence.</p><p>Consider the implications: When you treat your body with disregard, you're desecrating sacred space. When you indulge in what dishonors God, you're bringing defilement into the holy of holies. But when you care for your body and use it for God's glory, you're maintaining the temple.</p><p>Paul emphasizes: 'You are not your own.' Your body belongs to God twice over—by creation and by redemption.</p>",
+                prayer: [
+                    "Holy Spirit, I acknowledge Your presence within me.",
+                    "Forgive me for treating Your temple carelessly.",
+                    "Help me see my body as holy ground.",
+                    "Give me wisdom to care for this temple.",
+                    "Show me any habits that defile Your dwelling.",
+                    "Teach me to honor You with my body.",
+                    "Help me use my strength to serve others.",
+                    "Guard my eyes, ears, and mind.",
+                    "May my body be a living sacrifice.",
+                    "Use my presence to make Yours visible."
+                ],
+                remember: "Your body is God's permanent residence—treat it with reverence."
+            },
+            // February 14
+            "2026-02-14": {
+                title: "The Dividing Line",
+                date: "14 February 2026",
+                scripture: "Do not be yoked together with unbelievers. For what do righteousness and wickedness have in common?",
+                reference: "2 Corinthians 6:14 (NIV)",
+                quote: "There is a divine line that separates the sacred from the profane.",
+                message: "<p>In a world that celebrates blurred boundaries, God's Word draws clear lines. These lines aren't restrictions but protections; they're boundaries to keep danger out.</p><p>The metaphor of being 'yoked together' is powerful. A yoke joins two animals so they must walk together. Spiritually, being unequally yoked means connecting your life's direction with someone who doesn't share your allegiance to Christ.</p><p>This principle applies beyond marriage to business partnerships and close friendships. The question isn't whether you can be kind to unbelievers, but about yoke-level connections that determine your life's direction.</p>",
+                prayer: [
+                    "Lord Jesus, thank You for calling me out of darkness.",
+                    "Forgive me for any unequally yoked relationships.",
+                    "Give me wisdom to recognize unhealthy connections.",
+                    "Help me set godly boundaries.",
+                    "Grant me courage to make necessary changes.",
+                    "Surround me with believers who strengthen my faith.",
+                    "Show me how to be light without compromising.",
+                    "Teach me balance of grace and truth.",
+                    "Protect me from subtle influences.",
+                    "May my life reflect Your salvation."
+                ],
+                remember: "God's dividing lines free you to become who He created you to be."
+            },
+            // February 15
+            "2026-02-15": {
+                title: "The Throne of Help",
+                date: "15 February 2026",
+                scripture: "Let us then approach God's throne of grace with confidence, so that we may receive mercy and find grace to help us in our time of need.",
+                reference: "Hebrews 4:16 (NIV)",
+                quote: "Your greatest help is found in your accessibility to the throne room where grace flows freely.",
+                message: "<p>Through Christ, the veil was torn. What was once inaccessible became available to all. Now we have an invitation to approach God's throne—not a throne of judgment, but a throne of grace.</p><p>This throne is a seat of help—timely aid, rescue, support. When you approach, you receive customized divine help tailored to your specific need.</p><p>Notice the two-fold provision: mercy covers what you deserve; grace provides what you don't. You need both: mercy for your past, grace for your present and future.</p>",
+                prayer: [
+                    "Father, thank You for access to Your throne.",
+                    "Forgive me for trying to solve problems alone.",
+                    "I come boldly to Your throne today.",
+                    "Pour out Your mercy on me.",
+                    "Release Your grace into my life.",
+                    "Give me wisdom to recognize Your help.",
+                    "Help me trust Your timing.",
+                    "Teach me to approach daily, not just in crisis.",
+                    "Let my life testify of Your help.",
+                    "May my confidence in You grow deeper."
+                ],
+                remember: "The throne of God is an accessible source of help—come boldly."
+            },
+            // February 16
+            "2026-02-16": {
+                title: "The Great Tribulation",
+                date: "16 February 2026",
+                scripture: "For then there will be great tribulation, such as has not been from the beginning of the world until now.",
+                reference: "Matthew 24:21-22 (NIV)",
+                quote: "The Great Tribulation is God's purifying of a generation and judgment on a world that rejected His Son.",
+                message: "<p>Jesus warned of a coming time of unparalleled distress. It will be a period of divine judgment poured out on rebellious humanity, but also a time when many will come to faith—a great multitude from every nation.</p><p>For those not appointed to wrath, the tribulation is not our destiny. Yet the certainty of coming judgment should move us to urgent prayer and evangelism.</p><p>Even if we don't live through that specific time, we all face tribulation. The same promise applies: those who endure to the end will be saved.</p>",
+                prayer: [
+                    "Sovereign Lord, You hold history in Your hands.",
+                    "Thank You for not destining us for wrath.",
+                    "Pray for those who will live through tribulation.",
+                    "Help me be faithful in sharing the gospel.",
+                    "Purify Your church; remove what hinders.",
+                    "Protect Your elect.",
+                    "Give me holy urgency.",
+                    "Comfort those suffering tribulation today.",
+                    "Let me not fear but trust Your purposes.",
+                    "Come, Lord Jesus, and end all tribulation."
+                ],
+                remember: "Tribulation is not the end; deliverance is. The darkest hour comes just before dawn."
+            },
+            // February 17
+            "2026-02-17": {
+                title: "The Antichrist",
+                date: "17 February 2026",
+                scripture: "Don't let anyone deceive you... the man of lawlessness is revealed, the man doomed to destruction.",
+                reference: "2 Thessalonians 2:3-4 (NIV)",
+                quote: "The Antichrist is a counterfeit christ—a mirror image of the true King, but with a heart of rebellion.",
+                message: "<p>The Bible speaks of a final, evil world leader who will embody the spirit of antichrist. He will rise through deception, perform false signs, demand worship, and persecute believers. His reign is brief but brutal—yet his end is certain.</p><p>Why does God allow such a figure? He exposes the depth of human rebellion. Even those who see supernatural signs will reject the truth and love a lie.</p><p>Do not be obsessed with identifying the Antichrist; be obsessed with knowing the true Christ. The Spirit lives in you, and you have overcome.</p>",
+                prayer: [
+                    "Lord Jesus, You alone are the Christ.",
+                    "Thank You that I belong to You.",
+                    "Protect Your church from deception.",
+                    "Give discernment to believers.",
+                    "Have mercy on those deceived.",
+                    "I pray against the spirit of antichrist.",
+                    "May Your Word be my light.",
+                    "Help me focus on Your return.",
+                    "Strengthen those facing persecution.",
+                    "I long for the day You alone are exalted."
+                ],
+                remember: "The best defense against the counterfeit is intimate knowledge of the true King."
+            },
+            // February 18
+            "2026-02-18": {
+                title: "The Millennial Reign",
+                date: "18 February 2026",
+                scripture: "They came to life and reigned with Christ a thousand years.",
+                reference: "Revelation 20:4-6 (NIV)",
+                quote: "The millennial reign is a thousand-year glimpse of what it means for the earth to be filled with the knowledge of the Lord.",
+                message: "<p>After Christ returns, He will establish His reign on earth for a thousand years. Satan is bound, the nations are ruled with a rod of iron, and the resurrected saints reign with Christ.</p><p>This period fulfills prophecies of universal peace: swords beaten into plowshares, the wolf dwelling with the lamb. It demonstrates that God's original purpose for humanity is restored.</p><p>For us, the millennium is a promise that history is not spiraling toward chaos but toward a triumphant King.</p>",
+                prayer: [
+                    "Lord Jesus, I worship You as King of kings.",
+                    "Thank You that Your reign will be universal.",
+                    "I long for the day when every enemy is under Your feet.",
+                    "Even now, rule in my heart.",
+                    "Give me perseverance.",
+                    "Prepare me to reign with You.",
+                    "Comfort those under unjust rulers.",
+                    "Let Your kingdom come on earth.",
+                    "Use Your church to display Your values.",
+                    "I rejoice that eternity with You awaits."
+                ],
+                remember: "The millennium is the dress rehearsal for eternity."
+            },
+            // February 19
+            "2026-02-19": {
+                title: "Final Judgment",
+                date: "19 February 2026",
+                scripture: "Then I saw a great white throne and him who was seated on it... The dead were judged according to what they had done.",
+                reference: "Revelation 20:11-12 (NIV)",
+                quote: "The final judgment is not the end of God's mercy, but the triumph of His justice.",
+                message: "<p>We live in a world of unsolved crimes and injustices. The final judgment is God's answer. Every act of cruelty, every hidden sin will be exposed and judged by the only One who is perfectly just.</p><p>For those in Christ, this judgment holds no terror. Our names are written in the Lamb's Book of Life, not because of our works, but because of His work.</p><p>Let the reality of judgment sober you. Do not presume upon grace; let it drive you to share the gospel.</p>",
+                prayer: [
+                    "Righteous Judge, I stand in awe of Your justice.",
+                    "Thank You that in Christ I don't face condemnation.",
+                    "Forgive me for excusing sin.",
+                    "Give me holy fear of Your judgment.",
+                    "I pray for those who don't know Christ.",
+                    "Help me live with the judgment seat in view.",
+                    "Vindicate the oppressed, Lord.",
+                    "Thank You that every wrong will be made right.",
+                    "Let me not grow weary in doing good.",
+                    "Come, Lord Jesus, and bring Your justice."
+                ],
+                remember: "The Judge on the great white throne is the same Jesus who hung on a cross—your Advocate."
+            },
+            // February 20
+            "2026-02-20": {
+                title: "The New Heaven",
+                date: "20 February 2026",
+                scripture: "Then I saw 'a new heaven and a new earth,' for the first heaven and the first earth had passed away.",
+                reference: "Revelation 21:1 (NIV)",
+                quote: "The new heaven is the first glimpse of a creation fully reconciled to its Creator.",
+                message: "<p>The 'heavens' refer to the skies, the cosmos—the entire created order. Sin has polluted not only the ground but also the atmospheric and cosmic realms. All creation groans, waiting for redemption.</p><p>That redemption will include the heavens. The new heaven and new earth are this creation, cleansed and renewed. The same sun, moon, and stars will shine with renewed brilliance.</p><p>God is not finished with His universe. The new heaven will be where His glory is visibly displayed.</p>",
+                prayer: [
+                    "Lord of heaven and earth, I praise You.",
+                    "Forgive us for defiling Your creation.",
+                    "Thank You that the heavens declare Your glory.",
+                    "I long for the new heaven.",
+                    "Let the stars remind me of Your faithfulness.",
+                    "Help me live in eager expectation.",
+                    "Comfort those who grieve creation's decay.",
+                    "May the new heaven inspire me to reflect Your light.",
+                    "Unite heaven and earth in my worship.",
+                    "Even so, come, Lord Jesus."
+                ],
+                remember: "The heavens are part of God's creation, waiting to be made new."
+            },
+            // February 21
+            "2026-02-21": {
+                title: "The New Earth",
+                date: "21 February 2026",
+                scripture: "We are looking forward to a new heaven and a new earth, where righteousness dwells.",
+                reference: "2 Peter 3:13 (NIV)",
+                quote: "The new earth is the original design, finally liberated from decay.",
+                message: "<p>Many believe we will spend eternity as disembodied spirits. The Bible teaches the resurrection of the body and the renewal of the earth. God does not abandon His creation; He redeems it.</p><p>Eternity will be physical—we will eat, drink, work, create, and explore. Yet everything will be without sin, decay, or frustration. Eden restored and expanded.</p><p>We care for the present earth because it is destined for renewal. We anticipate resurrection because our bodies will be glorified.</p>",
+                prayer: [
+                    "Creator God, I praise You for Your promise.",
+                    "Forgive me for neglecting Your creation.",
+                    "Teach me to be a faithful steward.",
+                    "Help me care for my body, awaiting resurrection.",
+                    "Give me patience with brokenness.",
+                    "Let me not despise the physical.",
+                    "Thank You that the new earth will be filled with righteousness.",
+                    "I long for the day when the desert blooms.",
+                    "May I be an agent of restoration.",
+                    "Come, Lord Jesus, and make all things new."
+                ],
+                remember: "Heaven is not our final destination; the new earth is. God's plan is renovation, not evacuation."
+            },
+            // February 22
+            "2026-02-22": {
+                title: "The New Jerusalem",
+                date: "22 February 2026",
+                scripture: "I saw the Holy City, the new Jerusalem, coming down out of heaven from God, prepared as a bride.",
+                reference: "Revelation 21:2-3 (NIV)",
+                quote: "The New Jerusalem is the bride of Christ, the redeemed community, finally at home with God.",
+                message: "<p>John's vision is breathtaking: a city of pure gold, foundations of precious stones, gates of pearl. No temple, because the Lord God Almighty and the Lamb are its temple.</p><p>But the city is more than architecture; it is a community. Its citizens are the redeemed from every age, nation, and tongue. Its light is the glory of God.</p><p>We are citizens of this city already. Our names are written in its registry. We are strangers and exiles here, but one day we will arrive at our true home.</p>",
+                prayer: [
+                    "Father, thank You for preparing a city for me.",
+                    "Forgive me for living as if this world were permanent.",
+                    "Help me store up treasure in the unshakable city.",
+                    "Let the vision stir my longing.",
+                    "Unite Your church as we journey together.",
+                    "Thank You that the gates are always open.",
+                    "Cleanse me to be part of the bride.",
+                    "Protect me from earthly glory that fades.",
+                    "Use me to invite others to citizenship.",
+                    "I long to hear Your voice declare, 'Now I dwell with them.'"
+                ],
+                remember: "The New Jerusalem is the place God brings down—His home among His people."
+            },
+            // February 23
+            "2026-02-23": {
+                title: "No More Tears",
+                date: "23 February 2026",
+                scripture: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain.",
+                reference: "Revelation 21:4 (NIV)",
+                quote: "God doesn't just remove our tears—He personally wipes them away.",
+                message: "<p>Every tear has a story. Tears of grief, regret, loneliness, rejection. Some are hidden where no one sees. But God sees. He collects every one in His bottle.</p><p>In the new Jerusalem, the tears stop—not because we become stoic, but because every reason for weeping is gone. Death is dead. Sorrow is banished.</p><p>The most moving detail: God Himself wipes the tears away. The Almighty bends down and tenderly removes the moisture from our eyes.</p>",
+                prayer: [
+                    "Lord, You are the God who sees my tears.",
+                    "Thank You that You don't despise my sorrow.",
+                    "Comfort those who mourn today.",
+                    "Forgive me for hiding my tears from You.",
+                    "Heal the deep wounds that still cause weeping.",
+                    "Give me courage to weep with those who weep.",
+                    "I rejoice that sorrow will flee away.",
+                    "Until that day, be my comfort.",
+                    "Let no more tears make me bold in sharing.",
+                    "I look forward to Your hand wiping my tears."
+                ],
+                remember: "Tears are the language of a broken world; God's hand will translate them into joy."
+            },
+            // February 24
+            "2026-02-24": {
+                title: "No More Pain",
+                date: "24 February 2026",
+                scripture: "He will wipe every tear from their eyes. There will be no more death or mourning or crying or pain.",
+                reference: "Revelation 21:4 (NIV)",
+                quote: "The new creation is not just pain management, but pain eradication.",
+                message: "<p>We live in a world groaning under the weight of pain—physical, emotional, relational. Some pain is acute, other pain chronic. We learn to cope, to endure. But God promises removal.</p><p>The new creation will have no more pain because its cause—sin and the curse—will be gone. Sickness, injury, and decay will be relics of the old order.</p><p>This is not escapism; it is the biblical hope that anchors our souls. When pain overwhelms, lift your eyes. The present suffering is light compared to the weight of glory.</p>",
+                prayer: [
+                    "Father of mercies, You see every pain I carry.",
+                    "Thank You that You are not indifferent.",
+                    "Forgive me for doubting Your goodness.",
+                    "Give me grace to endure.",
+                    "Lay Your healing hand on the suffering.",
+                    "Use the Church to bring comfort.",
+                    "I long for the day when pain is forgotten.",
+                    "Until then, let me find strength in You.",
+                    "Help me be a source of comfort.",
+                    "Come, Lord, and make all things new."
+                ],
+                remember: "God removes pain's source. In the new creation, 'pain' will be obsolete."
+            },
+            // February 25
+            "2026-02-25": {
+                title: "Face to Face",
+                date: "25 February 2026",
+                scripture: "For now we see only a reflection as in a mirror; then we shall see face to face.",
+                reference: "1 Corinthians 13:12 (NIV)",
+                quote: "The greatest moment of eternity is the presence of the One we've loved from afar—face to face at last.",
+                message: "<p>Moses asked to see God's glory and was hidden in the cleft, permitted only a glimpse. Job declared, 'My eyes shall see Him.' For centuries, the saints longed for the veil to be removed.</p><p>One day the mirror will be shattered. We will look upon the face of Jesus—the same face that was marred for us, that wept at Lazarus' tomb.</p><p>Do you long for that day? Let it purify your heart. Let it fuel your witness. The best is ahead—and it is a Person.</p>",
+                prayer: [
+                    "Jesus, I long to see Your face.",
+                    "Thank You for revealing the Father.",
+                    "Forgive me for being satisfied with distance.",
+                    "Purify my heart to see You as You are.",
+                    "Let the hope of seeing You transform me.",
+                    "Comfort the mourning with this assurance.",
+                    "Remove scales from unbelieving eyes.",
+                    "Hasten the day every knee bows.",
+                    "I love You because You first loved me.",
+                    "Come, Lord Jesus."
+                ],
+                remember: "We were made for face-to-face communion with God. One day, we will see Him as He is."
+            },
+            // February 26
+            "2026-02-26": {
+                title: "Eternal Rest",
+                date: "26 February 2026",
+                scripture: "There remains, then, a Sabbath-rest for the people of God.",
+                reference: "Hebrews 4:9-10 (NIV)",
+                quote: "Eternal rest is the ceasing of striving, the peace of completion, the joy of work done in His presence.",
+                message: "<p>Our lives are marked by toil, frustration, and fatigue. Even service for God can become wearying in our own strength. But God promises rest beyond a weekly Sabbath—the rest of the new creation.</p><p>This rest is already entered by faith. We cease from trying to earn God's favor, resting in Christ's finished work. Yet a fuller rest awaits: the cessation of all pain and struggle.</p><p>Not inactivity—we will reign with Christ—but activity without exhaustion, worship without distraction.</p>",
+                prayer: [
+                    "Father, thank You for the rest that remains.",
+                    "I confess I often strive as if all depended on me.",
+                    "Teach me to enter Your rest now.",
+                    "Refresh my weary soul.",
+                    "Help me honor the rhythm of rest.",
+                    "Protect me from the idolatry of busyness.",
+                    "I look forward to the day when striving ends.",
+                    "Until then, sustain me.",
+                    "Let my life testify that true rest is in You.",
+                    "Thank You that the final Sabbath never ends."
+                ],
+                remember: "The rest of God is work in the unbroken presence of the One who makes all labor light."
+            },
+            // February 27
+            "2026-02-27": {
+                title: "Eternal Reward",
+                date: "27 February 2026",
+                scripture: "Look, I am coming soon! My reward is with me, and I will give to each person according to what they have done.",
+                reference: "Revelation 22:12 (NIV)",
+                quote: "Rewards are not wages earned, but gifts of grace given to stewards who used what they received.",
+                message: "<p>Salvation is a free gift, but rewards are given for faithful service. Scripture speaks of crowns—of righteousness, of life, of glory. These are opportunities to cast our crowns at Jesus' feet.</p><p>The judgment seat of Christ examines not our sins—they are atoned for—but our works. Some survive the fire; others are consumed. Reward is about capacity: faithful with little, entrusted with much.</p><p>Do not work for reward as a mercenary, but as a child longing to hear, 'Well done.'</p>",
+                prayer: [
+                    "Lord Jesus, I praise You, the Giver and Reward.",
+                    "Forgive me when I've served from selfish ambition.",
+                    "Purify my motives.",
+                    "Help me store up treasure in heaven.",
+                    "Give me faithfulness in small things.",
+                    "Teach me to invest for eternal returns.",
+                    "Protect me from envy when others are honored.",
+                    "May I one day hear, 'Well done.'",
+                    "Until then, keep me steadfast.",
+                    "I long to cast every crown at Your feet."
+                ],
+                remember: "Rewards are about what He enables—and then graciously celebrates."
+            },
+            // February 28
+            "2026-02-28": {
+                title: "Eternal Learning and Eternal Relationships",
+                date: "28 February 2026",
+                scripture: "In the coming ages he might show the incomparable riches of his grace.",
+                reference: "Ephesians 2:7; Hebrews 12:22-23 (NIV)",
+                quote: "Eternity will be an endless journey of discovery, both of God and of the saints.",
+                message: "<p>God's grace is so deep that even after countless ages, He will still be unveiling 'the incomparable riches of his grace.' Eternal learning means we will never exhaust the depths of His wisdom.</p><p>At the same time, we will enjoy perfect relationships. The new Jerusalem is a community—the bride of Christ. There we will know and be known fully. Loved ones in Christ, heroes of faith, brothers from every tribe—we will share intimacy that sin once shattered.</p><p>This hope transforms how we live. We invest in relationships that last. We pursue knowledge of God.</p>",
+                prayer: [
+                    "Lord, thank You that Your grace is inexhaustible.",
+                    "Forgive me for treating eternal truths casually.",
+                    "Give me hunger to know You now.",
+                    "Help me invest in relationships that outlast this life.",
+                    "Comfort those who grieve with reunion's promise.",
+                    "Unite Your church across divisions.",
+                    "Let my conversations reflect eternal reality.",
+                    "Teach me to value people above possessions.",
+                    "Use me to draw others into Your family.",
+                    "I long for the day when faith becomes sight."
+                ],
+                remember: "Eternity is an endless relationship with an infinite God and a limitless family."
+            },
+            // March 1
+            "2026-03-01": {
+                title: "Finger of God",
+                date: "1 March 2026",
+                scripture: "Then the magicians said to Pharaoh, 'This is the finger of God.'",
+                reference: "Exodus 8:19 (NIV)",
+                quote: "When human power reaches its limit, the finger of God becomes unmistakable.",
+                message: "<p>The magicians replicated the first two plagues, but when gnats appeared without their involvement, they confessed, 'This is the finger of God.' Yet Pharaoh's heart remained hard.</p><p>The 'finger of God' signifies direct divine action—power that cannot be attributed to natural causes. How many times has God's finger been evident in your life? Let every glimpse draw you to deeper surrender.</p>",
+                prayer: [
+                    "Lord, open my eyes to see Your finger at work.",
+                    "Forgive me for times I've hardened my heart.",
+                    "I confess my stubbornness.",
+                    "Soften my heart with every evidence of Your presence.",
+                    "Let Your power lead me to repentance.",
+                    "I acknowledge all true power comes from You.",
+                    "Help me recognize when You are speaking.",
+                    "Give me a humble heart.",
+                    "May I never become numb to Your works.",
+                    "Use Your finger to write Your law on my heart."
+                ],
+                remember: "The same finger that wrote the law is writing your story—let it write on a soft heart."
+            },
+            // March 2
+            "2026-03-02": {
+                title: "Set Apart",
+                date: "2 March 2026",
+                scripture: "I will make a distinction between my people and your people.",
+                reference: "Exodus 8:22-23 (NIV)",
+                quote: "God's people are not merely rescued from judgment—they are distinguished by His presence.",
+                message: "<p>Goshen was spared from the flies. This was not random favoritism; it was a sign. God drew a line between those who belonged to Him and those who did not.</p><p>This distinction was not based on Israel's goodness. We are set apart not by merit but by grace. But being set apart means living differently. Does your life show the distinction?</p>",
+                prayer: [
+                    "Father, thank You for setting me apart.",
+                    "I don't deserve this, yet You chose me.",
+                    "Help me live in a way that reflects my identity.",
+                    "Let my reactions show I belong to You.",
+                    "Protect me from worldly contamination.",
+                    "Give me courage to be different.",
+                    "May my life draw others to wonder.",
+                    "Thank You that Your presence is the distinction.",
+                    "Keep me from blending in.",
+                    "Use me as a signpost to Your kingdom."
+                ],
+                remember: "You are not just delivered from Egypt—you are distinguished from Egypt."
+            },
+            // March 3
+            "2026-03-03": {
+                title: "Heavy Hand",
+                date: "3 March 2026",
+                scripture: "The hand of the LORD will bring a terrible plague on your livestock.",
+                reference: "Exodus 9:1-3 (NIV)",
+                quote: "The same hand that saves can press hard when hearts refuse to yield.",
+                message: "<p>The fifth plague struck Egypt's economic heart. Israel's livestock remained untouched. God's hand was heavy on Egypt but gentle on His people.</p><p>This 'heavy hand' reveals God is patient, giving warnings, but also acts decisively when ignored. For believers, God's hand can be heavy in discipline. If you sense His hand pressing, examine your heart.</p>",
+                prayer: [
+                    "Lord, I welcome Your hand, even when heavy.",
+                    "Search me and reveal any hidden rebellion.",
+                    "Forgive me for ignoring gentle warnings.",
+                    "Thank You that discipline is proof of love.",
+                    "Help me respond quickly to conviction.",
+                    "Protect me from hardness.",
+                    "Let Your hand guide me.",
+                    "I trust You know what is best.",
+                    "Soften my heart to receive correction.",
+                    "Use every touch to conform me to Christ."
+                ],
+                remember: "A heavy hand is still a Father's hand—trust His pressure."
+            },
+            // March 4
+            "2026-03-04": {
+                title: "Ashes to Ashes",
+                date: "4 March 2026",
+                scripture: "Moses tossed it into the air, and festering boils broke out.",
+                reference: "Exodus 9:10 (NIV)",
+                quote: "The ashes that fired Egypt's furnaces became the agent of its affliction.",
+                message: "<p>The sixth plague used soot from a furnace—the very industry that enslaved Israel. The symbol of oppression became judgment. What the enemy means for evil, God can turn for judgment.</p><p>The cross itself—Rome's tool of execution—became salvation. In your life, the things the enemy used to hurt you can be transformed into testimonies.</p>",
+                prayer: [
+                    "Sovereign Lord, You turn ashes into beauty.",
+                    "Take every painful memory.",
+                    "Transform what the enemy meant for evil.",
+                    "Neutralize every power opposing You.",
+                    "I surrender the 'furnaces' of my past.",
+                    "Let my afflictions become platforms for Your power.",
+                    "Protect me from bitterness.",
+                    "Use my scars to comfort others.",
+                    "I trust nothing is wasted.",
+                    "Turn my ashes into a crown of beauty."
+                ],
+                remember: "The ashes of your past are raw material for God's redemptive creativity."
+            },
+            // March 5
+            "2026-03-05": {
+                title: "Hail and Fire",
+                date: "5 March 2026",
+                scripture: "The LORD sent thunder and hail, and lightning flashed down.",
+                reference: "Exodus 9:23-24 (NIV)",
+                quote: "When heaven's fire meets earth's rebellion, judgment falls—but so does mercy.",
+                message: "<p>The seventh plague was unprecedented: hail mingled with fire. Yet even in fierce judgment, God extended mercy. He warned that anyone who feared His word could bring their servants indoors. Some heeded and were spared.</p><p>The final judgment is coming, but God has provided a shelter: Jesus Christ. Those who heed the warning and take refuge will be spared.</p>",
+                prayer: [
+                    "Lord Jesus, You are my shelter in the storm.",
+                    "Thank You for providing a way of escape.",
+                    "I take refuge in You today.",
+                    "Open the eyes of those still exposed.",
+                    "Use me to warn others with love.",
+                    "Forgive me when I've treated warnings lightly.",
+                    "Help me live in the security of Your shelter.",
+                    "Let Your mercy lead me to obedience.",
+                    "I praise You that even judgment serves grace.",
+                    "Keep me safe under the shadow of Your wings."
+                ],
+                remember: "The storm is real, but the shelter is secure. Run to Christ while there is time."
+            },
+            // March 6
+            "2026-03-06": {
+                title: "I Have Sinned",
+                date: "6 March 2026",
+                scripture: "Pharaoh said, 'This time I have sinned. The LORD is in the right.'",
+                reference: "Exodus 9:27-28 (NIV)",
+                quote: "Confession without change is just another form of manipulation.",
+                message: "<p>Pharaoh finally said the right words: 'I have sinned.' But as soon as the thunder ceased, he hardened his heart again. His confession was a tactic to stop the pain, not genuine turning.</p><p>True repentance involves both words and action. It is not just saying 'I'm sorry' but turning from sin toward God.</p>",
+                prayer: [
+                    "Father, search my heart.",
+                    "Forgive me for using confession to escape trouble.",
+                    "Give me genuine repentance.",
+                    "Don't let me be satisfied with words alone.",
+                    "Help me produce fruit in keeping with repentance.",
+                    "I surrender my will to You.",
+                    "Let conviction lead to lasting change.",
+                    "Protect me from Pharaoh's hardness.",
+                    "Thank You for receiving the repentant.",
+                    "Create in me a clean heart."
+                ],
+                remember: "God doesn't want temporary apologies; He wants a transformed life."
+            },
+            // March 7
+            "2026-03-07": {
+                title: "That You May Tell",
+                date: "7 March 2026",
+                scripture: "That you may tell your children and grandchildren how I dealt harshly with the Egyptians.",
+                reference: "Exodus 10:1-2 (NIV)",
+                quote: "God's judgments are not just history—they are testimony for generations.",
+                message: "<p>Before the eighth plague, God explained: He wanted Israel to have stories to tell. The plagues were about creating a testimony to be passed down for millennia.</p><p>Your difficult experiences are testimonies in the making. God allows trials so you can tell your children what He has done.</p>",
+                prayer: [
+                    "Lord, thank You that trials become testimonies.",
+                    "Help me remember and recount Your faithfulness.",
+                    "Give me opportunities to share with the next generation.",
+                    "Let my life be a living story of Your grace.",
+                    "Forgive me for keeping Your works to myself.",
+                    "Use my experiences to build faith in others.",
+                    "I praise You that hard times serve Your purposes.",
+                    "Make me a faithful storyteller.",
+                    "Let my testimony point others to You.",
+                    "May future generations call You blessed."
+                ],
+                remember: "You are creating testimony—make it a story worth telling."
+            },
+            // March 8
+            "2026-03-08": {
+                title: "Locusts Devour",
+                date: "8 March 2026",
+                scripture: "They devoured all that was left after the hail—nothing green remained.",
+                reference: "Exodus 10:15 (NIV)",
+                quote: "What mercy spares, judgment may consume—but even locusts serve the Lord.",
+                message: "<p>After the hail had destroyed much, locusts finished what remained. This was commanded by God. All creation obeys Him.</p><p>For Israel, it demonstrated that their God controlled even swarming insects. Sometimes locusts come—seasons where everything green seems consumed. But even locusts are under God's command.</p><p>Joel 2:25 promises God can restore the years the locusts have eaten.</p>",
+                prayer: [
+                    "Lord, even locusts obey You.",
+                    "I trust You with the 'devoured' areas of my life.",
+                    "Restore the years the locusts have eaten.",
+                    "Help me see Your hand in times of loss.",
+                    "Forgive me for attributing disaster to chance.",
+                    "Teach me to fear You more than circumstances.",
+                    "Let barren places become fertile for grace.",
+                    "I believe You can bring beauty from ashes.",
+                    "Protect me from despair.",
+                    "Use every trial to deepen my dependence."
+                ],
+                remember: "The locusts may devour, but the Lord restores."
+            },
+            // March 9
+            "2026-03-09": {
+                title: "Darkness That Can Be Felt",
+                date: "9 March 2026",
+                scripture: "Total darkness covered all Egypt for three days. Yet all the Israelites had light.",
+                reference: "Exodus 10:22-23 (NIV)",
+                quote: "The darkness that oppresses the world is no match for the light in God's people.",
+                message: "<p>The ninth plague was palpable, oppressive darkness. Yet in Goshen, there was light. This was a direct assault on Ra, Egypt's sun god. It demonstrated that the God of Israel is greater.</p><p>In your life, there may be seasons of darkness. But if you belong to Christ, you have light within. The darkness cannot overcome it.</p>",
+                prayer: [
+                    "Jesus, You are the Light of the world.",
+                    "Thank You that darkness cannot overcome Your light.",
+                    "When circumstances feel dark, help me remember Your presence.",
+                    "Let Your light guide my steps.",
+                    "Protect me from oppressive gloom.",
+                    "Shine through me into the darkness.",
+                    "I praise You that in Your dwelling there is always light.",
+                    "Help me be a beacon for others.",
+                    "I reject works of darkness.",
+                    "Let the light of Your face shine on me."
+                ],
+                remember: "You may be surrounded by darkness, but you are not of it. The Light lives in you."
+            },
+            // March 10
+            "2026-03-10": {
+                title: "One More Plague",
+                date: "10 March 2026",
+                scripture: "I will bring one more plague on Pharaoh and on Egypt. After that, he will let you go.",
+                reference: "Exodus 11:1 (NIV)",
+                quote: "Sometimes the final blow is the merciful end to a long resistance.",
+                message: "<p>After nine plagues, God announced the final, decisive plague: death of every firstborn. This was the culmination of justice. But even in this, God provided a way of escape: the blood of the lamb.</p><p>In our lives, God sometimes brings a final 'plague'—a decisive end to a season of resistance. Don't wait for the final blow. Surrender now.</p>",
+                prayer: [
+                    "Lord, I don't want to wait for the final plague.",
+                    "Soften my heart now; help me yield.",
+                    "Thank You for the way of escape through the Lamb.",
+                    "I apply the blood of Jesus over my life.",
+                    "Forgive me for prolonged resistance.",
+                    "Give me grace to let go.",
+                    "I trust Your ways are better.",
+                    "Protect me from Pharaoh's hardness.",
+                    "Let this be my moment of genuine surrender.",
+                    "I receive Your mercy today."
+                ],
+                remember: "The final plague is avoidable—surrender comes before the strike."
+            },
+            // March 11
+            "2026-03-11": {
+                title: "The Lamb Chosen",
+                date: "11 March 2026",
+                scripture: "Take a lamb for your family... without blemish.",
+                reference: "Exodus 12:3-5 (NIV)",
+                quote: "Before the deliverance, there was a selection—God always chooses and sets apart.",
+                message: "<p>The lamb was chosen on the tenth day and kept until the fourteenth. Those days of inspection ensured it was without blemish. Christ, the Lamb of God, lived a perfect life, examined and found spotless.</p><p>God's selection reminds us salvation is planned, purposeful, and personal. Each household received its own lamb. Each of us must personally appropriate Christ.</p>",
+                prayer: [
+                    "Lord Jesus, You are the Lamb without blemish.",
+                    "Thank You for Your perfect life laid down for mine.",
+                    "I receive You as my Passover Lamb.",
+                    "Examine me and cleanse me by Your blood.",
+                    "Help me live in the reality of Your sacrifice.",
+                    "May I never take the Lamb for granted.",
+                    "Let my life be continual celebration.",
+                    "I apply Your blood over my household.",
+                    "Protect us from the destroyer.",
+                    "Worthy is the Lamb who was slain."
+                ],
+                remember: "The Lamb was chosen for you—have you chosen Him?"
+            },
+            // March 12
+            "2026-03-12": {
+                title: "The Blood Applied",
+                date: "12 March 2026",
+                scripture: "Take a bunch of hyssop, dip it into the blood... and put some on the doorframe.",
+                reference: "Exodus 12:22 (NIV)",
+                quote: "Blood in the basin saves no one; it must be applied.",
+                message: "<p>The blood was shed and collected, but its power was released only when applied to the doorposts. The Israelites had to act in faith. The blood was not for them to see but for God: 'When I see the blood, I will pass over.'</p><p>Christ's blood has been shed. We must apply it by faith—confessing, receiving, trusting.</p>",
+                prayer: [
+                    "Lord, I apply the blood of Jesus over my life.",
+                    "Thank You that Your blood speaks better things.",
+                    "Cleanse me from all sin.",
+                    "Let the blood be my protection.",
+                    "I plead the blood over my family, my home.",
+                    "May I never trust my own righteousness.",
+                    "Give me boldness as one redeemed.",
+                    "Help me remember I am bought with a price.",
+                    "Let the blood silence every accusation.",
+                    "I rejoice that I am covered."
+                ],
+                remember: "The blood in the basin is sufficient; the blood on the door is effective."
+            },
+            // March 13
+            "2026-03-13": {
+                title: "Bitter Herbs",
+                date: "13 March 2026",
+                scripture: "They are to eat the meat... along with bitter herbs.",
+                reference: "Exodus 12:8 (NIV)",
+                quote: "Deliverance is sweet, but it must be eaten with the bitter herbs of remembrance.",
+                message: "<p>The Passover meal included bitter herbs to remind Israel of the bitterness of slavery. They were not to forget the pain even as they celebrated freedom. Memory of past bondage fosters gratitude.</p><p>For us, the 'bitter herbs' may be memories of life before Christ. We don't dwell morbidly, but we remember to fuel thankfulness.</p>",
+                prayer: [
+                    "Lord, I remember the bitterness of life without You.",
+                    "Thank You for delivering me.",
+                    "Keep me from ever returning to Egypt.",
+                    "Let my gratitude be deepened by remembrance.",
+                    "Use my past to minister to others.",
+                    "I bless You for the sweetness of salvation.",
+                    "Help me never take freedom for granted.",
+                    "Give me compassion for those still suffering.",
+                    "May my testimony lead others to the Lamb.",
+                    "I eat the bitter herbs with thanksgiving."
+                ],
+                remember: "Bitter herbs remind us that freedom cost the Lamb."
+            },
+            // March 14
+            "2026-03-14": {
+                title: "Unleavened Bread",
+                date: "14 March 2026",
+                scripture: "For seven days you are to eat bread made without yeast. Remove the yeast from your houses.",
+                reference: "Exodus 12:15 (NIV)",
+                quote: "A little leaven leavens the whole lump—purge the old, embrace the new.",
+                message: "<p>Leaven symbolizes sin, hypocrisy, corrupting influence. The Feast of Unleavened Bread called for radical removal of leaven. It pictured the holiness God requires.</p><p>We are called to purge sin from our lives. Not just obvious sins, but the 'little' compromises that spread. Salvation is removing everything that hinders.</p>",
+                prayer: [
+                    "Lord, search me and reveal any hidden leaven.",
+                    "I want to be fully consecrated to You.",
+                    "Forgive me for tolerating small compromises.",
+                    "Give me courage to remove what displeases You.",
+                    "Let unleavened bread be my lifestyle.",
+                    "Purify my heart, thoughts, desires.",
+                    "I desire to be a new lump.",
+                    "Protect me from the leaven of the Pharisees.",
+                    "Help me keep the feast with sincerity.",
+                    "I embrace the holiness You call me to."
+                ],
+                remember: "Removing leaven is daily sweeping of the house."
+            },
+            // March 15
+            "2026-03-15": {
+                title: "Midnight Cry",
+                date: "15 March 2026",
+                scripture: "At midnight the LORD struck down all the firstborn in Egypt.",
+                reference: "Exodus 12:29 (NIV)",
+                quote: "The cry at midnight was Egypt's darkest hour—and Israel's birth as a nation.",
+                message: "<p>Midnight. The hour of deepest darkness. Suddenly, every house without blood heard the cry of death. It was the final stroke that broke Pharaoh's resistance.</p><p>In your life, there may be a 'midnight' coming—a moment when God decisively acts to end a long struggle. Stand ready; your redemption draws near.</p>",
+                prayer: [
+                    "Lord, even at midnight, You are at work.",
+                    "Thank You that the darkest hour precedes deliverance.",
+                    "Protect me under the blood when judgment comes.",
+                    "I trust Your timing—even at midnight.",
+                    "Let the world's cry move me to compassion.",
+                    "Help me be ready to move when You say go.",
+                    "I praise You that death passed over me.",
+                    "May I never forget the cost of freedom.",
+                    "Use me to lead others before midnight falls.",
+                    "Maranatha—come, Lord Jesus."
+                ],
+                remember: "Midnight is not the end; it is the beginning of the exodus."
+            },
+            // March 16
+            "2026-03-16": {
+                title: "Rushed Departure",
+                date: "16 March 2026",
+                scripture: "They baked cakes of unleavened bread... because they had been driven out of Egypt and did not have time.",
+                reference: "Exodus 12:39 (NIV)",
+                quote: "Sometimes God's deliverance is so sudden you don't have time to pack.",
+                message: "<p>Israel left in haste. No time for bread to rise. They left behind security, familiarity, comfort. This sudden departure required faith.</p><p>God's call often comes suddenly. We may have to leave behind old ways without fully understanding the future. But the One who called you will provide.</p>",
+                prayer: [
+                    "Lord, give me faith to move when You say move.",
+                    "Forgive me for hesitating when You call.",
+                    "I trust You to provide even when I leave in haste.",
+                    "Help me not look back longingly at Egypt.",
+                    "Thank You that my future is in Your hands.",
+                    "Teach me to travel light.",
+                    "I embrace the uncertainty of faith.",
+                    "Lead me by Your pillar of cloud.",
+                    "Let me not be attached to what I leave.",
+                    "I am on my way to Your promised land."
+                ],
+                remember: "A rushed departure is still a departure—don't look back."
+            },
+            // March 17
+            "2026-03-17": {
+                title: "Mixed Multitude",
+                date: "17 March 2026",
+                scripture: "Many other people went up with them.",
+                reference: "Exodus 12:38 (NIV)",
+                quote: "The exodus included a 'mixed multitude'—a picture of the global church.",
+                message: "<p>Along with Israelites, a diverse group of Egyptians and others joined the exodus. They had seen God's power and chose to throw in their lot with His people.</p><p>Today, the church is a mixed multitude—people from every background. We are united not by culture but by the blood of the Lamb.</p>",
+                prayer: [
+                    "Lord, thank You for the mixed multitude You are gathering.",
+                    "Unite us by Your Spirit, not by sameness.",
+                    "Help me welcome those different from me.",
+                    "Give me a heart for all nations.",
+                    "Let Your church be a sign of global redemption.",
+                    "Protect us from division and prejudice.",
+                    "Use our diversity to display Your wisdom.",
+                    "I rejoice that every tribe will stand before Your throne.",
+                    "Make me an instrument of welcoming love.",
+                    "Hasten the day when every tongue confesses Jesus."
+                ],
+                remember: "Heaven will be a mixed multitude—learn to love it now."
+            },
+            // March 18
+            "2026-03-18": {
+                title: "Redeem the Firstborn",
+                date: "18 March 2026",
+                scripture: "Consecrate to me every firstborn male. The first offspring belongs to me.",
+                reference: "Exodus 13:2 (NIV)",
+                quote: "Deliverance creates ownership—you belong to the One who saved you.",
+                message: "<p>Because God spared the firstborn, He claimed them as His own. They were to be consecrated—set apart. This principle extends to all believers: we are not our own; we were bought with a price.</p><p>If God has delivered you, you belong to Him. Your life is for His glory.</p>",
+                prayer: [
+                    "Lord, I acknowledge I am not my own.",
+                    "You have redeemed me; I belong to You.",
+                    "Consecrate me for Your purposes today.",
+                    "Take every part of my life.",
+                    "I surrender my first and best to You.",
+                    "Help me live as one set apart.",
+                    "May my life bring glory to my Redeemer.",
+                    "I rejoice that I am Yours.",
+                    "Protect me from living as if I still belonged to Egypt.",
+                    "Use me for Your kingdom today."
+                ],
+                remember: "Redemption is not just rescue—it is reassignment of ownership."
+            },
+            // March 19
+            "2026-03-19": {
+                title: "Pillar of Cloud, Pillar of Fire",
+                date: "19 March 2026",
+                scripture: "By day the LORD went ahead of them in a pillar of cloud... by night in a pillar of fire.",
+                reference: "Exodus 13:21 (NIV)",
+                quote: "God's guidance is both gentle and glorious—always sufficient for the journey.",
+                message: "<p>Israel didn't have maps. They had the visible presence of God leading them. The cloud by day provided shade and direction; the fire by night gave light and warmth.</p><p>We have the same Guide—the Holy Spirit. He leads through Scripture, circumstances, inner prompting. Our job is to stay close.</p>",
+                prayer: [
+                    "Holy Spirit, be my pillar of cloud and fire.",
+                    "Lead me today in the path I should take.",
+                    "Give me sensitivity to follow Your leading.",
+                    "Thank You that You never leave me without guidance.",
+                    "Help me trust You even when the way seems unclear.",
+                    "Let Your presence be my comfort.",
+                    "Protect me from running ahead or lagging behind.",
+                    "I will follow wherever You lead.",
+                    "Shine Your light on my path today.",
+                    "I rest in the assurance that You go before me."
+                ],
+                remember: "The same God who led Israel is leading you—follow closely."
+            },
+            // March 20
+            "2026-03-20": {
+                title: "Trapped at the Sea",
+                date: "20 March 2026",
+                scripture: "The Israelites looked up, and there were the Egyptians, marching after them. They were terrified.",
+                reference: "Exodus 14:10 (NIV)",
+                quote: "Sometimes obedience leads us to impossible places—precisely where God wants us.",
+                message: "<p>Israel followed the cloud straight to the edge of the sea—with Pharaoh's army behind. It looked like a death trap. But God had led them there intentionally, to display His glory.</p><p>Have you ever felt trapped? Perhaps God has led you there to show His salvation. Don't panic; stand still.</p>",
+                prayer: [
+                    "Lord, when I feel trapped, help me trust You.",
+                    "Thank You that impossible situations are Your opportunities.",
+                    "I will not panic; I will stand still and see Your salvation.",
+                    "Open my eyes to see Your presence even when enemies pursue.",
+                    "Give me patience to wait for Your deliverance.",
+                    "I believe You have purpose in this pressure.",
+                    "Fight for me, Lord; I need only to be still.",
+                    "Let my trial become a testimony.",
+                    "I praise You that no sea can stop Your plan.",
+                    "Lead me through to the other side."
+                ],
+                remember: "The sea in front, the enemy behind—exactly where God performs wonders."
+            },
+            // March 21
+            "2026-03-21": {
+                title: "The Angel Moves",
+                date: "21 March 2026",
+                scripture: "The angel of God... withdrew and went behind them. The pillar of cloud also moved... and stood behind them.",
+                reference: "Exodus 14:19-20 (NIV)",
+                quote: "The same presence that leads also protects—God positions Himself between you and your enemy.",
+                message: "<p>When the crisis peaked, the angel moved from front to back. The cloud became a barrier of darkness to Egypt and light to Israel. God Himself stood between His people and their pursuers.</p><p>No enemy can reach you without passing through God. He is your rear guard as well as your guide.</p>",
+                prayer: [
+                    "Lord, thank You for positioning Yourself between me and my enemies.",
+                    "I am safe because You are my rear guard.",
+                    "Let the darkness that confuses my foes be light to me.",
+                    "I rest that nothing reaches me without passing through You.",
+                    "Protect me from every attack.",
+                    "I praise You that You go before and come behind.",
+                    "You hem me in, behind and before.",
+                    "Thank You for fighting for me while I rest.",
+                    "I will not fear, for You are with me.",
+                    "Your presence is my peace."
+                ],
+                remember: "The angel who leads also protects—you are never out of His reach."
+            },
+            // March 22
+            "2026-03-22": {
+                title: "Stretch Out Your Rod",
+                date: "22 March 2026",
+                scripture: "Raise your staff and stretch out your hand over the sea to divide the water.",
+                reference: "Exodus 14:15-16 (NIV)",
+                quote: "There is a time to pray—and a time to move. God's word often comes after our cry.",
+                message: "<p>Moses cried out; God responded with action. The same rod that brought plagues now parted the sea. The instrument of judgment became deliverance.</p><p>What 'rod' is in your hand? Your gift, resources, influence? Stretch it out in faith.</p>",
+                prayer: [
+                    "Lord, here is my rod—the little I have.",
+                    "Take it and use it for Your glory.",
+                    "Teach me when to cry out and when to move.",
+                    "I stretch out my hand in faith today.",
+                    "Part the waters before me.",
+                    "Let Your power work through my weakness.",
+                    "I will not let fear paralyze me.",
+                    "Give me boldness to act on Your word.",
+                    "Thank You that You specialize in impossibilities.",
+                    "I move forward because You have spoken."
+                ],
+                remember: "The rod in your hand is enough when God commands."
+            },
+            // March 23
+            "2026-03-23": {
+                title: "The Waters Return",
+                date: "23 March 2026",
+                scripture: "The water flowed back and covered the chariots and horsemen—the entire army of Pharaoh.",
+                reference: "Exodus 14:28 (NIV)",
+                quote: "The same sea that is a path for faith is a grave for unbelief.",
+                message: "<p>Israel walked through on dry ground; Egypt pursued and drowned. The same act of God delivered one and destroyed the other. It all depended on relationship to God's command.</p><p>The gospel is the same: to those who believe, it is salvation; to those who reject, a fragrance of death. Stand on the side of faith.</p>",
+                prayer: [
+                    "Lord, I choose faith today.",
+                    "Thank You that the sea that could drown me becomes my path.",
+                    "I praise You for complete victory over my enemies.",
+                    "Let the waters close over every pursuing sin.",
+                    "I will sing Your praise forever.",
+                    "Help me never fear what You have already defeated.",
+                    "Your judgments are just, Your deliverances glorious.",
+                    "I stand amazed at Your power.",
+                    "Let my life be a testimony of Your salvation.",
+                    "I rejoice in the God who saves."
+                ],
+                remember: "The same power that saves can also judge—stand in awe."
+            },
+            // March 24
+            "2026-03-24": {
+                title: "Song of Moses",
+                date: "24 March 2026",
+                scripture: "Then Moses and the Israelites sang this song to the LORD.",
+                reference: "Exodus 15:1 (NIV)",
+                quote: "Deliverance demands a song—worship is the only appropriate response to salvation.",
+                message: "<p>After crossing the sea, Israel burst into song. Their worship celebrated what God had done and anticipated what He would do. It was personal ('my strength and my song') and corporate.</p><p>Have you sung your song of deliverance? Your story is a song waiting to be sung.</p>",
+                prayer: [
+                    "Lord, I will sing to You, for You are highly exalted.",
+                    "You are my strength and my song.",
+                    "I praise You for every victory.",
+                    "Let my life be a melody of Your grace.",
+                    "I join the chorus of the redeemed.",
+                    "Your right hand, O LORD, is majestic in power.",
+                    "Who among the gods is like You?",
+                    "In Your unfailing love, You will lead Your people.",
+                    "I will sing and not be silent.",
+                    "Let the redeemed of the LORD say so."
+                ],
+                remember: "A silent Christian is a contradiction—deliverance demands a song."
+            },
+            // March 25
+            "2026-03-25": {
+                title: "Your Right Hand, O LORD",
+                date: "25 March 2026",
+                scripture: "Your right hand, LORD, was majestic in power. Your right hand, LORD, shattered the enemy.",
+                reference: "Exodus 15:6 (NIV)",
+                quote: "God's right hand symbolizes His active power—majestic, mighty, and merciful.",
+                message: "<p>The song celebrates God's 'right hand'—the hand that acts, saves, shatters. It is majestic in power, yet it leads His people tenderly. The same hand that crushes enemies guides the redeemed.</p><p>You are in that right hand. Jesus said, 'No one can snatch them out of my Father's hand.' Safe and secure.</p>",
+                prayer: [
+                    "Lord, Your right hand holds me securely.",
+                    "I praise You for Your majestic power.",
+                    "Thank You that the hand that shattered my enemies now leads me.",
+                    "I am safe in Your hand.",
+                    "Lead me in Your strength to Your holy dwelling.",
+                    "Let Your right hand guide me today.",
+                    "I trust Your power and tenderness.",
+                    "No foe can reach me in Your hand.",
+                    "I rest in Your grip.",
+                    "Your right hand, O LORD, is my confidence."
+                ],
+                remember: "You are held by the hand that shattered Pharaoh—what can harm you?"
+            },
+            // March 26
+            "2026-03-26": {
+                title: "Miriam's Dance",
+                date: "26 March 2026",
+                scripture: "Miriam the prophet... took a timbrel in her hand, and all the women followed her, with timbrels and dancing.",
+                reference: "Exodus 15:20 (NIV)",
+                quote: "Worship is not just words—it can be dance, music, and joyful expression.",
+                message: "<p>Miriam led the women in celebratory dance. Their worship was physical, emotional, and communal. God had delivered them, and every fiber responded.</p><p>Some worship with words, some with silence, some with dance. The important thing is authenticity. Let your whole being praise the Lord.</p>",
+                prayer: [
+                    "Lord, I praise You with my whole being.",
+                    "Whether in dance or silence, let my worship be true.",
+                    "Thank You for Miriam's example of exuberant praise.",
+                    "Free me from self-consciousness in worship.",
+                    "Let my body, soul, and spirit magnify You.",
+                    "I celebrate Your mighty deeds.",
+                    "You have turned my mourning into dancing.",
+                    "I will not hold back my praise.",
+                    "Let my joy be contagious.",
+                    "Worthy are You, Lord, of all praise."
+                ],
+                remember: "If God has delivered you, you have something to dance about."
+            },
+            // March 27
+            "2026-03-27": {
+                title: "Bitter Waters Made Sweet",
+                date: "27 March 2026",
+                scripture: "When they came to Marah, they could not drink its water because it was bitter... Moses cried out, and the LORD showed him a piece of wood. He threw it into the water, and the water became sweet.",
+                reference: "Exodus 15:23-25 (NIV)",
+                quote: "God can take the bitterest experiences and make them sweet by His presence.",
+                message: "<p>Three days after the miracle at the sea, Israel faced bitter water. The same God who parted waters now healed them—through a piece of wood. This tree points to the cross, where the bitterness of sin was transformed into salvation.</p><p>What bitter waters are you facing? Bring them to the cross.</p>",
+                prayer: [
+                    "Lord, I bring my bitter waters to You.",
+                    "Let the wood of the cross sweeten my circumstances.",
+                    "Thank You that You heal not just water, but hearts.",
+                    "I trust You with my disappointments.",
+                    "Turn my Marah into a place of refreshing.",
+                    "Help me see the tree in every trial.",
+                    "I believe You can make the bitter sweet.",
+                    "Let Your presence change my perspective.",
+                    "I will not grumble but cry out to You.",
+                    "You are the LORD who heals me."
+                ],
+                remember: "The same God who leads you to bitter waters can make them sweet."
+            },
+            // March 28
+            "2026-03-28": {
+                title: "Bread from Heaven",
+                date: "28 March 2026",
+                scripture: "I will rain down bread from heaven for you. The people are to go out each day and gather enough for that day.",
+                reference: "Exodus 16:4 (NIV)",
+                quote: "God's provision is daily, not stored—teaching us to trust Him one day at a time.",
+                message: "<p>Manna came fresh each morning. Those who stored it found it full of maggots the next day. God was teaching Israel—and us—to depend on Him daily.</p><p>We prefer long-term security, but God gives daily bread. His grace is new every morning.</p>",
+                prayer: [
+                    "Lord, give me this day my daily bread.",
+                    "Forgive me for worrying about tomorrow.",
+                    "I trust You to provide what I need today.",
+                    "Thank You for fresh mercies every morning.",
+                    "Help me not store what You intend to be daily.",
+                    "I receive Your provision with gratitude.",
+                    "Teach me to depend on You one day at a time.",
+                    "You are the God who rains bread from heaven.",
+                    "Satisfy my soul with Your goodness.",
+                    "I will not grumble but give thanks."
+                ],
+                remember: "Daily bread requires daily trust—and daily dependence keeps us close."
+            },
+            // March 29
+            "2026-03-29": {
+                title: "Gather as Much as Needed",
+                date: "29 March 2026",
+                scripture: "Each one is to gather as much as they need. Take an omer for each person.",
+                reference: "Exodus 16:16 (NIV)",
+                quote: "God's provision is sufficient for every need—no more, no less.",
+                message: "<p>When Israel gathered manna, those who gathered much had no excess, those who gathered little had no lack. God matched supply to need.</p><p>In the body of Christ, the same applies. We have different gifts, but together we have exactly what is needed.</p>",
+                prayer: [
+                    "Lord, thank You that You supply all my needs.",
+                    "Help me trust Your distribution.",
+                    "Give me a generous heart to share with those in need.",
+                    "I rejoice that in Your economy, there is no lack.",
+                    "Teach me contentment with what You give.",
+                    "Let me not covet what others have.",
+                    "Use me to be Your hands to supply others.",
+                    "I trust that You know exactly what I need.",
+                    "Free me from anxiety about provisions.",
+                    "You are Jehovah Jireh—my Provider."
+                ],
+                remember: "God's supply always matches the need—never hoard, always share."
+            },
+            // March 30
+            "2026-03-30": {
+                title: "Water from the Rock",
+                date: "30 March 2026",
+                scripture: "I will stand there before you by the rock at Horeb. Strike the rock, and water will come out.",
+                reference: "Exodus 17:6 (NIV)",
+                quote: "The rock that was struck once gives living water—a picture of Christ, smitten for us.",
+                message: "<p>At Rephidim, Israel thirsted. God told Moses to strike the rock, and water gushed forth. Paul tells us that rock was Christ. Struck once, He provides living water for all who drink.</p><p>Jesus was struck once for our sins. From Him flows rivers of living water—the Holy Spirit.</p>",
+                prayer: [
+                    "Lord Jesus, You are the Rock struck for me.",
+                    "From Your side flowed water and blood.",
+                    "I come to You and drink deeply.",
+                    "Quench my thirsty soul with Your Spirit.",
+                    "Thank You for being smitten once for all.",
+                    "I will not quarrel but will come and drink.",
+                    "Let rivers of living water flow from within me.",
+                    "Satisfy me with Your presence.",
+                    "I praise You for the water of life.",
+                    "Draw me daily to the Rock."
+                ],
+                remember: "The Rock was struck once—drink freely and never thirst again."
+            },
+            // March 31
+            "2026-03-31": {
+                title: "Hands Lifted High",
+                date: "31 March 2026",
+                scripture: "As long as Moses held up his hands, the Israelites were winning, but whenever he lowered his hands, the Amalekites were winning.",
+                reference: "Exodus 17:11 (NIV)",
+                quote: "The battle is won not by might, but by intercession—and the support of others.",
+                message: "<p>While Joshua fought in the valley, Moses prayed on the hill. When his hands grew tired, Aaron and Hur held them up. The result: victory.</p><p>No one can sustain prayer alone. We need others to hold up our hands when we grow weary. Are you fighting on the hill or in the valley? Both are essential.</p>",
+                prayer: [
+                    "Lord, teach me to pray without ceasing.",
+                    "Give me Aaron and Hur to hold up my hands.",
+                    "Help me be an Aaron for others.",
+                    "Let my prayers make a difference in the battle.",
+                    "I will not grow weary in intercession.",
+                    "Thank You for those who uphold me.",
+                    "Give me strength to fight on my knees.",
+                    "Let Your church pray together for victory.",
+                    "I trust that prayer changes things.",
+                    "Hands lifted high bring heaven's power down."
+                ],
+                remember: "Victory comes when prayer meets action—and when we hold each other up."
             }
         };
 
         // ==================== UTILITY FUNCTIONS ====================
         function formatDateDisplay(dateString) {
-            const date = new Date(dateString);
+            const date = new Date(dateString + 'T12:00:00'); // Add time to avoid timezone issues
             const options = { day: 'numeric', month: 'long', year: 'numeric' };
             return date.toLocaleDateString('en-US', options);
         }
@@ -1372,15 +1965,30 @@
             setTimeout(() => {
                 if (devotionalsDB[dateString]) {
                     const devotional = devotionalsDB[dateString];
+                    
+                    let prayerHtml = '';
+                    if (devotional.prayer && devotional.prayer.length > 0) {
+                        prayerHtml = `
+                            <div class="prayer-section">
+                                <h3 class="prayer-title">
+                                    <i class="fas fa-pray"></i>
+                                    Today's Prayer
+                                </h3>
+                                <ol class="prayer-points">
+                                    ${devotional.prayer.map(point => `<li>${point}</li>`).join('')}
+                                </ol>
+                            </div>
+                        `;
+                    }
+                    
                     const html = `
                         <div class="devotional-header">
                             <div class="devotional-date">
-                                <i class="fas fa-calendar"></i>
-                                ${devotional.date}
+                                <i class="fas fa-calendar-alt"></i> ${devotional.date}
                             </div>
                             <h1 class="devotional-title">${devotional.title}</h1>
                             <div class="devotional-author">
-                                Daily Devotional by Apostle Daniel A. Solomon
+                                Apostle Daniel A. Solomon
                             </div>
                         </div>
                         <div class="devotional-content">
@@ -1388,79 +1996,57 @@
                                 <i class="fas fa-quote-left" style="color: #e53e3e; margin-right: 10px;"></i>
                                 "${devotional.quote}"
                             </div>
+                            
                             <div class="scripture-box">
-                                <div class="scripture-text">
-                                    "${devotional.scripture}"
-                                </div>
-                                <div class="scripture-ref">
-                                    — ${devotional.reference}
-                                </div>
+                                <div class="scripture-text">${devotional.scripture}</div>
+                                <div class="scripture-ref">— ${devotional.reference}</div>
                             </div>
+                            
                             <div class="message-content">
                                 ${devotional.message}
                             </div>
-                            <div class="prayer-section">
-                                <h3 class="prayer-title">
-                                    <i class="fas fa-pray"></i>
-                                    Today's Prayer
-                                </h3>
-                                <ol class="prayer-points">
-                                    ${devotional.prayer.map((point, index) => `<li>${point}</li>`).join('')}
-                                </ol>
-                            </div>
+                            
+                            ${prayerHtml}
+                            
                             <div class="telegram-section">
-                                <div class="telegram-icon">
-                                    <i class="fab fa-telegram"></i>
-                                </div>
+                                <div class="telegram-icon"><i class="fab fa-telegram"></i></div>
                                 <h3>Join Our Telegram Channel</h3>
-                                <p>For daily devotionals, prayer updates, and spiritual encouragement, join our Telegram channel:</p>
+                                <p>Get daily devotionals sent directly to your phone</p>
                                 <a href="https://t.me/sequencesofgod" target="_blank" class="telegram-link">
-                                    <i class="fab fa-telegram"></i> Join Sequence of God Channel
+                                    <i class="fab fa-telegram"></i> Join Sequence of God
                                 </a>
-                                <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;">
-                                    Stay connected for daily spiritual nourishment
-                                </p>
                             </div>
+                            
                             <div class="remember-box">
                                 <h3 class="remember-title">
-                                    <i class="fas fa-lightbulb"></i>
-                                    Remember
+                                    <i class="fas fa-lightbulb"></i> Remember
                                 </h3>
-                                <p class="remember-text">
-                                    ${devotional.remember}
-                                </p>
+                                <p class="remember-text">${devotional.remember}</p>
                             </div>
-                            <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                                <p style="font-style: italic; color: #4a5568;">
-                                    <i class="fas fa-user-circle" style="margin-right: 8px;"></i>
-                                    Apostle Daniel A. Solomon
-                                </p>
-                            </div>
+                            
                             <div class="action-buttons">
-                                <button onclick="printDevotional()" class="action-btn print-btn">
-                                    <i class="fas fa-print"></i> Print Devotional
-                                </button>
                                 <button onclick="shareDevotional()" class="action-btn share-btn">
                                     <i class="fas fa-share-alt"></i> Share
                                 </button>
-                                <a href="index.html" class="action-btn home-btn">
-                                    <i class="fas fa-home"></i> Back to Home
-                                </a>
+                                <button onclick="printDevotional()" class="action-btn print-btn">
+                                    <i class="fas fa-print"></i> Print
+                                </button>
                             </div>
                         </div>
                     `;
+                    
                     container.innerHTML = html;
                     container.style.display = 'block';
                     document.getElementById('devotionalDate').value = dateString;
                     history.pushState({date: dateString}, '', `?date=${dateString}`);
                     updateNavigationButtons(dateString);
                     dateNavigation.style.display = 'flex';
-                    document.title = `${devotional.title} | Daily Devotional - True Worshippers`;
+                    document.title = `${devotional.title} | Daily Devotional`;
                     loadingDiv.style.display = 'none';
                     window.scrollTo(0, 0);
                 } else {
                     document.getElementById('errorMessage').textContent = 
-                        `No devotional available for ${formatDateDisplay(dateString)}. Please select another date.`;
+                        `No devotional available for ${formatDateDisplay(dateString)}.`;
                     errorDiv.style.display = 'block';
                     container.style.display = 'none';
                     dateNavigation.style.display = 'none';
@@ -1473,42 +2059,50 @@
         function loadTodayDevotional() {
             const today = new Date();
             const todayString = getDateString(today);
-            loadDevotionalForDate(todayString);
+            
+            // Check if we have a devotional for today
+            if (devotionalsDB[todayString]) {
+                loadDevotionalForDate(todayString);
+            } else {
+                // If not, load the most recent one (auto)
+                loadDevotionalForDate("auto");
+            }
         }
 
         function loadPreviousDevotional() {
             const currentDate = document.getElementById('devotionalDate').value;
-            const date = new Date(currentDate);
+            const date = new Date(currentDate + 'T12:00:00');
             date.setDate(date.getDate() - 1);
-            let checkDate = new Date(date);
+            
+            // Search backwards up to 30 days
             for (let i = 0; i < 30; i++) {
-                const checkDateStr = getDateString(checkDate);
+                const checkDateStr = getDateString(date);
                 if (devotionalsDB[checkDateStr]) {
                     loadDevotionalForDate(checkDateStr);
                     return;
                 }
-                checkDate.setDate(checkDate.getDate() - 1);
+                date.setDate(date.getDate() - 1);
             }
+            
             document.getElementById('errorMessage').textContent = "No earlier devotionals found.";
             document.getElementById('dateError').style.display = 'block';
         }
 
         function loadNextDevotional() {
             const currentDate = document.getElementById('devotionalDate').value;
-            const date = new Date(currentDate);
+            const date = new Date(currentDate + 'T12:00:00');
             date.setDate(date.getDate() + 1);
-            let checkDate = new Date(date);
-            const today = new Date();
-            const todayStr = getDateString(today);
+            
+            // Search forwards up to 30 days
             for (let i = 0; i < 30; i++) {
-                const checkDateStr = getDateString(checkDate);
+                const checkDateStr = getDateString(date);
                 if (devotionalsDB[checkDateStr]) {
                     loadDevotionalForDate(checkDateStr);
                     return;
                 }
-                if (checkDateStr >= todayStr) break;
-                checkDate.setDate(checkDate.getDate() + 1);
+                date.setDate(date.getDate() + 1);
             }
+            
             document.getElementById('errorMessage').textContent = "No later devotionals found.";
             document.getElementById('dateError').style.display = 'block';
         }
@@ -1517,9 +2111,11 @@
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             
-            const currentDate = new Date(currentDateString);
+            // Check for previous
+            const currentDate = new Date(currentDateString + 'T12:00:00');
             let hasPrevious = false;
             let checkDate = new Date(currentDate);
+            
             for (let i = 0; i < 30; i++) {
                 checkDate.setDate(checkDate.getDate() - 1);
                 if (devotionalsDB[getDateString(checkDate)]) {
@@ -1528,96 +2124,65 @@
                 }
             }
             
+            // Check for next
             let hasNext = false;
             checkDate = new Date(currentDate);
-            const today = new Date();
-            const todayStr = getDateString(today);
+            
             for (let i = 0; i < 30; i++) {
                 checkDate.setDate(checkDate.getDate() + 1);
-                const checkDateStr = getDateString(checkDate);
-                if (devotionalsDB[checkDateStr]) {
+                if (devotionalsDB[getDateString(checkDate)]) {
                     hasNext = true;
                     break;
                 }
-                if (checkDateStr >= todayStr) break;
             }
             
             prevBtn.disabled = !hasPrevious;
             nextBtn.disabled = !hasNext;
-            prevBtn.style.background = hasPrevious ? '#4a5568' : '#cbd5e0';
-            nextBtn.style.background = hasNext ? '#4a5568' : '#cbd5e0';
         }
 
         function updateArchiveList() {
             const archiveList = document.getElementById('archiveList');
             const dates = Object.keys(devotionalsDB).sort().reverse();
+            
             let html = '';
-            if (dates.length > 0) {
-                dates.forEach(dateStr => {
-                    const devotional = devotionalsDB[dateStr];
-                    const formattedDate = formatDateDisplay(dateStr);
-                    html += `
-                        <div class="archive-item">
-                            <div>
-                                <strong>${formattedDate}</strong>
-                                <p>${devotional.title} - ${devotional.reference.split(' ')[0]}</p>
-                            </div>
-                            <button onclick="loadDevotionalForDate('${dateStr}')" class="btn btn-small">
-                                Read
-                            </button>
+            dates.forEach(dateStr => {
+                const devotional = devotionalsDB[dateStr];
+                const formattedDate = formatDateDisplay(dateStr);
+                html += `
+                    <div class="archive-item">
+                        <div>
+                            <strong>${formattedDate}</strong>
+                            <p>${devotional.title}</p>
                         </div>
-                    `;
-                });
-            } else {
-                html = `<p style="text-align: center; color: #666;">No devotionals available yet. Check back soon!</p>`;
-            }
+                        <button onclick="loadDevotionalForDate('${dateStr}')" class="btn btn-small">Read</button>
+                    </div>
+                `;
+            });
+            
             archiveList.innerHTML = html;
         }
 
         // ==================== SHARE & PRINT ====================
         function shareDevotional() {
             const title = document.querySelector('.devotional-title')?.textContent || 'Daily Devotional';
-            const scripture = document.querySelector('.scripture-text')?.textContent || 'God is good all the time';
-            const telegramLink = "https://t.me/sequencesofgod";
-            const text = `${title}\n${scripture}\n\nRead the full devotional at: ${window.location.href}\n\nJoin our Telegram channel for daily devotionals: ${telegramLink}`;
+            const scripture = document.querySelector('.scripture-text')?.textContent || '';
+            const text = `${title}\n\n${scripture}\n\nRead more at: ${window.location.href}`;
+            
             if (navigator.share) {
                 navigator.share({
-                    title: 'Daily Devotional - True Worshippers',
+                    title: title,
                     text: text,
                     url: window.location.href
                 });
             } else {
                 navigator.clipboard.writeText(text).then(() => {
-                    alert('Devotional link and Telegram channel copied to clipboard!');
+                    alert('Devotional copied to clipboard!');
                 });
             }
         }
 
         function printDevotional() {
-            const originalContent = document.body.innerHTML;
-            const printContent = document.querySelector('.devotional-container')?.innerHTML || '';
-            if (!printContent) {
-                alert('No devotional content to print.');
-                return;
-            }
-            document.body.innerHTML = `
-                <div style="padding: 20px; font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto;">
-                    <h1 style="text-align: center; color: #1a365d;">True Worshippers Evangelical Ministries</h1>
-                    <h2 style="text-align: center; color: #e53e3e;">Sequence of God Daily Devotional</h2>
-                    <div style="text-align: center; margin-bottom: 30px; color: #666; font-style: italic;">
-                        Founded 2020 by Apostle Daniel and Reverend Mrs Debby A Solomon
-                    </div>
-                    ${printContent}
-                    <div style="margin-top: 50px; text-align: center; color: #666; font-size: 0.9rem; border-top: 1px solid #ddd; padding-top: 20px;">
-                        Printed from True Worshippers Evangelical Ministries International<br>
-                        For more devotionals, visit: ${window.location.origin}<br>
-                        Join our Telegram channel: https://t.me/sequencesofgod
-                    </div>
-                </div>
-            `;
             window.print();
-            document.body.innerHTML = originalContent;
-            window.location.reload();
         }
 
         // ==================== INITIALIZATION ====================
@@ -1625,80 +2190,56 @@
             // Mobile menu
             const menuToggle = document.getElementById('menuToggle');
             const navMenu = document.getElementById('navMenu');
+            
             if (menuToggle && navMenu) {
                 menuToggle.addEventListener('click', function() {
                     navMenu.classList.toggle('active');
-                    menuToggle.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-                });
-                document.addEventListener('click', function(e) {
-                    if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
-                        navMenu.classList.remove('active');
-                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                });
-                const navLinks = navMenu.querySelectorAll('a');
-                navLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        navMenu.classList.remove('active');
-                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-                    });
+                    menuToggle.innerHTML = navMenu.classList.contains('active') ? 
+                        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
                 });
             }
-
-            // Subscription form
+            
+            // Subscribe form
             const subscribeForm = document.getElementById('subscribeForm');
             if (subscribeForm) {
                 subscribeForm.addEventListener('submit', function(e) {
                     e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    const submitBtn = this.querySelector('button[type="submit"]');
-                    const originalText = submitBtn.textContent;
-                    submitBtn.textContent = 'Subscribing...';
-                    submitBtn.disabled = true;
-                    setTimeout(() => {
-                        alert(`Thank you for subscribing with ${email}! You will receive daily devotionals starting tomorrow.`);
-                        this.reset();
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 1000);
+                    alert('Thank you for subscribing! You will receive daily devotionals.');
+                    this.reset();
                 });
             }
-
+            
             // Date picker
             const datePicker = document.getElementById('devotionalDate');
             if (datePicker) {
-                const today = new Date();
-                const formattedToday = getDateString(today);
-                datePicker.max = formattedToday;
+                // Set available date range
+                const minDate = new Date('2026-02-08');
+                const maxDate = new Date('2026-03-31');
+                datePicker.min = getDateString(minDate);
+                datePicker.max = getDateString(maxDate);
                 
+                // Get date from URL or use default
                 const urlParams = new URLSearchParams(window.location.search);
                 const dateParam = urlParams.get('date');
-                let initialDate;
-                if (dateParam && devotionalsDB[dateParam]) {
-                    initialDate = dateParam;
-                } else {
-                    //default to 
+                let initialDate = dateParam && devotionalsDB[dateParam] ? dateParam : "2026-03-31";
                 
-                    
-   auto = "auto";
-                }
                 datePicker.value = initialDate;
                 loadDevotionalForDate(initialDate);
+                
                 datePicker.addEventListener('change', function() {
                     loadDevotionalForDate(this.value);
                 });
             }
-
+            
+            // Handle browser back/forward
             window.addEventListener('popstate', function(event) {
                 const urlParams = new URLSearchParams(window.location.search);
                 const dateParam = urlParams.get('date');
-                if (dateParam) {
+                if (dateParam && devotionalsDB[dateParam]) {
                     document.getElementById('devotionalDate').value = dateParam;
                     loadDevotionalForDate(dateParam);
                 }
             });
-
-            updateArchiveList();
         });
     </script>
 </body>
